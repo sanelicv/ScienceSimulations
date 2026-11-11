@@ -1,0 +1,21 @@
+/* Estilos mínimos, compatibles con tu styles.css existente */
+.section-title {
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+.small { font-size: 12px; line-height: 1.4; }
+.medium { font-size: 14px; line-height: 1.4; }
+.muted { color: var(--muted); }
+
+#headerBox, #statsBox, #statsBoxDetails, #sigmaBox {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* p5 canvas ocupa todo el host (ya hay reglas en styles.css) */
+#canvas-host canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

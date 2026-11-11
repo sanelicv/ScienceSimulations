@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulaciones interactivas de física, astronomía y cosmología con fines didácticos.">
+  <meta name="author" content="Saneli Alcides Carbajal Vigo">
+  <meta name="color-scheme" content="light dark">
+  <title>Simulaciones Científicas</title>
+  <link rel="icon" href="assets/homepage/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/homepage/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#catalog" data-i18n="ui.skip">Saltar al catálogo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="brand" aria-label="Inicio">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="4.5" fill="currentColor"/>
+          <ellipse cx="16" cy="16" rx="13" ry="6.5" fill="none" stroke="currentColor" stroke-width="1.8" transform="rotate(-28 16 16)"/>
+          <circle cx="27.2" cy="10" r="2.2" fill="var(--accent)"/>
+        </svg>
+        <span class="brand-name" data-i18n="site.title">Simulaciones Científicas</span>
+      </a>
+      <nav class="header-nav" aria-label="Principal">
+        <a href="./assets/homepage/pages/about.html" data-i18n="nav.about">Acerca de</a>
+        <a href="https://github.com/sanelicv/ScienceSimulations" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
+          <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <div class="lang-switch" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang-option active" data-lang="es">ES</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="file-notice" role="note" hidden>
+    <div class="container file-notice-inner">
+      <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 7v4.5M8 4.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div>
+        <p><strong>Has abierto la página directamente desde el disco.</strong> Las simulaciones marcadas con <em>«Requiere servidor local»</em> no funcionarán así. Cierra esta pestaña y haz doble clic en <code>start-server.bat</code> (Windows) o <code>start-server.command</code> (macOS/Linux), o ejecuta <code>python start-server.py</code>.</p>
+        <p class="file-notice-en" lang="en">You opened this page directly from disk. Simulations marked <em>“Requiere servidor local”</em> need a local server: double-click <code>start-server.bat</code> (Windows) or <code>start-server.command</code> (macOS/Linux), or run <code>python start-server.py</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="intro">
+    <div class="container intro-inner">
+      <div class="intro-text">
+        <p class="eyebrow" data-i18n="intro.eyebrow">Recursos didácticos de código abierto</p>
+        <h1 data-i18n="intro.title">Simulaciones interactivas de ciencia</h1>
+        <p class="lead" data-i18n="intro.lead">Matemáticas, física, astronomía y cosmología para explorar en el aula. Cada simulación funciona en el navegador, sin instalación y sin conexión a internet.</p>
+        <ul class="stats">
+          <li><strong>45</strong><span data-i18n="intro.stat_sims">simulaciones</span></li>
+          <li><strong>6</strong><span data-i18n="intro.stat_areas">áreas temáticas</span></li>
+          <li><strong>Offline</strong><span data-i18n="intro.stat_offline">sin dependencias externas</span></li>
+          <li><strong>MIT</strong><span data-i18n="intro.stat_license">código abierto</span></li>
+        </ul>
+        <p class="disclaimer">
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 7v4.5M8 4.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span><span data-i18n="intro.disclaimer">Herramienta didáctica, no validada científicamente.</span>
+          <a href="./assets/homepage/pages/about.html" data-i18n="intro.more">Más información</a></span>
+        </p>
+      </div>
+      <svg class="intro-art" viewBox="0 0 400 400" aria-hidden="true">
+        <defs>
+          <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffd166"/><stop offset="100%" stop-color="#f4a261"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="200" cy="200" r="60" opacity=".35"/>
+          <circle cx="200" cy="200" r="105" opacity=".28"/>
+          <ellipse cx="200" cy="200" rx="170" ry="120" opacity=".22" transform="rotate(-20 200 200)"/>
+          <circle cx="200" cy="200" r="190" opacity=".12" stroke-dasharray="2 6"/>
+        </g>
+        <circle cx="200" cy="200" r="22" fill="url(#sun)"/>
+        <g class="orbit o1"><circle cx="260" cy="200" r="6" fill="var(--accent)"/></g>
+        <g class="orbit o2"><circle cx="200" cy="95" r="8" fill="var(--primary)"/></g>
+        <g class="orbit o3"><circle cx="40" cy="200" r="5" fill="currentColor" opacity=".6"/></g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="container toolbar-inner">
+      <div class="filters" role="group" aria-label="Categorías">
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true"><span data-i18n="filters.all">Todas</span><span class="chip-count">45</span></button>
+          <button type="button" class="chip" data-filter="math" aria-pressed="false"><span data-i18n="filters.cat_math">Matemáticas</span><span class="chip-count">3</span></button>
+          <button type="button" class="chip" data-filter="physics" aria-pressed="false"><span data-i18n="filters.cat_physics">Física</span><span class="chip-count">9</span></button>
+          <button type="button" class="chip" data-filter="astronomy" aria-pressed="false"><span data-i18n="filters.cat_astronomy">Astronomía</span><span class="chip-count">20</span></button>
+          <button type="button" class="chip" data-filter="astrophysics" aria-pressed="false"><span data-i18n="filters.cat_astrophysics">Astrofísica</span><span class="chip-count">6</span></button>
+          <button type="button" class="chip" data-filter="cosmology" aria-pressed="false"><span data-i18n="filters.cat_cosmology">Cosmología</span><span class="chip-count">5</span></button>
+          <button type="button" class="chip" data-filter="hep" aria-pressed="false"><span data-i18n="filters.cat_hep">Altas Energías</span><span class="chip-count">2</span></button>
+      </div>
+      <label class="search">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m11 11 3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input type="search" id="search" autocomplete="off" data-i18n-placeholder="filters.search_placeholder" placeholder="Buscar simulación…" aria-label="Buscar">
+      </label>
+    </div>
+  </div>
+
+  <main id="catalog" class="container catalog">
+      <p class="legend">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg>
+        <span data-i18n="ui.legend">Si descargas las simulaciones, las marcadas con este icono necesitan un servidor local.</span>
+        <a href="./assets/homepage/pages/about.html#offline" data-i18n="ui.legend_link">Cómo usarlas sin conexión</a>
+      </p>
+
+      <section class="category" id="math" data-category="math" aria-labelledby="h-math">
+        <header class="category-header">
+          <div>
+            <h2 id="h-math" data-i18n="sections.math.title">Matemáticas</h2>
+            <p data-i18n="sections.math.subtitle">Herramientas y visualizaciones matemáticas.</p>
+          </div>
+          <span class="category-count"><span class="n">3</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./math/scientific-calculator/index.html" class="card" data-category="math">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/math/scientific-calculator.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_math">Matemáticas</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.scientific-calculator.title">Calculadora Científica</h3>
+              <p class="card-desc" data-i18n="cards.scientific-calculator.desc">Calculadora avanzada con funciones trigonométricas, logarítmicas y gráficas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./math/linear-regression/index.html" class="card" data-category="math">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/math/linear-regression.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_math">Matemáticas</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.linear-regression.title">Regresión Lineal Simple</h3>
+              <p class="card-desc" data-i18n="cards.linear-regression.desc">Herramienta estadística para analizar la relación entre dos variables y predecir valores.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./math/ellipse-eccentricity/index.html" class="card" data-category="math">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/math/ellipse-eccentricity.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_math">Matemáticas</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ellipse-eccentricity.title">Excentricidad de la Elipse</h3>
+              <p class="card-desc" data-i18n="cards.ellipse-eccentricity.desc">Visualiza cómo cambia la forma de una elipse al variar su excentricidad.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="category" id="physics" data-category="physics" aria-labelledby="h-physics">
+        <header class="category-header">
+          <div>
+            <h2 id="h-physics" data-i18n="sections.physics.title">Física</h2>
+            <p data-i18n="sections.physics.subtitle">Fenómenos fundamentales, de la mecánica a la física moderna.</p>
+          </div>
+          <span class="category-count"><span class="n">9</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./physics/newton-cannon/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/newton-cannon.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.newton-cannon.title">Cañón de Newton</h3>
+              <p class="card-desc" data-i18n="cards.newton-cannon.desc">Simulación interactiva del cañón de Newton para explorar la ley de gravitación universal.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/kepler-orbits/index.html" class="card" data-category="physics" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/kepler-orbits.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.kepler-orbits.title">Órbitas en el modelo de Kepler</h3>
+              <p class="card-desc" data-i18n="cards.kepler-orbits.desc">Visualiza las órbitas de los planetas en el modelo de Kepler.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/sun-disappears/animation.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/sun-disappears.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.sun-disappears.title">El Sol desaparece</h3>
+              <p class="card-desc" data-i18n="cards.sun-disappears.desc">¿Qué pasaría si el Sol desapareciera? Explora la ley de gravitación universal.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/electric-field/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/electric-field.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.electric-field.title">Campo y Potencial Eléctrico</h3>
+              <p class="card-desc" data-i18n="cards.electric-field.desc">Simulación interactiva de cargas puntuales, líneas de campo y superficies equipotenciales.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/electric-generator/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/electric-generator.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.electric-generator.title">Generador Eléctrico</h3>
+              <p class="card-desc" data-i18n="cards.electric-generator.desc">Simulación 3D de un generador eléctrico y la inducción electromagnética.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/light-models/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/light-models.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.light-models.title">Modelos de la Luz</h3>
+              <p class="card-desc" data-i18n="cards.light-models.desc">Explora los modelos ondulatorio y corpuscular de la luz.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/photoelectric-effect/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/photoelectric-effect.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.photoelectric-effect.title">Efecto Fotoeléctrico</h3>
+              <p class="card-desc" data-i18n="cards.photoelectric-effect.desc">Explora el efecto fotoeléctrico de la luz.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/relativistic-doppler/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/relativistic-doppler.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.relativistic-doppler.title">Efecto Doppler de la Luz</h3>
+              <p class="card-desc" data-i18n="cards.relativistic-doppler.desc">Observa el cambio de color (redshift/blueshift) en objetos que se mueven a velocidades relativistas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./physics/hydrogen-spectrum/index.html" class="card" data-category="physics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/physics/hydrogen-spectrum.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_physics">Física</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.hydrogen-spectrum.title">Espectro del Hidrógeno</h3>
+              <p class="card-desc" data-i18n="cards.hydrogen-spectrum.desc">Calcula las líneas espectrales (Balmer, Lyman) según los saltos cuánticos del electrón.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="category" id="astronomy" data-category="astronomy" aria-labelledby="h-astronomy">
+        <header class="category-header">
+          <div>
+            <h2 id="h-astronomy" data-i18n="sections.astronomy.title">Astronomía</h2>
+            <p data-i18n="sections.astronomy.subtitle">Observación del cielo y los modelos ptolemaico y copernicano.</p>
+          </div>
+          <span class="category-count"><span class="n">20</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./astronomy/solstices-equinoxes/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/solstices-equinoxes.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.solstices-equinoxes.title">Solsticios y Equinoccios</h3>
+              <p class="card-desc" data-i18n="cards.solstices-equinoxes.desc">Entiende la inclinación de la Tierra y su efecto en las estaciones y la duración del día.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ecliptic-and-planets/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ecliptic-and-planets.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ecliptic-and-planets.title">Eclíptica y Planetas</h3>
+              <p class="card-desc" data-i18n="cards.ecliptic-and-planets.desc">Observa el movimiento aparente del Sol y los planetas a lo largo del año.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/astronomical-horizon/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/astronomical-horizon.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.astronomical-horizon.title">Horizonte Astronómico</h3>
+              <p class="card-desc" data-i18n="cards.astronomical-horizon.desc">Explora la esfera celeste y el sistema de coordenadas horizontales desde cualquier latitud.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/equatorial-coordinates/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/equatorial-coordinates.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.equatorial-coordinates.title">Coordenadas Ecuatoriales</h3>
+              <p class="card-desc" data-i18n="cards.equatorial-coordinates.desc">Entiende qué son la Ascensión Recta y la Declinación en el mapa del cielo.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/sky-calendar/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/sky-calendar.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.sky-calendar.title">Calendario Astronómico</h3>
+              <p class="card-desc" data-i18n="cards.sky-calendar.desc">Construye un calendario a partir de la posición de los planetas y el Sol.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/lunar-calendar/index.html" class="card" data-category="astronomy">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/lunar-calendar.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.lunar-calendar.title">Calendario Lunar</h3>
+              <p class="card-desc" data-i18n="cards.lunar-calendar.desc">Construye un calendario personalizado y resalta las fases lunares.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-sun-celestial-sphere/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-sun-celestial-sphere.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-sun-celestial-sphere.title">Sol y Esfera Celeste</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-sun-celestial-sphere.desc">El recorrido aparente del Sol sobre la esfera celeste según la antigua astronomía.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-ecliptic-3d/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-ecliptic-3d.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-ecliptic-3d.title">Eclíptica en el modelo ptolemaico</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-ecliptic-3d.desc">Visualiza la eclíptica en el modelo ptolemaico.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-geocentric-orbits/index.html" class="card" data-category="astronomy">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-geocentric-orbits.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-geocentric-orbits.title">Órbitas en el modelo ptolemaico</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-geocentric-orbits.desc">Visualiza las órbitas planetarias en el modelo ptolemaico.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-epicycles-3d/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-epicycles-3d.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-epicycles-3d.title">Movimiento retrógrado en el modelo ptolemaico</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-epicycles-3d.desc">Visualiza en 3D cómo los epiciclos producen el movimiento retrógrado de los planetas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-deferents-epicycles/index.html" class="card" data-category="astronomy">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-deferents-epicycles.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-deferents-epicycles.title">Deferentes y Epiciclos</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-deferents-epicycles.desc">Mecanismo matemático antiguo para explicar el movimiento retrógrado de los planetas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-multiple-epicycles/index.html" class="card" data-category="astronomy">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-multiple-epicycles.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-multiple-epicycles.title">Múltiples Epiciclos</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-multiple-epicycles.desc">Simulación de sistemas complejos de epiciclos sobre epiciclos («epicicloides»).</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/ptolemy-venus-phases/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/ptolemy-venus-phases.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.ptolemy-venus-phases.title">Fases de Venus en el modelo ptolemaico</h3>
+              <p class="card-desc" data-i18n="cards.ptolemy-venus-phases.desc">Predicción de las fases de Venus según el modelo geocéntrico.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-earth-sun-system/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-earth-sun-system.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-earth-sun-system.title">Sistema Tierra-Sol</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-earth-sun-system.desc">Dinámica orbital básica entre la Tierra y el Sol.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-ecliptic-3d/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-ecliptic-3d.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-ecliptic-3d.title">Eclíptica en el modelo copernicano</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-ecliptic-3d.desc">Visualiza cómo cambia la posición aparente del Sol en el modelo copernicano.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-moon-phases/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-moon-phases.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-moon-phases.title">Fases Lunares</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-moon-phases.desc">Simulación 3D de la posición Sol-Tierra-Luna y cómo genera las fases lunares vistas desde la Tierra.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-heliocentric-orbits/index.html" class="card" data-category="astronomy">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-heliocentric-orbits.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-heliocentric-orbits.title">Órbitas Copernicanas</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-heliocentric-orbits.desc">Visualización del sistema solar con el Sol en el centro y órbitas circulares.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-retrograde-3d/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-retrograde-3d.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-retrograde-3d.title">Movimiento Retrógrado Aparente</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-retrograde-3d.desc">Explicación elegante del aparente retroceso planetario desde una perspectiva heliocéntrica.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-venus-phases/index.html" class="card" data-category="astronomy" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-venus-phases.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-venus-phases.title">Fases de Venus en el modelo copernicano</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-venus-phases.desc">Cómo el modelo heliocéntrico predice correctamente las fases de Venus.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astronomy/copernicus-elliptical-orbits/index.html" class="card" data-category="astronomy">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astronomy/copernicus-elliptical-orbits.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astronomy">Astronomía</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.copernicus-elliptical-orbits.title">Órbitas Elípticas</h3>
+              <p class="card-desc" data-i18n="cards.copernicus-elliptical-orbits.desc">Las leyes de Kepler y el movimiento real de los planetas en elipses.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="category" id="astrophysics" data-category="astrophysics" aria-labelledby="h-astrophysics">
+        <header class="category-header">
+          <div>
+            <h2 id="h-astrophysics" data-i18n="sections.astrophysics.title">Astrofísica</h2>
+            <p data-i18n="sections.astrophysics.subtitle">Del sistema solar a las estrellas.</p>
+          </div>
+          <span class="category-count"><span class="n">6</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./astrophysics/solar-system-creator/index.html" class="card" data-category="astrophysics" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astrophysics/solar-system-creator.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astrophysics">Astrofísica</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.solar-system-creator.title">Creador de Sistema Solar</h3>
+              <p class="card-desc" data-i18n="cards.solar-system-creator.desc">Sandbox gravitacional: lanza planetas y observa cómo interactúan sus órbitas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astrophysics/exoplanets/index.html" class="card" data-category="astrophysics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astrophysics/exoplanets.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astrophysics">Astrofísica</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.exoplanets.title">Buscador de Exoplanetas</h3>
+              <p class="card-desc" data-i18n="cards.exoplanets.desc">Busca exoplanetas en nuestra galaxia y descubre sus características.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astrophysics/stellar-map/index.html" class="card" data-category="astrophysics" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astrophysics/stellar-map.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astrophysics">Astrofísica</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.stellar-map.title">Distancias Estelares</h3>
+              <p class="card-desc" data-i18n="cards.stellar-map.desc">Visualización 3D de las estrellas más cercanas al Sol. ¡Navega entre ellas!</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astrophysics/spectra/index.html" class="card" data-category="astrophysics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astrophysics/spectra.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astrophysics">Astrofísica</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.spectra.title">Espectros Comunes</h3>
+              <p class="card-desc" data-i18n="cards.spectra.desc">Catálogo interactivo de espectros de emisión y absorción de diversos elementos.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astrophysics/distance-luminosity/index.html" class="card" data-category="astrophysics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astrophysics/distance-luminosity.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astrophysics">Astrofísica</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.distance-luminosity.title">Distancia y Luminosidad</h3>
+              <p class="card-desc" data-i18n="cards.distance-luminosity.desc">Cómo la luz de una estrella disminuye con el cuadrado de la distancia.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./astrophysics/black-hole/index.html" class="card" data-category="astrophysics">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/astrophysics/black-hole.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_astrophysics">Astrofísica</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.black-hole.title">Agujero Negro</h3>
+              <p class="card-desc" data-i18n="cards.black-hole.desc">Visualiza las características de un agujero negro.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="category" id="cosmology" data-category="cosmology" aria-labelledby="h-cosmology">
+        <header class="category-header">
+          <div>
+            <h2 id="h-cosmology" data-i18n="sections.cosmology.title">Cosmología</h2>
+            <p data-i18n="sections.cosmology.subtitle">El universo a gran escala.</p>
+          </div>
+          <span class="category-count"><span class="n">5</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./cosmology/universe-expansion/index.html" class="card" data-category="cosmology" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/cosmology/universe-expansion.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_cosmology">Cosmología</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.universe-expansion.title">Expansión del Universo</h3>
+              <p class="card-desc" data-i18n="cards.universe-expansion.desc">Simula la Ley de Hubble y cómo el espacio mismo se estira arrastrando a las galaxias.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./cosmology/cmb/index.html" class="card" data-category="cosmology" data-needs-server>
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/cosmology/cmb.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_cosmology">Cosmología</span>
+                <span class="card-server" title="Requiere servidor local si se descarga / Needs a local server when downloaded"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="9" width="12" height="4.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="4.8" cy="4.75" r=".9" fill="currentColor"/><circle cx="4.8" cy="11.25" r=".9" fill="currentColor"/></svg><span class="card-server-label" data-i18n="ui.needs_server">Requiere servidor local</span></span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.cmb.title">Radiación Cósmica de Fondo</h3>
+              <p class="card-desc" data-i18n="cards.cmb.desc">Visualiza la radiación cósmica de fondo en 3D.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./cosmology/cosmological-parameters/index.html" class="card" data-category="cosmology">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/cosmology/cosmological-parameters.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_cosmology">Cosmología</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.cosmological-parameters.title">Parámetros Cosmológicos</h3>
+              <p class="card-desc" data-i18n="cards.cosmological-parameters.desc">Determina los parámetros de densidad a partir de datos de SNIa.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./cosmology/universe-evolution/index.html" class="card" data-category="cosmology">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/cosmology/universe-evolution.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_cosmology">Cosmología</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.universe-evolution.title">Evolución del Universo</h3>
+              <p class="card-desc" data-i18n="cards.universe-evolution.desc">Línea de tiempo cósmica desde el Big Bang hasta la actualidad.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./cosmology/big-bang/index.html" class="card" data-category="cosmology">
+            <div class="card-media">
+              <img src="assets/homepage/thumbnails/cosmology/universe-evolution.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_cosmology">Cosmología</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.big-bang.title">Big Bang</h3>
+              <p class="card-desc" data-i18n="cards.big-bang.desc">Simulador interactivo del Big Bang.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="category" id="hep" data-category="hep" aria-labelledby="h-hep">
+        <header class="category-header">
+          <div>
+            <h2 id="h-hep" data-i18n="sections.hep.title">Física de Altas Energías</h2>
+            <p data-i18n="sections.hep.subtitle">Detectores de partículas y neutrinos.</p>
+          </div>
+          <span class="category-count"><span class="n">2</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./hep/super-kamiokande/index.html" class="card" data-category="hep">
+            <div class="card-media is-logo">
+              <img src="assets/homepage/thumbnails/hep/super-kamiokande.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_hep">Altas Energías</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.super-kamiokande.title">Super-Kamiokande</h3>
+              <p class="card-desc" data-i18n="cards.super-kamiokande.desc">Explora el detector de neutrinos Super-Kamiokande y cómo la luz Cherenkov revela el paso de partículas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./hep/tambo/index.html" class="card" data-category="hep">
+            <div class="card-media is-logo">
+              <img src="assets/homepage/thumbnails/hep/tambo.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_hep">Altas Energías</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.tambo.title">TAMBO</h3>
+              <p class="card-desc" data-i18n="cards.tambo.desc">Explora TAMBO, el observatorio de neutrinos tau propuesto en un valle de los Andes peruanos.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <p class="empty-state" hidden data-i18n="ui.no_results">No hay simulaciones que coincidan con tu búsqueda.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-author">
+        <span>&copy; 2026 Saneli Carbajal Vigo</span>
+        <span class="muted"><span data-i18n="footer.also">También disponibles en</span> <a href="https://3o4cosas.com" target="_blank" rel="noopener">3o4cosas.com</a></span>
+      </div>
+      <nav class="footer-links" aria-label="Pie de página">
+        <a href="./assets/homepage/pages/about.html" data-i18n="nav.about">Acerca de</a>
+        <a href="./LICENSE" data-i18n="footer.license">Licencia MIT</a>
+        <a href="./CITATION.cff" data-i18n="footer.cite">Cómo citar</a>
+        <a href="https://github.com/sanelicv/ScienceSimulations" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>window.assetsPath = './assets/homepage/';</script>
+  <script src="assets/homepage/script.js"></script>
+</body>
+
+</html>

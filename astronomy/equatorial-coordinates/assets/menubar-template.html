@@ -1,0 +1,97 @@
+<!-- PLANTILLA DE MENÚ SUPERIOR REUTILIZABLE (TOP MENUBAR) -->
+<!-- Copiar y pegar dentro del body de tu aplicación -->
+
+<header class="top-menubar">
+  <!-- Branding / Logo de la Aplicación -->
+  <div class="menubar-branding">
+    <svg class="app-logo" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="currentColor" stroke-width="1.2" fill="none" />
+      <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+    </svg>
+    <span class="app-title">Mi Aplicación</span>
+  </div>
+
+  <!-- Navegación y Menús Desplegables -->
+  <nav class="menubar-nav">
+
+    <!-- Menú 1: Ejemplo de Menú con Botones de Acción -->
+    <div class="menu-item">
+      <button class="menu-btn" id="menuFileBtn">
+        <span>Archivo</span>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="dropdown-menu" id="menuFileDropdown">
+        <button class="dropdown-item" id="actionImport">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <span>Importar datos...</span>
+        </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item text-danger" id="actionDelete">
+          <svg viewBox="0 0 24 24">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span>Eliminar elementos</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú 2: Ejemplo de Menú con Checkboxes -->
+    <div class="menu-item">
+      <button class="menu-btn" id="menuViewBtn">
+        <span>Ver</span>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="dropdown-menu" id="menuViewDropdown">
+        <div class="dropdown-header">Capas Visibles</div>
+        <label class="dropdown-checkbox">
+          <input type="checkbox" id="toggleGrid" checked>
+          <span>Mostrar cuadrícula</span>
+        </label>
+        <label class="dropdown-checkbox">
+          <input type="checkbox" id="toggleLabels" checked>
+          <span>Mostrar etiquetas</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Menú 3: Ejemplo de Menú con Radio Buttons -->
+    <div class="menu-item">
+      <button class="menu-btn" id="menuModeBtn">
+        <span>Modo</span>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="dropdown-menu" id="menuModeDropdown">
+        <div class="dropdown-header">Modo de Operación</div>
+        <label class="dropdown-radio">
+          <input type="radio" name="appModeRadio" value="mode1" checked>
+          <span>Modo Edición</span>
+        </label>
+        <label class="dropdown-radio">
+          <input type="radio" name="appModeRadio" value="mode2">
+          <span>Modo Visualización</span>
+        </label>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Insignia en Tiempo Real Derecha (Opcional) -->
+  <div class="menubar-badge">
+    <div class="badge-item">
+      <label>Estado:</label>
+      <span>En línea</span>
+    </div>
+  </div>
+</header>

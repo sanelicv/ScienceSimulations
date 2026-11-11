@@ -1,0 +1,273 @@
+{
+  "site": {
+    "title": "Science Simulations"
+  },
+  "nav": {
+    "about": "About"
+  },
+  "intro": {
+    "eyebrow": "Open-source teaching resources",
+    "title": "Interactive science simulations",
+    "lead": "Mathematics, physics, astronomy and cosmology to explore in the classroom. Every simulation runs in the browser, with no installation and no internet connection.",
+    "stat_sims": "simulations",
+    "stat_areas": "subject areas",
+    "stat_offline": "no external dependencies",
+    "stat_license": "open source",
+    "disclaimer": "Educational tool, not scientifically validated.",
+    "more": "Learn more"
+  },
+  "filters": {
+    "all": "All",
+    "search_placeholder": "Search simulations…",
+    "cat_math": "Math",
+    "cat_physics": "Physics",
+    "cat_astronomy": "Astronomy",
+    "cat_astrophysics": "Astrophysics",
+    "cat_cosmology": "Cosmology",
+    "cat_hep": "High Energy"
+  },
+  "ui": {
+    "open": "Open simulation",
+    "simulations": "simulations",
+    "no_results": "No simulations match your search.",
+    "skip": "Skip to catalog",
+    "needs_server": "Requires a local server",
+    "legend": "If you download the simulations, those marked with this icon need a local server.",
+    "legend_link": "How to use them offline"
+  },
+  "sections": {
+    "math": {
+      "title": "Math",
+      "subtitle": "Mathematical tools and visualizations."
+    },
+    "physics": {
+      "title": "Physics",
+      "subtitle": "Fundamental phenomena, from mechanics to modern physics."
+    },
+    "astronomy": {
+      "title": "Astronomy",
+      "subtitle": "Sky observation and the Ptolemaic and Copernican models."
+    },
+    "astrophysics": {
+      "title": "Astrophysics",
+      "subtitle": "From the solar system to the stars."
+    },
+    "cosmology": {
+      "title": "Cosmology",
+      "subtitle": "The universe at large scale."
+    },
+    "hep": {
+      "title": "High-Energy Physics",
+      "subtitle": "Particle and neutrino detectors."
+    }
+  },
+  "cards": {
+    "scientific-calculator": {
+      "title": "Scientific Calculator",
+      "desc": "Advanced calculator with trigonometric, logarithmic, and graphing functions."
+    },
+    "linear-regression": {
+      "title": "Simple Linear Regression",
+      "desc": "Statistical tool to analyze the relationship between two variables and predict values."
+    },
+    "ellipse-eccentricity": {
+      "title": "Ellipse Eccentricity",
+      "desc": "Visualize how the shape of an ellipse changes as you vary its eccentricity."
+    },
+    "newton-cannon": {
+      "title": "Newton's Cannon",
+      "desc": "Interactive simulation of Newton's cannon to explore the law of universal gravitation."
+    },
+    "kepler-orbits": {
+      "title": "Orbits in Kepler's Model",
+      "desc": "Visualize planetary orbits in Kepler's model."
+    },
+    "sun-disappears": {
+      "title": "The Sun Disappears",
+      "desc": "What would happen if the Sun disappeared? Explore the law of universal gravitation."
+    },
+    "electric-field": {
+      "title": "Electric Field & Potential",
+      "desc": "Interactive simulation of point charges, field lines, and equipotential surfaces."
+    },
+    "electric-generator": {
+      "title": "Electric Generator",
+      "desc": "3D simulation of an electric generator and electromagnetic induction."
+    },
+    "light-models": {
+      "title": "Models of Light",
+      "desc": "Explore the wave and particle models of light."
+    },
+    "photoelectric-effect": {
+      "title": "Photoelectric Effect",
+      "desc": "Explore the photoelectric effect of light."
+    },
+    "relativistic-doppler": {
+      "title": "Relativistic Doppler Effect",
+      "desc": "Observe color change (redshift/blueshift) in objects moving at relativistic speeds."
+    },
+    "hydrogen-spectrum": {
+      "title": "Hydrogen Spectrum",
+      "desc": "Calculate spectral lines (Balmer, Lyman) based on electron quantum jumps."
+    },
+    "solstices-equinoxes": {
+      "title": "Solstices & Equinoxes",
+      "desc": "Understand Earth's tilt and its effect on seasons and day length."
+    },
+    "ecliptic-and-planets": {
+      "title": "Ecliptic and Planets",
+      "desc": "Observe the apparent motion of the Sun and planets throughout the year."
+    },
+    "astronomical-horizon": {
+      "title": "Astronomical Horizon",
+      "desc": "Explore the celestial sphere and horizontal coordinate system from any latitude."
+    },
+    "equatorial-coordinates": {
+      "title": "Equatorial Coordinates",
+      "desc": "Understand what Right Ascension and Declination are on the sky map."
+    },
+    "sky-calendar": {
+      "title": "Astronomical Calendar",
+      "desc": "Build a calendar from the positions of the planets and the Sun."
+    },
+    "lunar-calendar": {
+      "title": "Lunar Calendar",
+      "desc": "Build a custom calendar highlighting the moon phases."
+    },
+    "ptolemy-sun-celestial-sphere": {
+      "title": "Sun & Celestial Sphere",
+      "desc": "The apparent path of the Sun on the celestial sphere according to ancient astronomy."
+    },
+    "ptolemy-ecliptic-3d": {
+      "title": "Ecliptic in the Ptolemaic Model",
+      "desc": "Visualize the ecliptic in the Ptolemaic model."
+    },
+    "ptolemy-geocentric-orbits": {
+      "title": "Orbits in the Ptolemaic Model",
+      "desc": "Visualize planetary orbits in the Ptolemaic model."
+    },
+    "ptolemy-epicycles-3d": {
+      "title": "Retrograde Motion in the Ptolemaic Model",
+      "desc": "See in 3D how epicycles produce the retrograde motion of the planets."
+    },
+    "ptolemy-deferents-epicycles": {
+      "title": "Deferents & Epicycles",
+      "desc": "Ancient mathematical mechanism to explain retrograde planetary motion."
+    },
+    "ptolemy-multiple-epicycles": {
+      "title": "Multiple Epicycles",
+      "desc": "Simulation of complex systems of epicycles upon epicycles ('epicycloids')."
+    },
+    "ptolemy-venus-phases": {
+      "title": "Phases of Venus in the Ptolemaic Model",
+      "desc": "Prediction of the phases of Venus according to the geocentric model."
+    },
+    "copernicus-earth-sun-system": {
+      "title": "Earth-Sun System",
+      "desc": "Basic orbital dynamics between Earth and the Sun."
+    },
+    "copernicus-ecliptic-3d": {
+      "title": "Ecliptic in the Copernican Model",
+      "desc": "Visualize how the Sun's apparent position changes in the Copernican model."
+    },
+    "copernicus-moon-phases": {
+      "title": "Moon Phases",
+      "desc": "3D simulation of Sun-Earth-Moon positions and how they generate moon phases seen from Earth."
+    },
+    "copernicus-heliocentric-orbits": {
+      "title": "Copernican Orbits",
+      "desc": "Visualization of the solar system with the Sun at the center and circular orbits."
+    },
+    "copernicus-retrograde-3d": {
+      "title": "Apparent Retrograde Motion",
+      "desc": "Elegant explanation of apparent planetary backtracking from a heliocentric perspective."
+    },
+    "copernicus-venus-phases": {
+      "title": "Phases of Venus in the Copernican Model",
+      "desc": "How the heliocentric model correctly predicts the phases of Venus."
+    },
+    "copernicus-elliptical-orbits": {
+      "title": "Elliptical Orbits",
+      "desc": "Kepler's laws and the actual motion of planets in ellipses."
+    },
+    "solar-system-creator": {
+      "title": "Solar System Creator",
+      "desc": "Gravity sandbox: launch planets and watch how their orbits interact."
+    },
+    "exoplanets": {
+      "title": "Exoplanet Explorer",
+      "desc": "Search for exoplanets in our galaxy and discover their characteristics."
+    },
+    "stellar-map": {
+      "title": "Stellar Distances",
+      "desc": "3D visualization of stars nearest to the Sun. Navigate among them!"
+    },
+    "spectra": {
+      "title": "Common Spectra",
+      "desc": "Interactive catalog of emission and absorption spectra for various elements."
+    },
+    "distance-luminosity": {
+      "title": "Distance & Luminosity",
+      "desc": "How a star's light diminishes with the square of the distance."
+    },
+    "black-hole": {
+      "title": "Black Hole",
+      "desc": "Visualize the characteristics of a black hole."
+    },
+    "universe-expansion": {
+      "title": "Expansion of the Universe",
+      "desc": "Simulate Hubble's Law and how space itself stretches dragging galaxies."
+    },
+    "cmb": {
+      "title": "Cosmic Microwave Background",
+      "desc": "Visualize the cosmic microwave background in 3D."
+    },
+    "cosmological-parameters": {
+      "title": "Cosmological Parameters",
+      "desc": "Determine density parameters from SNIa data."
+    },
+    "universe-evolution": {
+      "title": "Evolution of the Universe",
+      "desc": "Cosmic timeline from the Big Bang to the present day."
+    },
+    "big-bang": {
+      "title": "Big Bang",
+      "desc": "Interactive Big Bang simulator."
+    },
+    "super-kamiokande": {
+      "title": "Super-Kamiokande",
+      "desc": "Explore the Super-Kamiokande neutrino detector and how Cherenkov light reveals passing particles."
+    },
+    "tambo": {
+      "title": "TAMBO",
+      "desc": "Explore TAMBO, the tau-neutrino observatory proposed in a valley of the Peruvian Andes."
+    }
+  },
+  "footer": {
+    "license": "MIT License",
+    "also": "Also available at",
+    "cite": "How to cite"
+  },
+  "about": {
+    "title": "About",
+    "what_title": "What this is",
+    "what_text": "A collection of interactive physics, astronomy, and cosmology simulations created to support teaching. Each simulation is self-contained and works offline.",
+    "notice_title": "Educational tool.",
+    "notice_text": "These simulations are intended for educational purposes only and have not been scientifically validated. The models include simplifications and approximations, so their results must not be used for research or technical decisions.",
+    "unofficial_title": "Unofficial notice",
+    "unofficial_text": "This is a personal, independent project. Simulations depicting scientific experiments or collaborations (for example, Super-Kamiokande or TAMBO) are the author’s own outreach recreations: they are not official products of those collaborations, are not endorsed by them, and do not represent the position of the author’s institution. All names and logos mentioned belong to their respective owners.",
+    "offline_title": "Offline use",
+    "offline_text": "You can download the whole repository from GitHub (Code → Download ZIP) and use it without internet. Simulations marked with the server icon must be opened through a local server, because browsers block loading modules and files when an HTML file is opened by double-clicking. The repository includes a ready-to-use one:",
+    "offline_win": "Windows: double-click start-server.bat.",
+    "offline_mac": "macOS / Linux: double-click start-server.command.",
+    "offline_any": "Any system: python start-server.py (requires Python 3).",
+    "offline_single": "If you only need one simulation, copy its folder; if it has the server icon, also place start-server.py inside it and run it there.",
+    "author_title": "Author",
+    "license_title": "License and citation",
+    "license_text": "The code is released under the MIT License. If you use these simulations in academic work, please cite them using the CITATION.cff file in the repository.",
+    "link_license": "MIT License",
+    "link_citation": "How to cite (CITATION.cff)",
+    "link_repo": "GitHub repository",
+    "also_text": "These simulations are also available at"
+  }
+}

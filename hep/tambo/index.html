@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TAMBO</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="loading">Generando el valle…</div>
+<script>
+  // Idioma inicial: el que eligió el usuario la última vez; si nunca eligió, el primero de los
+  // idiomas de su navegador que tengamos; si no hay ninguno, español.
+  (function () {
+    let lang = null;
+    try { lang = localStorage.getItem('tambo-lang'); } catch (e) { /* almacenamiento bloqueado */ }
+    if (lang !== 'es' && lang !== 'en') {
+      const preferred = (navigator.languages || [navigator.language]).map((l) => String(l).slice(0, 2).toLowerCase());
+      lang = preferred.find((l) => l === 'es' || l === 'en') || 'es';
+    }
+    document.documentElement.lang = lang;
+    if (lang === 'en') document.getElementById('loading').textContent = 'Generating the valley…';
+  })();
+</script>
+<script src="lib/three.min.js"></script>
+<script src="lib/OrbitControls.js"></script>
+<script src="config.js"></script>
+<script src="src/shared/sim.js"></script>
+<script src="src/shared/app.js"></script>
+<script src="src/shared/procedural.js"></script>
+<script src="src/shared/rays.js"></script>
+<script src="src/shared/flashes.js"></script>
+<script src="src/shared/labels.js"></script>
+<script src="src/shared/ui.js"></script>
+<script>
+  // Módulos de la simulación, en orden: cada uno usa lo que definen los anteriores.
+  // Son scripts clásicos porque los navegadores bloquean import al abrir con doble clic.
+  // Generar el terreno toma un momento: primero se deja ver el aviso de carga.
+  const MODULES = ['settings', 'i18n', 'scene', 'terrain', 'trees', 'detectors', 'event-labels',
+                   'tracks', 'cone', 'particles', 'steps', 'guide-camera', 'event', 'menu', 'main'];
+  requestAnimationFrame(() => setTimeout(() => {
+    for (const name of MODULES) {
+      const s = document.createElement('script');
+      s.src = 'src/tambo/' + name + '.js';
+      s.async = false;   // respeta el orden de la lista
+      document.body.appendChild(s);
+    }
+  }, 30));
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* Basic modern academic style */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Container centered, with a max width */
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+/* Title styling */
+h1 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Controls in a flexible row */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Each control group stacked vertically */
+.control-group {
+  margin: 0 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+#charge1Sign,
+#charge2Sign,
+#charge1Mag,
+#charge2Mag,
+#gridResolution {
+  margin-bottom: 0.5rem;
+}
+
+/* Make the canvas scale on smaller devices */
+canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto; /* ensures proportionate resizing */
+  touch-action: none;
+}
+
+/* =========================
+   MEDIA QUERIES
+   ========================= */
+
+/* For tablets (max width ~ 768px) */
+@media (max-width: 768px) {
+  /* Reduce container width and spacing */
+  .container {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .control-group {
+    margin: 0.5rem 0;
+  }
+}
+
+/* For phones or very narrow screens (max width ~ 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .control-group label {
+    font-size: 0.9rem;
+  }
+}

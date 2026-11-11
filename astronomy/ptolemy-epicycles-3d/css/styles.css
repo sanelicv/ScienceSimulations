@@ -1,0 +1,54 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y TIME HUD FLOTANTE (Epicycles 3D)
+   ========================================================================== */
+
+:root {
+    --bg-color: #060911;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0284c7;
+    --panel-bg: rgba(15, 23, 42, 0.88);
+    --panel-border: rgba(255, 255, 255, 0.12);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#canvas-container {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Indicador de Carga */
+#loading-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 90;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-color);
+    font-style: italic;
+    background: var(--panel-bg);
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--panel-border);
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
+}

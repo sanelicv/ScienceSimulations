@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Map 3D</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Local Assets -->
+    <script src="./js/lib/xlsx.full.min.js"></script>
+
+    <!-- Import Map for Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./js/lib/three.module.js",
+                "three/addons/": "./js/lib/" 
+            }
+        }
+    </script>
+
+    <!-- Main Entry Point -->
+    <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- UI Overlay -->
+    <aside id="ui-sidebar" class="centered">
+        <div class="header">
+            <h1>Stellar Map 3D</h1>
+            <p class="subtitle">Explorador Estelar Interactivo</p>
+        </div>
+
+        <!-- Data Import -->
+        <div class="panel">
+
+            <!-- Sección 1: Cargar caso por código -->
+            <h2>Cargar caso por código</h2>
+            <div class="sub-panel">
+                <label for="caseCodeInput" class="sub-panel-title" style="margin: 0px 0px 8px 0px">Ingrese el código del caso:</label>
+                <div class="case-code-wrapper">
+                    <input type="text" id="caseCodeInput" class="code-input" placeholder="Ej: 1" autocomplete="off">
+                    <button id="btnLoadCaseCode" class="btn-icon" title="Cargar Caso">➜</button>
+                </div>
+                <div id="case-code-feedback" class="code-feedback hidden"></div>
+            </div>
+            <hr style="border: 1px solid #ccc; margin: 20px 0;">
+            <!-- Sección 2: Subir archivo -->
+            <h2>Subir archivo de datos</h2>
+            <div class="sub-panel" style="margin-top: 16px;">
+                <div class="file-input-wrapper">
+                    <label for="csvInput" class="btn">Seleccionar Archivo</label>
+                    <input id="csvInput" type="file" accept=".csv,.xls,.xlsx">
+                </div>
+                <button id="btn-configure-units" class="btn hidden" style="margin-top: 10px;">⚙️ Configurar
+                    Unidades</button>
+                <p id="file-status">Ningún archivo cargado</p>
+                <p>Puede descargar una plantilla <a href="data/plantilla.xlsx">aquí</a>.</p>
+            </div>
+        </div>
+
+        <!-- Toggles -->
+        <div id="panel-viz" class="panel hidden">
+            <h2>Visualización</h2>
+            <!-- Star Size Slider -->
+            <div class="control-group">
+                <label>Escala de Estrellas</label>
+                <input type="range" id="star-size-slider" min="0.1" max="10" step="0.1" value="5.0">
+            </div>
+            <div class="control-group" id="zoom-control-group">
+                <label>Distancia al Sol del Observador</label>
+                <input type="range" id="zoom-slider" min="0.01" max="1875" step="0.01" value="600">
+            </div>
+            <div class="toggle-group">
+                <label class="toggle">
+                    <input type="checkbox" id="toggle-view-mode">
+                    <span class="slider"></span>
+                    <span class="label">Vista desde la Tierra</span>
+                </label>
+                <label class="toggle" id="global-grid-toggle-group">
+                    <input type="checkbox" id="toggle-global-grid">
+                    <span class="slider"></span>
+                    <span class="label">Esfera Celeste</span>
+                </label>
+                <label class="toggle" id="plane-toggle-group">
+                    <input type="checkbox" id="toggle-plane" checked>
+                    <span class="slider"></span>
+                    <span class="label">Plano Horizontal</span>
+                </label>
+                <label class="toggle" id="projections-toggle-group">
+                    <input type="checkbox" id="toggle-projections">
+                    <span class="slider"></span>
+                    <span class="label">Líneas Proyección</span>
+                </label>
+                <label class="toggle" id="zodiac-toggle-group">
+                    <input type="checkbox" id="toggle-zodiac">
+                    <span class="slider"></span>
+                    <span class="label">Zodiaco</span>
+                </label>
+                <label class="toggle" id="vernal-toggle-group">
+                    <input type="checkbox" id="toggle-vernal">
+                    <span class="slider"></span>
+                    <span class="label">Punto Vernal (Aries)</span>
+                </label>
+                <label class="toggle">
+                    <input type="checkbox" id="toggle-apparent-brightness" checked>
+                    <span class="slider"></span>
+                    <span class="label">Ley L/d²</span>
+                </label>
+                <label class="toggle">
+                    <input type="checkbox" id="toggle-tooltip" checked>
+                    <span class="slider"></span>
+                    <span class="label">Tooltip Estelar</span>
+                </label>
+                <label class="toggle" id="free-fly-toggle-group">
+                    <input type="checkbox" id="toggle-free-fly">
+                    <span class="slider"></span>
+                    <span class="label">Navegación WASD (Libre)</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Coordinates Guide -->
+        <div id="panel-guide" class="panel hidden">
+            <h2>Guía</h2>
+
+            <div id="stellar-guide-container" class="toggle-group hidden">
+                <label class="toggle">
+                    <input type="checkbox" id="toggle-guide">
+                    <span class="slider"></span>
+                    <span class="label">Mostrar Guía</span>
+                </label>
+            </div>
+
+            <div id="stellar-guide-controls" class="hidden" style="margin-top: 15px;">
+                <div class="control-group">
+                    <label id="dist-slider-label">Distancia [ly]</label>
+                    <input type="range" id="dist-slider" min="0" max="100" step="0.1" value="100">
+                    <input type="number" id="dist-input" min="0" max="100" step="0.1" value="100">
+                </div>
+                <div class="control-group">
+                    <label id="ra-slider-label">RA [h]</label>
+                    <input type="range" id="ra-slider" min="0" max="24" step="0.01" value="0">
+                    <input type="number" id="ra-input" min="0" max="24" step="0.01" value="0">
+                </div>
+                <div class="control-group">
+                    <label id="dec-slider-label">Dec [°]</label>
+                    <input type="range" id="dec-slider" min="-90" max="90" step="0.01" value="0">
+                    <input type="number" id="dec-input" min="-90" max="90" step="0.1" value="0">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+</body>
+
+</html>

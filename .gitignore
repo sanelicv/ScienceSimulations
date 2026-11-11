@@ -1,0 +1,27 @@
+# =========================================================
+#  .gitignore - Science Simulations
+# =========================================================
+
+# ---------- Herramientas / editores ----------
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ---------- Entorno y logs ----------
+.env
+.env.*
+*.log
+node_modules/
+
+# ---------- Bases de datos locales ----------
+*.db
+*.sqlite
+*.sqlite3
+
+# ---------- Temporales de Office ----------
+~$*

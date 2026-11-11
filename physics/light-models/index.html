@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz: Modelo de Onda vs. Partícula</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Naturaleza de la Luz</h1>
+        <div style="color: var(--text-muted); font-size: 0.85rem; font-weight: 300;">Visualización de la Dualidad Onda-Corpúsculo</div>
+    </header>
+
+    <main class="main-container">
+        <section class="simulation-area">
+            <div class="canvas-wrapper">
+                <div class="canvas-label">Modelo Ondulatorio Clásico</div>
+                <canvas id="waveCanvas"></canvas>
+            </div>
+            
+            <div class="canvas-wrapper">
+                <div class="canvas-label">Modelo de Partícula Cuántica</div>
+                <canvas id="particleCanvas"></canvas>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="controls-card">
+                <div class="control-group">
+                    <div class="control-header">
+                        <span class="control-label">Espectro Visible</span>
+                        <span id="wavelengthDisplay" class="control-value">550 nm</span>
+                    </div>
+                    <div class="spectrum-bar"></div>
+                    <input type="range" id="wavelengthSlider" min="380" max="750" value="550">
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <span class="control-label">Intensidad de Luz (Flujo)</span>
+                        <span id="fluxDisplay" class="control-value">Media</span>
+                    </div>
+                    <input type="range" id="fluxSlider" min="1" max="200" value="40">
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Resumen de Dualidad</h3>
+                <p>Observa cómo el <strong>flujo</strong> se representa de forma distinta en cada modelo:</p>
+                <ul style="margin-top: 0.75rem; padding-left: 1.25rem; color: #ccc; font-size: 0.9rem;">
+                    <li><strong>Onda:</strong> Mayor intensidad aumenta la <em>amplitud</em>.</li>
+                    <li><strong>Partícula:</strong> Mayor intensidad aumenta el <em>conteo de fotones</em>.</li>
+                </ul>
+                
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="font-size: 1rem; margin-bottom: 1rem; color: #fff; text-transform: uppercase; letter-spacing: 1px;">Parámetros Actuales</h3>
+                    <div style="display: grid; gap: 0.75rem; font-size: 0.95rem;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #aaa;">Longitud de Onda:</span>
+                            <span id="infoWavelength" style="color: var(--accent-color); font-family: 'JetBrains Mono';">550 nm</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #aaa;">Frecuencia:</span>
+                            <span id="infoFrequency" style="color: var(--accent-color); font-family: 'JetBrains Mono';">545.1 THz</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                            <span style="color: #aaa;">Energía (J):</span>
+                            <span id="infoEnergyJ" style="color: var(--accent-color); font-family: 'JetBrains Mono';">3.61e-19 J</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #aaa;">Energía (eV):</span>
+                            <span id="infoEnergyEv" style="color: var(--accent-color); font-family: 'JetBrains Mono';">2.25 eV</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

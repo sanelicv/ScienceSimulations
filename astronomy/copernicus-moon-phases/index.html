@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fases planetarias en el Modelo copernicano</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="./lib/p5.min.js"></script>
+  <script src="./lib/instanceMode/customShapes.js"></script>
+</head>
+
+<body>
+
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+    <div class="containerMain">
+      <div id="containerSketch1">
+      </div>
+
+      <div class="containerMenuPC">
+        <div style="display: flex; flex-direction: row ; justify-content: center; text-align: center;">
+        </div>
+        <div class="runContainer" style="margin: 10px; justify-content: center; align-items: center; display: flex">
+          <label>
+            <input type="checkbox" name="checkboxRun1" id="checkboxRun1" checked> Run
+          </label>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <span id="spanSpeed1Text">Velocidad: x</span>
+          <span id="spanSpeed1"></span>
+        </div>
+        <div>
+          <input type="range" name="rangeSpeed1" id="rangeSpeed1" min="0" max="100" step="10" value="20">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <script src="sketch1.js"></script>
+
+</body>
+
+</html>

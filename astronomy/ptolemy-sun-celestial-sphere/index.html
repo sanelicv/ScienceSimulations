@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sol y Esfera Celeste</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="functions.js"></script>
+    <script src="matrix.js"></script>
+    <script src="geometry.js"></script>
+    <script src="coordinates.js"></script>
+    <script src="mesesNombres.js"></script>
+</head>
+
+<body>
+    <div id="menuToggleBtn" onclick="document.getElementById('containerMenu').classList.toggle('hidden')">☰</div>
+    <div id="containerSketch">
+        <span id="dateText">error</span>
+    </div>
+    <div id="containerMenu">
+        <div>
+            <label> <input type="checkbox" id="checkboxRun" name="checkboxRun" checked> Run </label>
+        </div>
+        <br>
+        <div>
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                <div>
+                    <span>Velocidad: </span><span id="spanSpeed"></span>
+                </div>
+                <div>
+                    <input type="range" name="rangeSpeed" id="rangeSpeed" min="0" max="20" step="0.25" value="1"
+                        style="width: 150px;">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label> <input type="checkbox" id="checkboxEarth" name="checkboxEarth" checked> Tierra </label><br>
+            <label> <input type="checkbox" id="checkboxStars" name="checkboxStars" checked> Estrellas </label><br>
+            <label> <input type="checkbox" id="checkboxSphere" name="checkboxSphere"> Grid ecuatorial </label><br>
+            <label> <input type="checkbox" id="checkboxEquator" name="checkboxEquator"> Ecuador Celeste </label><br>
+            <br>
+            <label> <input type="checkbox" id="checkboxSun" name="checkboxSun" checked> Sol </label><br>
+            <label> <input type="checkbox" id="checkboxSunLight" name="checkboxSunLight" checked> Luz solar </label><br>
+            <label> <input type="checkbox" id="checkboxSunPath" name="checkboxSunPath"> Trayectoria del Sol </label><br>
+            <label> <input type="checkbox" id="checkboxEcliptic" name="checkboxEcliptic"> Eclíptica </label><br>
+            <label> <input type="checkbox" id="checkboxOmegaC" name="checkboxOmegaC"> Detener giro de las estrellas
+                fijas </label><br>
+            <label> <input type="checkbox" id="checkboxAmbient" name="checkboxAmbient"> Luz ambiental </label><br>
+            <div style="justify-content: center; display: flex;">
+                <input type="range" id="sld_AmbientLight" min="0" max="255" value="0" style="width: 150px;">
+            </div>
+        </div>
+        <br>
+        <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <div>
+                <span>Inclinación de la eclíptica: </span><span id="spanEcliptic"></span>
+            </div>
+            <div style="justify-content: center; display: flex;">
+                <input type="range" name="rangeEcliptic" id="rangeEcliptic" min="0" max="90" step="1" value="23.4"
+                    style="width: 150px;">
+            </div>
+        </div>
+        <br>
+        <div>
+            <span id="fechaText"></span>
+        </div>
+        <div class="button-container">
+            <button id="b_EquiM" class="button-equiSol" onclick="EquiM_f()">Equi Mar</button>
+            <button id="b_SolJ" class="button-equiSol" onclick="SolJ_f()">Sols Jun</button>
+        </div>
+        <div class="button-container">
+            <button id="b_EquiS" class="button-equiSol" onclick="EquiS_f()">Equi Set</button>
+            <button id="b_SolD" class="button-equiSol" onclick="SolD_f()">Sols Dic</button>
+        </div>
+        <!-- <h3>Sección 2</h3> -->
+        <div style="padding-bottom: 10px; padding-top: 30px;">
+            <label><input type="checkbox" name="checkboxHorizon" id="checkboxHorizon">Horizonte Astronómico</label>
+        </div>
+        <div>
+            Latitud: <input type="number" name="numberLat" id="numberLat" min="-90" max="90" value="0"
+                style="width: 35px;">
+        </div>
+        <div>
+            <input type="range" name="rangeLat" id="rangeLat" min="-90" max="90" value="0" style="width: 150px;">
+        </div>
+    </div>
+
+
+    <!-- Your p5.js sketch file -->
+    <script src="./lib/p5.min.js"></script>
+    <script src="sketch.js"></script>
+
+</body>
+
+</html>

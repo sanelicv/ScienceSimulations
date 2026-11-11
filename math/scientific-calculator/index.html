@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Favicon -->
+    <link rel="icon" href="./icon.png" />
+    <meta property="og:title" content="Scientific Calculator with Variables" />
+    <meta property="og:description" content="A Scientific Calculator with Variables." />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <title>Scientific Calculator with Variables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile devices -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <!-- Top Screen: Editable input for operations -->
+            <div class="display">
+                <input type="text" id="input-display" placeholder="Enter calculation">
+            </div>
+            <!-- Bottom Screen: Non-editable display for results -->
+            <div class="display result-display">
+                <input type="text" id="result-display" readonly>
+            </div>
+            <div class="settings">
+                Decimal Places:
+                <select id="decimal-places">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6" selected>6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="keys">
+                <!-- First Row -->
+                <button class="function" data-function="C">C</button>
+                <button class="function" data-function="CE">CE</button>
+                <button class="function" data-function="Deg">Deg</button>
+                <button class="function" data-function="Rad">Rad</button>
+                <button class="function" data-function="±">±</button>
+                <!-- Second Row -->
+                <button class="function" data-function="sin">sin</button>
+                <button class="function" data-function="cos">cos</button>
+                <button class="function" data-function="tan">tan</button>
+                <button class="function" data-function="log">log</button>
+                <button class="function" data-function="ln">ln</button>
+                <!-- Third Row -->
+                <button class="function" data-function="pi">π</button>
+                <button class="function" data-function="e">e</button>
+                <button class="function" data-function="exp">Exp</button>
+                <button class="function" data-function="abs">abs</button>
+                <button class="function" data-function="ans">Ans</button>
+                <!-- Fourth Row -->
+                <button class="number" data-number="7">7</button>
+                <button class="number" data-number="8">8</button>
+                <button class="number" data-number="9">9</button>
+                <button class="operator" data-operator="+">+</button>
+                <button class="operator" data-operator="-">−</button>
+                <!-- Fifth Row -->
+                <button class="number" data-number="4">4</button>
+                <button class="number" data-number="5">5</button>
+                <button class="number" data-number="6">6</button>
+                <button class="operator" data-operator="*">×</button>
+                <button class="operator" data-operator="/">÷</button>
+                <!-- Sixth Row -->
+                <button class="number" data-number="1">1</button>
+                <button class="number" data-number="2">2</button>
+                <button class="number" data-number="3">3</button>
+                <button class="operator" data-operator="^">^</button>
+                <button class="operator" data-operator="√">√</button>
+                <!-- Seventh Row -->
+                <button class="number" data-number="0">0</button> <!-- Keeps its width -->
+                <button class="operator" data-operator=".">.</button>
+                <button class="operator" data-operator="(">(</button>
+                <button class="operator" data-operator=")">)</button>
+                <!-- Eighth Row -->
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <button class="function equal" data-function="=">=</button> <!-- Spans last two columns -->
+            </div>
+        </div>
+        <!-- Variables Container -->
+        <div class="variables-container">
+            <h2>Variables</h2>
+            <div id="variables-list">
+                <!-- Variables will be listed here -->
+            </div>
+            <button id="clear-variables">Clear Variables</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Cósmico</title>
+  <link rel="stylesheet" href="./fonts/fonts.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Configuración de Calendario</h1>
+      <p class="subtitle">Personaliza tu propio sistema de tiempo</p>
+    </header>
+
+    <section class="config-panel card">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="num-months">Cantidad de meses del año</label>
+          <input type="number" id="num-months" min="1" max="100" value="12">
+        </div>
+        <div class="input-group">
+          <label for="days-per-week">Días por semana</label>
+          <input type="number" id="days-per-week" min="1" max="100" value="7">
+        </div>
+        <div class="input-group">
+          <label for="start-day">Día inicial del año (Ej. 1 para D1)</label>
+          <input type="number" id="start-day" min="1" max="100" value="1">
+        </div>
+      </div>
+
+      <div id="month-durations-container" class="month-durations-grid">
+        <!-- Inputs for month durations will be injected here -->
+      </div>
+
+      <div class="actions">
+        <button id="generate-btn" class="btn btn-primary">Generar Calendario</button>
+        <button id="download-pdf-btn" class="btn btn-secondary" style="display: none; margin-left: 10px;">Descargar
+          PDF</button>
+      </div>
+    </section>
+
+    <section id="calendar-container" class="calendar-container">
+      <!-- Calendar will be generated here -->
+    </section>
+  </div>
+
+  <!-- Context Menu -->
+  <div id="context-menu" class="context-menu hidden">
+    <ul>
+      <li id="menu-new-moon">🌙 Luna Nueva</li>
+      <li id="menu-full-moon">🌕 Luna Llena</li>
+      <li id="menu-remove-moon" class="hidden">❌ Quitar fase lunar</li>
+    </ul>
+  </div>
+
+  <!-- Help Button & Modal -->
+  <button id="help-btn" class="help-btn" aria-label="Guía de uso">?</button>
+
+  <div id="help-modal" class="modal hidden">
+    <div class="modal-content card">
+      <span id="close-modal" class="close-btn">&times;</span>
+      <h2>Guía de Uso del Calendario</h2>
+      <ul class="help-list">
+        <li><span class="highlight-icon">👆</span> <strong>Clic Izquierdo:</strong> Resalta el día para marcar eventos
+          importantes. Vuelve a hacer clic para quitar el resaltado.</li>
+        <li><span class="highlight-icon">🖱️</span> <strong>Clic Derecho:</strong> Abre el menú de fases lunares para
+          agregar una Luna Nueva o Luna Llena al día seleccionado.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

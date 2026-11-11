@@ -1,0 +1,396 @@
+:root {
+    --bg-color: #050505;
+    --panel-bg: rgba(20, 20, 20, 0.7);
+    --accent-color: #00f0ff;
+    --text-main: #e0e0e0;
+    --text-muted: #888;
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --font-ui: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    height: 100vh;
+    overflow: hidden;
+    background-image:
+        radial-gradient(circle at 0% 0%, rgba(0, 240, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(0, 240, 255, 0.03) 0%, transparent 50%);
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+/* Glassmorphism Wrapper from style_guide */
+.glass {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Simulation Area */
+.simulation-area {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#mainCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Sidebar - 320px fixed as per guide */
+.sidebar {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-glass);
+    border-radius: 10px;
+}
+
+.sidebar-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-header p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Controls */
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.control-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-header label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+.value.mono {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
+/* Custom Sliders based on style_guide */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 12px var(--accent-color);
+    cursor: pointer;
+    margin-top: -8px;
+}
+
+.spectrum-container {
+    position: relative;
+    height: 24px;
+    margin-top: 10px;
+}
+
+.spectrum-bar {
+    height: 6px;
+    width: 100%;
+    border-radius: 3px;
+    position: absolute;
+    top: 9px;
+    /* Rango 150 a 800 */
+    /* 150-380 es UV, 380-750 es visible, 750-800 es IR */
+    background: linear-gradient(to right,
+            #2a0044 0%, #4b0082 35%, #0000ff 45%, #00ff00 55%, #ffff00 65%, #ff7f00 75%, #ff0000 90%, #660000 100%);
+}
+
+.spectrum-marker-label {
+    position: absolute;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    top: -5px;
+}
+
+.spectrum-marker-label.uv {
+    left: 0;
+}
+
+.spectrum-marker-label.ir {
+    right: 0;
+}
+
+.spectrum-marker {
+    position: absolute;
+    top: 4px;
+    width: 2px;
+    height: 16px;
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+    transition: left 0.1s ease-out;
+    z-index: 2;
+}
+
+/* Material Chips */
+.material-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.chip.active {
+    background: var(--accent-color);
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Info Cards */
+.info-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.info-card h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.data-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.dot.highlight {
+    background: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.visual-current-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.current-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-color);
+    transition: width 0.3s ease-out;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Overlay UI inside Canvas */
+.simulation-overlay {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.badge {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    width: fit-content;
+}
+
+.physics-readout .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.physics-readout .value {
+    font-size: 1.5rem;
+    color: #fff;
+    display: block;
+}
+
+.footer-info {
+    margin-top: auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-glass);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+    flex-shrink: 0;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Light Theme Variables & Overrides */
+body.light-theme {
+    --bg-color: #f0f4f8;
+    --panel-bg: rgba(255, 255, 255, 0.75);
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --border-glass: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .sidebar-header h1 {
+    background: linear-gradient(135deg, #1a202c, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light-theme .chip {
+    color: #1a202c;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .theme-btn {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .theme-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme input[type="range"] {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme input[type="range"]::-webkit-slider-thumb {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .spectrum-marker {
+    background: #333;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .physics-readout .value {
+    color: var(--text-main);
+}
+
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .simulation-area {
+        height: 500px;
+    }
+}

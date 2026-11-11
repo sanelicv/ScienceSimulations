@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Regresión lineal simple</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tu stylesheet principal (no modificado) -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Estilos adicionales no invasivos -->
+  <link rel="stylesheet" href="styles_regressions.css" />
+</head>
+<body>
+  <div id="app">
+    <aside>
+
+      <div class="title">
+        Regresión lineal simple.
+      </div>
+      <div class="hint">
+        Ajusta tus datos a una función lineal.
+      </div>
+
+      <div class="card margin-top">
+        <div class="row">
+          <input id="csvInput" type="file" accept=".csv,.xls,.xlsx" />
+        </div>
+        <button id="runButton" class="btn success block margin-top" disabled>Importar datos</button>
+      </div>
+
+      <div class="card margin-top">
+        <div class="section-title">Cabeceras detectadas</div>
+        <div id="headerBox" class="mono medium margin-top"></div>
+      </div>
+
+      <div class="card margin-top">
+        <div class="section-title">Mejor ajuste</div>
+        <div id="statsBox" class="mono medium margin-top"></div>
+      </div>
+
+      <div class="card margin-top">
+        <div class="section-title">Detalles del ajuste</div>
+        <div id="statsBoxDetails" class="mono medium margin-top"></div>
+      </div>
+
+      <div class="card margin-top">
+        <div class="section-title">Intervalos 1&sigma;</div>
+        <div id="sigmaBox" class="mono medium margin-top"></div>
+      </div>
+    </aside>
+
+    <div id="canvas-host"></div>
+  </div>
+
+  <!-- Librerías -->
+  <script src="./lib/xlsx.full.min.js"></script>
+  <script src="./lib/p5.min.js"></script>
+
+  <!-- Módulos de la app -->
+  <script src="functions.js"></script>
+  <script src="sketch.js"></script>
+  <script src="import_CSV_XLSX.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

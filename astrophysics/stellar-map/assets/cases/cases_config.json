@@ -1,0 +1,35 @@
+{
+  "Caso 1.xlsx": {
+    "code": "COSMO-2XY5",
+    "name": "Caso 1",
+    "viewMode": "earth",
+    "starScale": 3.0,
+    "fov": 35.0,
+    "targetCamera": {
+      "ra": 7.0,
+      "dec": 23.0
+    },
+    "toggles": {
+      "zodiac": false,
+      "plane": false,
+      "projections": false,
+      "vernal": false,
+      "apparentBrightness": true
+    },
+    "uiRestrictions": {
+      "hideSidebar": true,
+      "lockCamera": true
+    },
+    "tooltip": {
+      "id": true,
+      "name": false,
+      "index": true,
+      "ra": true,
+      "dec": true,
+      "distSun": false,
+      "distObs": false,
+      "lum": true,
+      "flux": true
+    }
+  }
+}

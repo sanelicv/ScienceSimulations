@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espectros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h2> Elementos </h2>
+    <h3>Berilio (Be)</h3>
+    <div class="scroll-container"><img src="imgs/be.png"></div>
+    <h3>Carbono (C)</h3>
+    <div class="scroll-container"><img src="imgs/c.png"></div>
+    <h3>Helio (He)</h3>
+    <div class="scroll-container"><img src="imgs/he.png"></div>
+    <h3>Hierro (Fe)</h3>
+    <div class="scroll-container"><img src="imgs/fe.png"></div>
+    <h3>Hidrógeno (H)</h3>
+    <div class="scroll-container"><img src="imgs/h.png"></div>
+    <h3>Litio (Li)</h3>
+    <div class="scroll-container"><img src="imgs/li.png"></div>
+    <h3>Neón (Ne)</h3>
+    <div class="scroll-container"><img src="imgs/ne.png"></div>
+    <h3>Nitrógeno (N)</h3>
+    <div class="scroll-container"><img src="imgs/n.png"></div>
+    <h3>Oxígeno (O)</h3>
+    <div class="scroll-container"><img src="imgs/o.png"></div>
+    <h3>Sodio (Na)</h3>
+    <div class="scroll-container"><img src="imgs/na.png"></div>
+
+    <h2> Moléculas </h2>
+    <h3>Agua (H<sub>2</sub>O)</h3>
+    <div class="scroll-container"><img src="imgs/h2o.png"></div>
+    <h3>Amoníaco (NH<sub>3</sub>)</h3>
+    <div class="scroll-container"><img src="imgs/nh3.png"></div>
+    <h3>Dióxido de Carbono (CO<sub>2</sub>)</h3>
+    <div class="scroll-container"><img src="imgs/co2.png"></div>
+    <h3>Oxígeno Molecular (O<sub>2</sub>)</h3>
+    <div class="scroll-container"><img src="imgs/o2.png"></div>
+
+    <script>
+        document.querySelectorAll('img').forEach(img => {
+            img.onclick = function () {
+                this.classList.toggle('zoomed');
+            }
+        });
+    </script>
+</body>
+
+</html>

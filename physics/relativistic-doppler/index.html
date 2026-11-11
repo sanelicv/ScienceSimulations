@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doppler Ring — Relativistic Color Shift</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="./lib/p5.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="app">
+
+    <aside>
+
+      <div class="title">
+        Efecto doppler de la luz
+      </div>
+      <div class="hint">
+        Descubre cómo el movimiento de una fuente luminosa cambia el color aparente de la luz que percibimos (corrimiento al azul o al rojo).
+      </div>
+
+      <div class="card margin-top">
+        <div class="row">
+          <div class="hint">
+            <b>Longitud de onda de la fuente (&lambda;)</b><br>
+            Ajusta la longitud de onda de la luz emitida por la fuente en nanómetros (nm).
+          </div>
+        </div>
+        <div class="row margin-top" style="display: flex; width: 100%; align-items: center; gap: 5px;">
+          <span id="lambdaSpanText" style="width: 40px;">&lambda; [nm]:</span>
+          <input type="number" id="lambdaInput" style="width: 60px" min="400" max="700" step="1" value="550">
+          <input type="range" id="lambdaRange" min="400" max="700" step="1" value="550" />
+        </div>
+        <div class="hint margin-top" id="lambdaHint">
+          La fuente emite luz de longitud de onda de 550 nm.
+        </div>
+      </div>
+
+      <div class="card margin-top">
+        <div class="row">
+          <div class="hint">
+            <b>Rapidez de la fuente (v)</b><br>
+            Ajusta la rapidez de la fuente en unidades relativas a la velocidad de la luz en el vacío (c).
+          </div>
+        </div>
+        <div class="row margin-top" style="display: flex; width: 100%; align-items: center; gap: 5px;">
+          <span id="speedSpanText" style="width: 40px;">v [c]:</span>
+          <input type="number" id="speedInput" style="width: 60px" min="0" max="0.99" step="0.01" value="0.2">
+          <input type="range" id="speedRange" min="0" max="0.99" step="0.01" value="0.2" />
+        </div>
+        <div class="hint margin-top" id="speedHint">
+          La fuente se mueve al 25% de la velocidad de la luz.
+        </div>
+        <div class="row margin-top" style="justify-content: center;">
+          <button id="startButton" class="btn">Iniciar simulación</button>          
+        </div>
+      </div>
+
+      <div class="card margin-top">
+        <div class="row" style="justify-content: center;">
+          <button id="resetButton" class="btn">Reiniciar simulación</button>
+        </div>
+      </div>
+
+      
+
+    </aside>
+
+    <div id="canvas-host">
+    </div>
+
+  </div>
+
+  <script src="sketch.js" defer></script>
+</body>
+</html>

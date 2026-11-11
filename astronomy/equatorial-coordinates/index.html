@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coordenadas Ecuatoriales - Simulación Astronómica</title>
+
+  <!-- Google Fonts Inter -->
+  <link rel="stylesheet" href="./fonts/fonts.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- External Local Libraries -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/lib/three.module.js",
+        "OrbitControls": "./assets/lib/OrbitControls.js",
+        "SmoothZoomController": "./assets/lib/SmoothZoomController.js",
+        "OrbitLocalViewController": "./assets/lib/orbitLocalViewController.js"
+      }
+    }
+  </script>
+  <script src="./assets/lib/xlsx.full.min.js"></script>
+
+  <!-- Data Importer -->
+  <script src="import_CSV_XLSX.js" defer></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- Desktop Full-Width Top Menu Bar -->
+    <header class="top-menubar">
+      <div class="menubar-branding">
+        <svg class="app-logo" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none" />
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="currentColor" stroke-width="1.2" fill="none" />
+          <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+        </svg>
+        <span class="app-title">Coordenadas Ecuatoriales</span>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="menubar-nav">
+
+        <!-- Estrellas Menu -->
+        <div class="menu-item">
+          <button class="menu-btn" id="menuStarsBtn">
+            <span>Estrellas</span>
+            <svg class="chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="menuStarsDropdown">
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="vectorCheckbox">
+              <span>Activar Estrella Guía Vectorial</span>
+            </label>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" id="openImportModalBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span>Importar catálogo de estrellas</span>
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item text-danger" id="clearStarsButton">
+              <svg viewBox="0 0 24 24">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              <span>Eliminar todas las estrellas</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ver  Menu -->
+        <div class="menu-item">
+          <button class="menu-btn" id="menuViewBtn">
+            <span>Ver</span>
+            <svg class="chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="menuViewDropdown">
+            <div class="dropdown-header">Elementos 3D</div>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="gridCheckbox" checked>
+              <span>Grid Ecuatorial</span>
+            </label>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="sphereCheckbox" checked>
+              <span>Superficie esférica</span>
+            </label>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="coordCheckbox">
+              <span>Malla Coordenadas Ecuatoriales</span>
+            </label>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="equatorCheckbox">
+              <span>Ecuador Celeste</span>
+            </label>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="eclipticCheckbox">
+              <span>Eclíptica</span>
+            </label>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="vernalCheckbox">
+              <span>Punto Vernal</span>
+            </label>
+            <div class="dropdown-divider"></div>
+            <label class="dropdown-checkbox">
+              <input type="checkbox" id="starIndexCheckbox" disabled>
+              <span>Mostrar Índices de Estrellas</span>
+            </label>
+          </div>
+        </div>
+
+
+
+        <!-- Cámara Menu -->
+        <div class="menu-item">
+          <button class="menu-btn" id="menuCameraBtn">
+            <span>Cámara</span>
+            <svg class="chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="menuCameraDropdown">
+            <div class="dropdown-header">Tipo de Vista</div>
+            <label class="dropdown-radio">
+              <input type="radio" name="camSelectRadio" value="camSphere" checked id="camSphereRadio">
+              <span>🌐 Esfera Celeste</span>
+            </label>
+            <label class="dropdown-radio">
+              <input type="radio" name="camSelectRadio" value="camLatitude" id="camLatitudeRadio">
+              <span>🔭 Horizonte Astronómico</span>
+            </label>
+            <!-- Hidden fallback select for strict JS compatibility -->
+            <select id="camSelect" style="display: none;">
+              <option value="camSphere">Esfera Celeste</option>
+              <option value="camLatitude">Horizonte Astronómico</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Ayuda Menu -->
+        <div class="menu-item">
+          <button class="menu-btn" id="menuHelpBtn">
+            <span>Ayuda</span>
+            <svg class="chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="menuHelpDropdown">
+            <button class="dropdown-item" id="openHelpModalBtn">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>Acerca del Simulador...</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Real-time RA / Dec Badge -->
+      <div id="overlayText" class="menubar-badge" style="display: none;">
+        <div class="badge-item">
+          <label>RA:</label>
+          <span id="RAOverlayText">0.00 h</span>
+        </div>
+        <div class="badge-item">
+          <label>Dec:</label>
+          <span id="DecOverlayText">+0.0°</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Three.js 3D Viewport Host -->
+    <div id="canvas-host"></div>
+
+    <!-- Floating Widget: Horizon / Latitude Controls (Appears in Local View) -->
+    <div class="floating-widget bottom-center" id="horizonWidget" style="display: none;">
+      <div class="widget-header">
+        <svg class="widget-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span class="widget-title">Observador en el Horizonte</span>
+      </div>
+      <div class="widget-content">
+        <!-- Earth's rotation -->
+        <div class="widget-row" id="earthRotationRow">
+          <label for="earthRotationRange">Rotación</label>
+          <input type="range" name="earthRotationRange" id="earthRotationRange" min="0" max="360" step="0.01" value="0">
+        </div>
+        <!-- Latitude -->
+        <div class="widget-row" id="latitudeRow">
+          <label for="latitudeInput" style="width: 70px;">Latitud [°]</label>
+          <input type="number" id="latitudeInput" min="-90" max="90" step="0.01" value="-12.05">
+          <div id="currentCityBadge" class="current-city-badge" title="Ubicación seleccionada">
+            <span class="city-badge-text">📍 Lima, Perú</span>
+          </div>
+        </div>
+        <button id="openLocationModalBtn" class="btn btn-secondary block mt-4">
+          📍 Seleccionar ubicación (Capitales)...
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating Widget: Guide Star Controls (Appears when Guide Star is enabled) -->
+    <div class="floating-widget bottom-left" id="guideStarWidget" style="display: none;">
+      <div class="widget-header">
+        <svg class="widget-icon" viewBox="0 0 24 24">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+          </polygon>
+        </svg>
+        <span class="widget-title">Estrella Guía Vectorial</span>
+        <button class="widget-close-btn" id="closeGuideStarWidgetBtn" title="Desactivar estrella guía">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="widget-content">
+        <div class="widget-row">
+          <label>RA [h]</label>
+          <input type="number" id="RAInput" min="0" max="24" step="0.01" value="0">
+          <input type="range" name="RARange" id="RARange" min="0" max="24" step="0.01" value="0">
+        </div>
+        <div class="widget-row">
+          <label>Dec [°]</label>
+          <input type="number" id="DecInput" min="-90" max="90" step="0.01" value="0">
+          <input type="range" name="DecRange" id="DecRange" min="-90" max="90" step="0.01" value="0">
+        </div>
+        <button id="addStarButton" class="btn btn-primary block">
+          ➕ Agregar estrella
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal: Import CSV / XLSX File -->
+  <div class="modal-overlay" id="importModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </div>
+        <div class="modal-title">Importar Catálogo de Estrellas</div>
+        <button class="modal-close-btn" id="closeImportModalButton" title="Cerrar (Esc)">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="hint mb-12">
+          Sube un archivo <b>.csv</b>, <b>.xls</b> o <b>.xlsx</b> con columnas "ra" y "dec".
+        </div>
+        <div class="file-dropzone" id="fileDropzone">
+          <input type="file" id="csvInput" accept=".csv,.xls,.xlsx">
+          <svg class="dropzone-icon" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <div class="dropzone-text" id="dropzoneText">Seleccionar o arrastrar archivo</div>
+          <div class="dropzone-subtext">CSV, XLS o XLSX (máx. 1 MB)</div>
+          <div class="dropzone-file-info" id="dropzoneFileInfo" style="display: none;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelImportModalButton">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Help / About -->
+  <div class="modal-overlay" id="helpModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge info">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </div>
+        <div class="modal-title">Acerca del Simulador</div>
+        <button class="modal-close-btn" id="closeHelpModalButton" title="Cerrar (Esc)">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        Este simulador interactivo permite ubicar y proyectar astros en la <b>Esfera Celeste</b> utilizando
+        <b>Coordenadas Ecuatoriales (RA y Dec)</b>.
+
+        <b>Controles principales:</b>
+        • <b>Arrastrar con el ratón</b>: Rotación de la cámara panorámica u orbital.
+        • <b>Rueda del ratón</b>: Zoom inercial (en Vista Global) / Zoom FOV telescópico (en Vista Horizonte).
+        • <b>Teclas de dirección (⬅️ ➡️ ⬆️ ⬇️)</b>: Modificar RA (±0.01h) y Dec (±0.01°) de la Estrella Guía.
+        • <b>Menú Superior</b>: Alternar entre la Esfera Celeste y el Horizonte del Observador, activar ayudas visuales
+        (Ecuador, Eclíptica, Punto Vernal) o cargar estrellas desde CSV/Excel.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="acceptHelpModalButton">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sober Error Modal -->
+  <div class="modal-overlay" id="errorModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge danger">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="modal-title" id="errorModalTitle">Error de archivo</div>
+        <button class="modal-close-btn" id="closeErrorModalBtn" title="Cerrar (Esc)">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="errorModalBody">
+        No se pudo procesar el archivo.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="closeErrorModalButton">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sober Confirmation Modal for Star Deletion -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge danger">
+          <svg viewBox="0 0 24 24">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+        </div>
+        <div class="modal-title" id="confirmModalTitle">Eliminar estrellas</div>
+        <button class="modal-close-btn" id="closeConfirmModalBtn" title="Cerrar (Esc)">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="confirmModalBody">
+        ¿Está seguro de que desea eliminar todas las estrellas de la Esfera Celeste? Esta acción no se puede deshacer.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelConfirmModalButton">Cancelar</button>
+        <button class="btn btn-danger" id="acceptConfirmModalButton">Eliminar todas</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Select Observer Location (World Capitals) -->
+  <div class="modal-overlay" id="locationModal">
+    <div class="modal-card location-modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="modal-title">Seleccionar Ubicación (Capitales)</div>
+        <button class="modal-close-btn" id="closeLocationModalBtn" title="Cerrar (Esc)">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="city-search-box">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="citySearchInput" placeholder="Buscar ciudad o país..." autocomplete="off">
+          <button id="clearCitySearchBtn" class="clear-search-btn" title="Limpiar búsqueda" style="display: none;">
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="city-results-container">
+          <ul id="cityResultsList" class="city-list"></ul>
+          <div id="noCityResults" class="no-results-msg" style="display: none;">
+            No se encontraron ciudades que coincidan.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="closeLocationModalButton">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Initializer Script -->
+  <script type="module">
+    import { CelestialScene } from './js/celestialScene.js';
+    import { UIController } from './js/uiController.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('canvas-host');
+      const scene = new CelestialScene(container);
+      const ui = new UIController(scene);
+
+      // Expose celestialScene instance for CSV loader
+      window.celestialScene = scene;
+    });
+  </script>
+</body>
+
+</html>

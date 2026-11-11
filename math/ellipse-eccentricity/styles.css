@@ -1,0 +1,190 @@
+/* Clean, sober light-mode styles for Ellipse Eccentricity App */
+
+:root {
+  /* Dimensions & Widths */
+  --modal-min-width: 400px;
+  --modal-max-width: 90vw;
+  --input-number-width: 64px;
+  --slider-thumb-size: 20px;
+  --slider-track-height: 6px;
+
+  /* Typography / Font sizes */
+  --font-size-label: 20px;
+  --font-size-input: 18px;
+
+  /* Colors */
+  --bg-color: #ffffff;
+  --text-color: #1c1e21;
+  --label-color: #2b2d42;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --modal-bg: rgba(255, 255, 255, 0.94);
+  --input-bg: #f8fafc;
+  --track-bg: #e2e8f0;
+  --border-color: rgba(0, 0, 0, 0.08);
+
+  /* Border Radii */
+  --modal-radius: 14px;
+  --input-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+#ellipseCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Floating control panel at top left */
+#ecc-container {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  transform: none;
+  z-index: 10;
+  background: var(--modal-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--modal-radius);
+  padding: 16px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  min-width: var(--modal-min-width);
+  max-width: var(--modal-max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#eLabel {
+  font-size: var(--font-size-label);
+  font-weight: 600;
+  color: var(--label-color);
+  letter-spacing: -0.2px;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+}
+
+#eValue {
+  display: inline-block;
+  min-width: 48px;
+  text-align: left;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Slider style */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: var(--slider-track-height);
+  background: var(--track-bg);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--slider-thumb-size);
+  height: var(--slider-thumb-size);
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: var(--primary-hover);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: var(--slider-thumb-size);
+  height: var(--slider-thumb-size);
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  background: var(--primary-hover);
+}
+
+/* Number input style */
+input[type="number"] {
+  width: var(--input-number-width);
+  padding: 6px 8px;
+  font-size: var(--font-size-input);
+  font-family: inherit;
+  font-weight: 500;
+  color: #1e293b;
+  background-color: var(--input-bg);
+  border: 1px solid #cbd5e1;
+  border-radius: var(--input-radius);
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background-color: #ffffff;
+}
+
+/* Hide spin buttons for number input on WebKit */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

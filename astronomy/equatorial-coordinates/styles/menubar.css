@@ -1,0 +1,223 @@
+/* Desktop Full-Width Top Menu Bar (Dedicated Container) */
+header.top-menubar {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+  z-index: 100;
+  background: var(--menubar-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--menubar-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+}
+
+/* Branding Logo & App Title */
+.menubar-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-logo {
+  width: 22px;
+  height: 22px;
+  color: var(--accent-primary);
+}
+
+.app-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Top Menubar Navigation Items */
+.menubar-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  margin-left: 12px;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.menu-btn:hover,
+.menu-item.active .menu-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.menu-btn .chevron {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  transition: transform 0.2s ease;
+}
+
+.menu-item.active .chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 240px;
+  background: var(--dropdown-bg);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.menu-item.active .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-header {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 6px 10px 4px;
+}
+
+.dropdown-item {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  transition: background 0.12s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--accent-primary);
+  stroke-width: 2;
+  fill: none;
+}
+
+.dropdown-item.text-danger {
+  color: #fca5a5;
+}
+
+.dropdown-item.text-danger svg {
+  stroke: var(--accent-danger);
+}
+
+.dropdown-item.text-danger:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 4px 0;
+}
+
+/* Radio & Checkbox Dropdown Items */
+.dropdown-checkbox,
+.dropdown-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: background 0.12s ease;
+  user-select: none;
+}
+
+.dropdown-checkbox:hover,
+.dropdown-radio:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dropdown-checkbox input[type="checkbox"],
+.dropdown-radio input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+/* Top Menubar Real-time Overlay Badge */
+.menubar-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-item label {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+.badge-item span {
+  color: var(--accent-primary);
+  font-family: monospace;
+}

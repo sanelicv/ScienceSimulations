@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espectro visible del hidrógeno</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/p5.min.js"></script>
+    <script src="functions.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="sketch"></div>
+        <div id="text">            
+            Longitud de onda (nm)
+            <input type="range" id="mySlider" min="400" max="700" value="400" oninput="updateSliderValue()">
+            <input type="number" id="myInput" min="400" max="700" value="400">
+            <br>
+            <button id="myButton">Lanzar Fotón</button>
+            <br>
+            <h3>Espectro visible del hidrógeno:</h3>
+            
+            <img src="imgs/espectroH.png" alt="Description of Image" width="150">
+        </div>
+    </div>
+    
+     
+    <!-- Your p5.js sketch file -->
+    <script src="sketch.js"></script>
+      
+</body>
+</html>

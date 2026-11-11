@@ -1,0 +1,346 @@
+:root {
+  --bg: #05070d;
+  --panel: rgba(12, 16, 28, 0.82);
+  --panel-border: rgba(140, 170, 255, 0.18);
+  --text: #eef1f8;
+  --text2: #a9b2c8;
+  --muted: #6f7890;
+  --accent: #7fd4ff;
+  --photon: #ffd75a;
+  --neutrino: #22e8ff;   /* el mismo cian que NU_COLOR en settings.js */
+  --muon: #ff6f8a;      /* el mismo que LEPTONS.muon.label en settings.js */
+  --electron: #ffb347;  /* el mismo que LEPTONS.electron.label */
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+canvas { display: block; }
+
+#loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--text2);
+}
+
+/* ---------- Panel de información ---------- */
+.panel {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  transition: opacity 0.3s;
+}
+.panel h1 { font-size: var(--fs-titulo); margin: 0 0 4px; font-weight: 650; }
+.panel .sub { color: var(--text2); font-size: var(--fs-subtitulo); margin: 0 0 12px; line-height: 1.4; }
+.panel .info { font-size: var(--fs-descripcion); line-height: 1.5; color: var(--text2); margin: 10px 0; }
+.panel .info b { color: var(--text); }
+.panel .group { margin: 12px 0 4px; }
+.panel .group-label { font-size: var(--fs-tituloGrupo); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
+.panel .row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.btn {
+  font: inherit;
+  font-size: var(--fs-botones);
+  padding: 6px 11px;
+  border-radius: 7px;
+  touch-action: manipulation;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover { background: rgba(255, 255, 255, 0.12); }
+.btn.active { background: var(--accent); color: #04121c; border-color: var(--accent); font-weight: 600; }
+.btn kbd { font-size: var(--fs-teclaBoton); opacity: 0.6; margin-left: 4px; font-family: inherit; }
+
+.slider { width: 100%; accent-color: var(--accent); }
+.slider-row { display: flex; align-items: center; gap: 8px; font-size: var(--fs-valorSlider); color: var(--text2); }
+.slider-row span { min-width: 44px; text-align: right; }
+
+.stats { margin-top: 12px; font-size: var(--fs-datos); display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; }
+.stats .k { color: var(--text2); }
+.stats .v { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+
+.back {
+  display: inline-block;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: var(--fs-enlaceMenu);
+  margin-bottom: 10px;
+}
+.back:hover { color: var(--text); }
+
+.keys { margin-top: 12px; font-size: var(--fs-atajos); color: var(--muted); line-height: 1.6; }
+
+/* Menú mínimo: título y botón, arriba a la izquierda */
+.panel.compact {
+  right: auto;
+  width: auto;
+  max-width: none;
+  padding: 12px 16px;
+  overflow: visible;
+  text-align: center;
+}
+.panel.compact > :not(h1):not(.controls) { display: none; }
+.panel.compact h1 { margin: 0 0 10px; line-height: 0; }
+.panel .logo { display: block; width: var(--logo-ancho); height: auto; margin: 0 auto; }
+/* Logo en blanco (config.js: logoEnBlanco) */
+.panel .logo.white { filter: brightness(0) invert(1); }
+.panel.compact .group { margin: 0; }
+.panel.compact .controls { display: flex; flex-direction: column; gap: 6px; }
+.panel.compact .btn { width: var(--btn-menuAncho); height: var(--btn-menuAlto); padding: 0 6px; }
+
+/* ---------- Narración (subtítulo inferior) ---------- */
+.caption {
+  position: fixed;
+  left: 50%;
+  bottom: max(28px, calc(env(safe-area-inset-bottom) + 12px));
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: min(900px, calc(100vw - 540px));   /* deja libre la leyenda a su derecha */
+  padding: 12px 22px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  font-size: var(--fs-narracion);
+  line-height: 1.4;
+  text-align: center;
+  z-index: 10;
+  transition: opacity 0.4s;
+  pointer-events: none;   /* sin texto, no debe estorbar al girar la cámara */
+}
+.caption:empty { opacity: 0; }
+.caption .step-texts { display: grid; }
+/* Todas en la misma celda: la caja mide lo que la más larga y no cambia de tamaño al avanzar */
+.caption .step-text {
+  grid-area: 1 / 1;
+  align-self: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.caption .step-text.current { visibility: visible; opacity: 1; }
+/* Flechas a los lados de la descripción */
+.caption .step-box {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  margin: 0 -12px;
+}
+.btn.step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-flechas);
+  height: var(--btn-flechas);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent);
+  pointer-events: auto;
+  transition: background 0.2s, color 0.2s;
+}
+.btn.step-nav svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.btn.step-nav:hover:not(:disabled) { background: rgba(127, 212, 255, 0.16); }
+/* Mientras la escena avanza, o si no hay adónde ir, la flecha queda en reposo */
+.btn.step-nav:disabled { color: var(--muted); opacity: 0.45; cursor: default; }
+
+/* ---------- Etiquetas 3D ---------- */
+.label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  font-size: var(--fs-etiqueta);
+  color: var(--text);
+  text-shadow: 0 0 4px #000, 0 0 8px #000;
+  white-space: nowrap;
+  will-change: transform;
+  z-index: 5;
+}
+.label.small { font-size: var(--fs-etiquetaPequena); color: var(--text2); }
+.label.big { font-size: var(--fs-etiquetaGrande); font-weight: 600; }
+
+.hidden-ui .panel, .hidden-ui .caption, .hidden-ui .legend, .hidden-ui .corner-tools { opacity: 0; pointer-events: none; }
+
+/* Esquina superior derecha: idioma y pantalla completa */
+.corner-tools {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lang-toggle {
+  display: flex;
+  height: var(--btn-idiomaAlto);
+  padding: 3px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 7px;
+  backdrop-filter: blur(6px);
+}
+.lang-toggle button {
+  font: inherit;
+  font-size: var(--fs-idioma);
+  letter-spacing: 0.03em;
+  min-width: 28px;
+  padding: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.2s, color 0.2s;
+}
+.lang-toggle button:hover:not(.on) { color: var(--text); }
+.lang-toggle button.on { background: rgba(127, 212, 255, 0.2); color: var(--text); font-weight: 600; }
+.fs-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-pantallaCompleta);
+  height: var(--btn-pantallaCompleta);
+  padding: 0;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+}
+.fs-btn:hover { background: rgba(40, 48, 70, 0.92); }
+.fs-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.legend {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  font-size: var(--fs-leyenda);
+  color: var(--text2);
+  z-index: 10;
+}
+.legend .bar { width: 100%; min-width: 200px; height: 10px; border-radius: 5px; margin: 6px 0 4px; }
+.legend .ends { display: flex; justify-content: space-between; }
+.legend .sep { height: 1px; background: var(--panel-border); margin: 9px 0 7px; }
+.legend .barkey { display: flex; align-items: flex-end; gap: 3px; }
+.legend .barkey i { display: block; width: 9px; border-radius: 2px 2px 0 0; background: var(--text2); }
+.legend .barkey span { margin-left: 7px; }
+.legend b { color: var(--text); font-weight: 600; }
+.legend .dotkey { display: flex; align-items: center; gap: 4px; }
+.legend .dotkey i { display: block; border-radius: 50%; background: var(--text2); }
+.legend .dotkey span { margin-left: 6px; }
+
+/* ---------- Vista desplegada del tanque: techo, pared y fondo ---------- */
+/* A la izquierda, bajo el menú: no tapa la leyenda ni la narración */
+.unrolled {
+  position: fixed;
+  left: max(16px, env(safe-area-inset-left));
+  top: calc(max(16px, env(safe-area-inset-top)) + var(--menu-alto, 150px));
+  width: var(--btn-vistaDesplegada);
+  padding: 6px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  pointer-events: none;
+}
+.unrolled.on { opacity: 1; visibility: visible; }
+.unrolled canvas { display: block; width: 100%; }
+.hidden-ui .unrolled { opacity: 0; }
+
+.note { position: fixed; right: 16px; top: 16px; font-size: 12px; color: var(--muted); z-index: 10; text-align: right; }
+
+/* Tablets: la leyenda sube a la esquina superior derecha y la narración ocupa el ancho de abajo */
+@media (max-width: 1100px) {
+  .caption { max-width: min(720px, calc(100vw - 32px)); }
+  .legend { top: calc(max(16px, env(safe-area-inset-top)) + var(--btn-pantallaCompleta) + 8px); bottom: auto; }
+}
+
+/* Celulares, en vertical o en horizontal */
+@media (max-width: 700px), (max-height: 500px) {
+  .caption {
+    max-width: min(720px, calc(100vw - 24px));
+    padding: 8px 14px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .corner-tools {
+    top: max(12px, env(safe-area-inset-top));
+    right: max(12px, env(safe-area-inset-right));
+  }
+  .legend {
+    top: calc(max(12px, env(safe-area-inset-top)) + var(--btn-pantallaCompleta) + 8px);
+    right: max(12px, env(safe-area-inset-right));
+    bottom: auto;
+    max-width: calc(100vw - 172px);
+    padding: 7px 10px;
+  }
+  .caption .step-box { gap: 2px; margin: 0 -8px; }
+  .legend .bar { min-width: 0; height: 7px; margin: 4px 0 2px; }
+  .legend .sep { margin: 6px 0 5px; }
+  .panel.compact {
+    top: max(12px, env(safe-area-inset-top));
+    left: max(12px, env(safe-area-inset-left));
+    padding: 8px 10px;
+  }
+  .unrolled {
+    left: max(12px, env(safe-area-inset-left));
+    top: calc(max(12px, env(safe-area-inset-top)) + var(--menu-alto, 120px));
+    padding: 4px;
+  }
+}
+
+/* Celular en horizontal: hay poca altura, título y botón van en una fila */
+@media (max-height: 500px) {
+  .panel.compact { display: flex; align-items: center; gap: 10px; }
+  .panel.compact h1 { margin: 0; }
+  .corner-tools { flex-direction: column-reverse; align-items: flex-end; gap: 6px; }
+  .lang-toggle button { min-width: 21px; padding: 0 2px; }
+  .panel .logo { width: min(var(--logo-ancho), 80px); }   /* va en fila con los botones: hay poco ancho */
+  .legend {
+    top: max(12px, env(safe-area-inset-top));
+    right: calc(max(12px, env(safe-area-inset-right)) + var(--btn-pantallaCompleta) + 8px);
+  }
+  .panel.compact .controls { flex-direction: row; }
+}
+
+/* Pantallas táctiles: sin la pista del teclado */
+@media (hover: none) {
+  .btn kbd { display: none; }
+}

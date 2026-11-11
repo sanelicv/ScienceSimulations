@@ -1,0 +1,24 @@
+/* ==========================================================================
+   THREE SCENE COMPONENT - Estilos Modulares Reutilizables (Co-located Component)
+   Contenedor principal del lienzo WebGL de Three.js
+   ========================================================================== */
+
+#canvas-container,
+.three-scene-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  outline: none;
+}
+
+#canvas-container canvas,
+.three-scene-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+}

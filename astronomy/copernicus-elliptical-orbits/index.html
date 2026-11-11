@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Órbitas Elípticas</title>
+  <script src='./lib/p5.min.js'></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #eccLabel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10; /* Ensure it's above the canvas */
+        width: 250px;
+        font-size: 20px;
+    }
+    #eccSlider {
+        position: absolute;
+        top: 50px;
+        left: 20px;
+        z-index: 10; /* Ensure it's above the canvas */
+        width: 200px;
+    }
+  </style>
+  <script src="sketch.js"></script>
+</head>
+<body>
+    <div id="containerMain">
+
+        <div id="containerSketch">
+            <label id='eccLabel'>Excentricidad: e = 0</label>
+            <input type='range' id='eccSlider' min='0' max='0.9' step='0.01' value='0'>
+        </div>
+
+    </div> 
+</body>
+</html>

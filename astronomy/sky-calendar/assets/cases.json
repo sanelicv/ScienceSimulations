@@ -1,0 +1,2436 @@
+[
+  {
+    "id": "case-0",
+    "title": "La Tierra",
+    "tropicalYear": 365.25,
+    "eclipticTilt": 24,
+    "latitude": -12,
+    "moons": [
+      {
+        "synodicMonthDays": 29.5,
+        "phaseOffset": 0.3,
+        "size": 37.96610169491525,
+        "delta": 1.8849555921538759
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 7,
+        "distanceToSun": 0.39,
+        "initialPhase": -1.5952917725869904
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 3.4,
+        "distanceToSun": 0.72,
+        "initialPhase": 2.4184301074996073
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.85,
+        "distanceToSun": 1.52,
+        "initialPhase": 1.7424194959752901
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.3,
+        "distanceToSun": 5.2,
+        "initialPhase": 1.952367997115216
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.5,
+        "distanceToSun": 9.5,
+        "initialPhase": 1.387344579641307
+      }
+    ]
+  },
+  {
+    "id": "case-1",
+    "title": "Caso 1",
+    "tropicalYear": 363.12343806787806,
+    "eclipticTilt": -16,
+    "latitude": -26,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.3941751057682277,
+        "distanceToSun": 0.23379005084676788,
+        "initialPhase": 0.8870633000912598
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.5411393063296202,
+        "distanceToSun": 0.7737843113911529,
+        "initialPhase": 2.0418885117189634
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.252655883719183,
+        "distanceToSun": 1.9487140471937736,
+        "initialPhase": 3.05667604522682
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.2263602832361724,
+        "distanceToSun": 1.6190363158755152,
+        "initialPhase": 2.0992116619932677
+      }
+    ]
+  },
+  {
+    "id": "case-2",
+    "title": "Caso 2",
+    "tropicalYear": 120.0100441034313,
+    "eclipticTilt": 12,
+    "latitude": -48,
+    "moons": [
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 1,
+        "size": 46.66666666666667,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.1882010605719144,
+        "distanceToSun": 0.8899580983297308,
+        "initialPhase": 2.8236515461821634
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.8159644501742123,
+        "distanceToSun": 0.809174494986673,
+        "initialPhase": 0.006285340236556802
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.96433172101883,
+        "distanceToSun": 0.517593578948023,
+        "initialPhase": 1.031476611042474
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.13050736305237676,
+        "distanceToSun": 1.8100654506309573,
+        "initialPhase": 1.7862013986616425
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.08670926665400458,
+        "distanceToSun": 1.7836757060076343,
+        "initialPhase": -2.5858986137485376
+      }
+    ]
+  },
+  {
+    "id": "case-3",
+    "title": "Caso 3",
+    "tropicalYear": 169.72472301202407,
+    "eclipticTilt": 4,
+    "latitude": -23,
+    "moons": [
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 0.25,
+        "size": 46.66666666666667,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.462771467555978,
+        "distanceToSun": 0.24093799132174798,
+        "initialPhase": -2.8063250663608437
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.16906695445322306,
+        "distanceToSun": 0.7138876822435531,
+        "initialPhase": 0.021227448546496497
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.261822711501606,
+        "distanceToSun": 0.2932556267082256,
+        "initialPhase": 0.6840563773663466
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.713926299728421,
+        "distanceToSun": 1.1957681921911014,
+        "initialPhase": 1.8294570332709723
+      }
+    ]
+  },
+  {
+    "id": "case-4",
+    "title": "Caso 4",
+    "tropicalYear": 215.65110817600902,
+    "eclipticTilt": 6,
+    "latitude": -6,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 1,
+        "size": 56,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.5383389255183406,
+        "distanceToSun": 0.7714350090777233,
+        "initialPhase": -1.817397308510879
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.1644459315720082,
+        "distanceToSun": 0.7747870244470476,
+        "initialPhase": -2.864213867405004
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.9725291203100856,
+        "distanceToSun": 1.4737504492804079,
+        "initialPhase": -0.15474585114680384
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.6277335900117476,
+        "distanceToSun": 1.1954353988865283,
+        "initialPhase": 1.0464922471758529
+      }
+    ]
+  },
+  {
+    "id": "case-5",
+    "title": "Caso 5",
+    "tropicalYear": 314.2278322605099,
+    "eclipticTilt": 2,
+    "latitude": -48,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 1,
+        "size": 35,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.4565859271996775,
+        "distanceToSun": 0.3674395679624722,
+        "initialPhase": 2.2213673298079266
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.349047575565675,
+        "distanceToSun": 0.39243526669936113,
+        "initialPhase": -2.000330793901584
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.7473017085355487,
+        "distanceToSun": 1.5754484370467088,
+        "initialPhase": 0.6629110498502322
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.973987166903239,
+        "distanceToSun": 1.3364757003607803,
+        "initialPhase": 2.006612441804778
+      }
+    ]
+  },
+  {
+    "id": "case-6",
+    "title": "Caso 6",
+    "tropicalYear": 276.05000818331894,
+    "eclipticTilt": 25,
+    "latitude": -46,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.75,
+        "size": 40,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.4125054147556888,
+        "distanceToSun": 0.5217540236565332,
+        "initialPhase": -0.054307236684850935
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.620619172188853,
+        "distanceToSun": 0.7602915243345989,
+        "initialPhase": -2.8564104060850313
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.6653660524519616,
+        "distanceToSun": 1.169793454198445,
+        "initialPhase": -1.802512072689544
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.8673441593736184,
+        "distanceToSun": 1.5867050323867857,
+        "initialPhase": 1.5978786304461696
+      }
+    ]
+  },
+  {
+    "id": "case-7",
+    "title": "Caso 7",
+    "tropicalYear": 139.99097950139665,
+    "eclipticTilt": -29,
+    "latitude": 11,
+    "moons": [
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 0.25,
+        "size": 46.66666666666667,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.10165079566562252,
+        "distanceToSun": 0.5666574012911566,
+        "initialPhase": 1.9875875497702618
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.5255547969497814,
+        "distanceToSun": 0.7182471403815578,
+        "initialPhase": 1.9922336471776845
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.9483602400841726,
+        "distanceToSun": 1.2497290305876303,
+        "initialPhase": 1.340978654460768
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.09995624361019484,
+        "distanceToSun": 1.2958372546464425,
+        "initialPhase": -1.4009937534545356
+      }
+    ]
+  },
+  {
+    "id": "case-8",
+    "title": "Caso 8",
+    "tropicalYear": 211.43837297096428,
+    "eclipticTilt": 22,
+    "latitude": 31,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 1,
+        "size": 31.11111111111111,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.7246926969937535,
+        "distanceToSun": 0.27408114126341976,
+        "initialPhase": 3.0009375782504417
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.4828900745160758,
+        "distanceToSun": 0.5239054668482932,
+        "initialPhase": -0.8325996191590188
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.0989683188340793,
+        "distanceToSun": 0.47938527221110006,
+        "initialPhase": 2.1622035903863015
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.198024013964579,
+        "distanceToSun": 1.7419576524110645,
+        "initialPhase": -2.192602332241431
+      }
+    ]
+  },
+  {
+    "id": "case-9",
+    "title": "Caso 9",
+    "tropicalYear": 269.69741155624376,
+    "eclipticTilt": 6,
+    "latitude": 22,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.9292476941811132,
+        "distanceToSun": 0.6192396756883061,
+        "initialPhase": 0.32009860949623237
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.34295991225714495,
+        "distanceToSun": 0.8241990552378402,
+        "initialPhase": 2.3330919676434823
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.3060484400841816,
+        "distanceToSun": 0.378084344236578,
+        "initialPhase": 1.7023508768444415
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.9429287306272194,
+        "distanceToSun": 1.335615478000446,
+        "initialPhase": -3.1078829427148658
+      }
+    ]
+  },
+  {
+    "id": "case-10",
+    "title": "Caso 10",
+    "tropicalYear": 111.0587208005656,
+    "eclipticTilt": 26,
+    "latitude": -23,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 0.25,
+        "size": 70,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.1962379491116253,
+        "distanceToSun": 0.6512159800004407,
+        "initialPhase": 1.7960596809387033
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.0557350610892637,
+        "distanceToSun": 0.5480712992153014,
+        "initialPhase": -1.3015973239383658
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.4707310473288775,
+        "distanceToSun": 1.2268020290538757,
+        "initialPhase": -0.32586283365886626
+      }
+    ]
+  },
+  {
+    "id": "case-11",
+    "title": "Caso 11",
+    "tropicalYear": 376.8894540580345,
+    "eclipticTilt": 29,
+    "latitude": 11,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.1341036063748051,
+        "distanceToSun": 0.23688252481973499,
+        "initialPhase": -0.030963286798856515
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.094806402048473,
+        "distanceToSun": 0.6800182978965018,
+        "initialPhase": -1.2915873533512294
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.7687849758784315,
+        "distanceToSun": 1.1886510382338773,
+        "initialPhase": -0.3843765574989182
+      }
+    ]
+  },
+  {
+    "id": "case-12",
+    "title": "Caso 12",
+    "tropicalYear": 119.66876365690294,
+    "eclipticTilt": -10,
+    "latitude": 37,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.75,
+        "size": 56,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.228312761286574,
+        "distanceToSun": 0.7356491688360329,
+        "initialPhase": 1.622229548792813
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.2291622762811212,
+        "distanceToSun": 0.38091295279803383,
+        "initialPhase": 0.7010100581949832
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.7748455960784293,
+        "distanceToSun": 0.22756353670667742,
+        "initialPhase": -1.5920372456613627
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.0172710909456981,
+        "distanceToSun": 1.672830680715896,
+        "initialPhase": -2.5517929568950883
+      }
+    ]
+  },
+  {
+    "id": "case-13",
+    "title": "Caso 13",
+    "tropicalYear": 172.64736835516908,
+    "eclipticTilt": -14,
+    "latitude": 12,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 1,
+        "size": 40,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.836827736849473,
+        "distanceToSun": 0.7749218697672862,
+        "initialPhase": 0.20774324142562195
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.787031799379502,
+        "distanceToSun": 0.8409990871425741,
+        "initialPhase": 1.6545903705466287
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.1248407810064776,
+        "distanceToSun": 0.76123155119617,
+        "initialPhase": 1.1115612699009372
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.1713437666913054,
+        "distanceToSun": 1.1557748417627254,
+        "initialPhase": 2.898312065963956
+      }
+    ]
+  },
+  {
+    "id": "case-14",
+    "title": "Caso 14",
+    "tropicalYear": 372.32029026163065,
+    "eclipticTilt": -25,
+    "latitude": 3,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 1,
+        "size": 35,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.053238637850539,
+        "distanceToSun": 0.373063428596412,
+        "initialPhase": 1.85796427051541
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.5743592351308844,
+        "distanceToSun": 0.31225759273073866,
+        "initialPhase": 2.1623551429201404
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.14647775788409678,
+        "distanceToSun": 1.510075062158542,
+        "initialPhase": -1.2456495535030059
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.6678917187562101,
+        "distanceToSun": 1.7288982425326718,
+        "initialPhase": 2.1366329212679513
+      }
+    ]
+  },
+  {
+    "id": "case-15",
+    "title": "Caso 15",
+    "tropicalYear": 129.3575121774594,
+    "eclipticTilt": 30,
+    "latitude": 43,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.4656985162459888,
+        "distanceToSun": 0.770456650943321,
+        "initialPhase": -0.7156687958196346
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.9250855233976276,
+        "distanceToSun": 0.7174474756371243,
+        "initialPhase": 1.8663746420267513
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.6118521450590126,
+        "distanceToSun": 1.6388995216386286,
+        "initialPhase": -1.1886178831010545
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.8560773344392292,
+        "distanceToSun": 1.6893400667459515,
+        "initialPhase": -0.9170294463463167
+      }
+    ]
+  },
+  {
+    "id": "case-16",
+    "title": "Caso 16",
+    "tropicalYear": 276.08132485979274,
+    "eclipticTilt": 24,
+    "latitude": -51,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 0.75,
+        "size": 35,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.216949986430887,
+        "distanceToSun": 0.28249782865919537,
+        "initialPhase": -0.10148264352636849
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.9197544212567594,
+        "distanceToSun": 0.6892172294425895,
+        "initialPhase": -1.0725797254531555
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.2444248032317957,
+        "distanceToSun": 0.663628282638,
+        "initialPhase": -1.7406141002452462
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.30671420073663747,
+        "distanceToSun": 1.779331584263621,
+        "initialPhase": 1.6781387915573545
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.7401360586344747,
+        "distanceToSun": 1.6490677296875003,
+        "initialPhase": -1.806299943599206
+      }
+    ]
+  },
+  {
+    "id": "case-17",
+    "title": "Caso 17",
+    "tropicalYear": 383.1009746812375,
+    "eclipticTilt": -26,
+    "latitude": 12,
+    "moons": [
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 0.75,
+        "size": 28,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.9049946842607821,
+        "distanceToSun": 0.887933948935163,
+        "initialPhase": -2.469848769502427
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.8167316562696945,
+        "distanceToSun": 0.4925954118672448,
+        "initialPhase": 2.255900693300717
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.26358094759398476,
+        "distanceToSun": 0.41425719257822474,
+        "initialPhase": -2.2903376188186084
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.4405315408368873,
+        "distanceToSun": 1.1104488262924146,
+        "initialPhase": 0.30403087365868187
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.4168913621540264,
+        "distanceToSun": 1.979763417580998,
+        "initialPhase": -2.648896467958937
+      }
+    ]
+  },
+  {
+    "id": "case-18",
+    "title": "Caso 18",
+    "tropicalYear": 170.5740588109561,
+    "eclipticTilt": -2,
+    "latitude": 23,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.75,
+        "size": 56,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.9304624580939098,
+        "distanceToSun": 0.23269118189255092,
+        "initialPhase": 3.0267240745296524
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.8678929140609895,
+        "distanceToSun": 0.8765059599999026,
+        "initialPhase": -0.3948754975097417
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.1271169953055407,
+        "distanceToSun": 0.29627330773580995,
+        "initialPhase": -1.0553339723030515
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.5892799331754666,
+        "distanceToSun": 1.4120710582752345,
+        "initialPhase": -2.831278871969076
+      }
+    ]
+  },
+  {
+    "id": "case-19",
+    "title": "Caso 19",
+    "tropicalYear": 167.77230492502173,
+    "eclipticTilt": -23,
+    "latitude": -54,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.07068870001055805,
+        "distanceToSun": 0.5458563889278893,
+        "initialPhase": -2.8897987311007545
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.2301765843296018,
+        "distanceToSun": 0.6568784626292358,
+        "initialPhase": 0.5583493061929312
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.1734245817615272,
+        "distanceToSun": 1.5551276464172412,
+        "initialPhase": -2.2205902202035395
+      }
+    ]
+  },
+  {
+    "id": "case-20",
+    "title": "Caso 20",
+    "tropicalYear": 179.58376743609773,
+    "eclipticTilt": -8,
+    "latitude": 59,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 1,
+        "size": 56,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.79303038912545,
+        "distanceToSun": 0.6505688589203631,
+        "initialPhase": 2.288215883309716
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.2299729525912646,
+        "distanceToSun": 0.4411466120730184,
+        "initialPhase": 1.0833654413392342
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.9530134489290423,
+        "distanceToSun": 0.6359866368432083,
+        "initialPhase": -0.5677724990109785
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.4959709605580613,
+        "distanceToSun": 1.2236450037698328,
+        "initialPhase": -0.7266031150967138
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.4248875089079984,
+        "distanceToSun": 1.681870320152468,
+        "initialPhase": -0.6633799933512772
+      }
+    ]
+  },
+  {
+    "id": "case-21",
+    "title": "Caso 21",
+    "tropicalYear": 345.5713733504889,
+    "eclipticTilt": -12,
+    "latitude": 58,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.25,
+        "size": 56,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.9617188826624665,
+        "distanceToSun": 0.662338866157117,
+        "initialPhase": -1.3465891665176104
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.6557371129752947,
+        "distanceToSun": 0.5626031587249158,
+        "initialPhase": 2.7969072126904138
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.8486122958520146,
+        "distanceToSun": 0.5973938599457305,
+        "initialPhase": 1.9386567789411968
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.0999034193876325,
+        "distanceToSun": 1.910880521466249,
+        "initialPhase": -2.169023834032374
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.3273110600298157,
+        "distanceToSun": 1.2470663386106682,
+        "initialPhase": 1.906199047410583
+      }
+    ]
+  },
+  {
+    "id": "case-22",
+    "title": "Caso 22",
+    "tropicalYear": 164.06987329475845,
+    "eclipticTilt": 28,
+    "latitude": 42,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.7952576196076926,
+        "distanceToSun": 0.5156849995117142,
+        "initialPhase": 1.1226427910413657
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.790436993759059,
+        "distanceToSun": 0.2893635486623847,
+        "initialPhase": -0.15072590699252597
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.7956636991068105,
+        "distanceToSun": 0.7267986637817481,
+        "initialPhase": -2.679810617046457
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.957996578459011,
+        "distanceToSun": 1.65322582953381,
+        "initialPhase": 2.7079970816109453
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.6095234469206297,
+        "distanceToSun": 1.6318624853764967,
+        "initialPhase": 1.2619957831980146
+      }
+    ]
+  },
+  {
+    "id": "case-23",
+    "title": "Caso 23",
+    "tropicalYear": 366.3525026556203,
+    "eclipticTilt": 26,
+    "latitude": -5,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.05244435224326294,
+        "distanceToSun": 0.624276396097809,
+        "initialPhase": 0.7327404613408217
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.7934994007543206,
+        "distanceToSun": 0.6417943452865208,
+        "initialPhase": 0.25410027438872174
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.078141842694687,
+        "distanceToSun": 1.4234195979724305,
+        "initialPhase": -0.15313859623601855
+      }
+    ]
+  },
+  {
+    "id": "case-24",
+    "title": "Caso 24",
+    "tropicalYear": 291.5157048835946,
+    "eclipticTilt": 9,
+    "latitude": -22,
+    "moons": [
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 1,
+        "size": 46.66666666666667,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.12973147003067176,
+        "distanceToSun": 0.3273434193347081,
+        "initialPhase": -2.58056893746924
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.7613672017842621,
+        "distanceToSun": 0.30275641677116416,
+        "initialPhase": 2.9964429810434314
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.7047803137794304,
+        "distanceToSun": 1.7049826993468935,
+        "initialPhase": 1.030233266700317
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.13841697462712865,
+        "distanceToSun": 1.1494117972020013,
+        "initialPhase": -0.023922378321519666
+      }
+    ]
+  },
+  {
+    "id": "case-25",
+    "title": "Caso 25",
+    "tropicalYear": 153.49139642316507,
+    "eclipticTilt": 21,
+    "latitude": 48,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 0.75,
+        "size": 35,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.956013459034713,
+        "distanceToSun": 0.4672311585076685,
+        "initialPhase": 1.6786321573589298
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.6315093955904043,
+        "distanceToSun": 0.8375261213853675,
+        "initialPhase": 2.013968641711701
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.4544009033954266,
+        "distanceToSun": 0.3348541316730857,
+        "initialPhase": 2.874279121677028
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.97645739469136,
+        "distanceToSun": 1.7294917705944415,
+        "initialPhase": -0.1953646801012603
+      }
+    ]
+  },
+  {
+    "id": "case-26",
+    "title": "Caso 26",
+    "tropicalYear": 184.4790154461084,
+    "eclipticTilt": 3,
+    "latitude": -23,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.25,
+        "size": 40,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.933384125150445,
+        "distanceToSun": 0.6098192447245006,
+        "initialPhase": -2.125610953595401
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.9805572043805548,
+        "distanceToSun": 0.22907174939648456,
+        "initialPhase": -0.2654404622089195
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.25384068006300353,
+        "distanceToSun": 0.3787685376746188,
+        "initialPhase": -1.8175924326920205
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.7792712038346292,
+        "distanceToSun": 1.9037424897616928,
+        "initialPhase": -0.8268390007538726
+      }
+    ]
+  },
+  {
+    "id": "case-27",
+    "title": "Caso 27",
+    "tropicalYear": 368.1883985029571,
+    "eclipticTilt": 21,
+    "latitude": -59,
+    "moons": [
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 1,
+        "size": 28,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.767517149860147,
+        "distanceToSun": 0.20594521829477805,
+        "initialPhase": 0.7585639652782032
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.534862292624956,
+        "distanceToSun": 0.40811348078483156,
+        "initialPhase": 2.9911676494662274
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.6234355681630732,
+        "distanceToSun": 1.8819524287139517,
+        "initialPhase": -0.25504189302796876
+      }
+    ]
+  },
+  {
+    "id": "case-28",
+    "title": "Caso 28",
+    "tropicalYear": 330.7202611943685,
+    "eclipticTilt": -24,
+    "latitude": 50,
+    "moons": [
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 1,
+        "size": 28,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.6051995316518752,
+        "distanceToSun": 0.6533906333143689,
+        "initialPhase": 3.026294672474168
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.8327760325228453,
+        "distanceToSun": 0.6920622092375789,
+        "initialPhase": -0.9709842318911619
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.2112565439939003,
+        "distanceToSun": 0.8427218977966793,
+        "initialPhase": -1.6931945498162806
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.17862688902189205,
+        "distanceToSun": 1.5225537805090943,
+        "initialPhase": 0.056639317961052704
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.2202547230010072,
+        "distanceToSun": 1.9479799555580128,
+        "initialPhase": -1.7392333425122952
+      }
+    ]
+  },
+  {
+    "id": "case-29",
+    "title": "Caso 29",
+    "tropicalYear": 195.61930810428476,
+    "eclipticTilt": -21,
+    "latitude": -55,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.75,
+        "size": 40,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.5393467867558543,
+        "distanceToSun": 0.6231995734238672,
+        "initialPhase": -1.0245962696832458
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.4260806159219412,
+        "distanceToSun": 0.44613022651917034,
+        "initialPhase": -1.7981411954731055
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.068795913585646,
+        "distanceToSun": 0.8468154348477999,
+        "initialPhase": 1.4970778251678567
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.07993566776388628,
+        "distanceToSun": 1.898677110431926,
+        "initialPhase": -1.3342141407806303
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.9565428767381752,
+        "distanceToSun": 1.888473302175334,
+        "initialPhase": 0.5791047449425561
+      }
+    ]
+  },
+  {
+    "id": "case-30",
+    "title": "Caso 30",
+    "tropicalYear": 128.78393676499996,
+    "eclipticTilt": -15,
+    "latitude": -10,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.957746581976476,
+        "distanceToSun": 0.3756275233864222,
+        "initialPhase": 1.9288069178971323
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.5156751736119833,
+        "distanceToSun": 0.4949921191241789,
+        "initialPhase": -1.1727738322207675
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.840711814295487,
+        "distanceToSun": 1.7071153768856184,
+        "initialPhase": 1.0831240691770914
+      }
+    ]
+  },
+  {
+    "id": "case-31",
+    "title": "Caso 31",
+    "tropicalYear": 146.56568946274035,
+    "eclipticTilt": -16,
+    "latitude": 12,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.25,
+        "size": 40,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.5478616366430593,
+        "distanceToSun": 0.43568234801236294,
+        "initialPhase": -0.12694293321665207
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.23391156461560936,
+        "distanceToSun": 0.33726493723975703,
+        "initialPhase": 1.0256845197627582
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.8373197639909327,
+        "distanceToSun": 0.7756724671950397,
+        "initialPhase": -2.0904132608120234
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.3279960148282157,
+        "distanceToSun": 1.9147012308704552,
+        "initialPhase": -1.129358360339901
+      }
+    ]
+  },
+  {
+    "id": "case-32",
+    "title": "Caso 32",
+    "tropicalYear": 243.7019534948479,
+    "eclipticTilt": 26,
+    "latitude": -30,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.25,
+        "size": 40,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.810919686830398,
+        "distanceToSun": 0.6781033820558653,
+        "initialPhase": 2.1312192112967647
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.3201073401998138,
+        "distanceToSun": 0.8727616562332281,
+        "initialPhase": 0.6695656831861925
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.9456064118146292,
+        "distanceToSun": 1.6877645988896923,
+        "initialPhase": -2.479471353991493
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.7234454890474344,
+        "distanceToSun": 1.1593863571678966,
+        "initialPhase": 0.501127459970419
+      }
+    ]
+  },
+  {
+    "id": "case-33",
+    "title": "Caso 33",
+    "tropicalYear": 244.36567437237628,
+    "eclipticTilt": 24,
+    "latitude": 25,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 1,
+        "size": 35,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.693011989708495,
+        "distanceToSun": 0.8895275354345937,
+        "initialPhase": 0.7143114664288208
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.1141328290349026,
+        "distanceToSun": 0.6213965443027415,
+        "initialPhase": 1.1189623340140704
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.3250701314241105,
+        "distanceToSun": 0.24129442400858736,
+        "initialPhase": -1.3080519968445175
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.8810159966917723,
+        "distanceToSun": 1.325649156898072,
+        "initialPhase": -0.5529394945276098
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.19709542205493324,
+        "distanceToSun": 1.6080830391317769,
+        "initialPhase": -1.3807452232649309
+      }
+    ]
+  },
+  {
+    "id": "case-34",
+    "title": "Caso 34",
+    "tropicalYear": 280.41087894234903,
+    "eclipticTilt": 14,
+    "latitude": -14,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.75,
+        "size": 56,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.25772402364606073,
+        "distanceToSun": 0.7023958285887029,
+        "initialPhase": -0.384978821837481
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.907880477465664,
+        "distanceToSun": 0.7213849918891297,
+        "initialPhase": -1.1164971318714834
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.08938144407566773,
+        "distanceToSun": 0.3024982863011189,
+        "initialPhase": 2.902524587177962
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.30021793929727725,
+        "distanceToSun": 1.871414757870686,
+        "initialPhase": -1.220053733209103
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.8157147455461269,
+        "distanceToSun": 1.9392125421336406,
+        "initialPhase": 0.4890912408233703
+      }
+    ]
+  },
+  {
+    "id": "case-35",
+    "title": "Caso 35",
+    "tropicalYear": 330.62506087006784,
+    "eclipticTilt": 19,
+    "latitude": -57,
+    "moons": [
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 0.75,
+        "size": 46.66666666666667,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.9476120054072226,
+        "distanceToSun": 0.7780636922672084,
+        "initialPhase": 2.3742530561356485
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.370147834185331,
+        "distanceToSun": 0.731368014666749,
+        "initialPhase": 3.1312649367039356
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.471658029309483,
+        "distanceToSun": 0.36493461207866446,
+        "initialPhase": -2.7376532788119037
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.516581422475637,
+        "distanceToSun": 1.1182412942639144,
+        "initialPhase": -1.7190820030677647
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.577416508584237,
+        "distanceToSun": 1.9125683321655358,
+        "initialPhase": -0.0043258946160920075
+      }
+    ]
+  },
+  {
+    "id": "case-36",
+    "title": "Caso 36",
+    "tropicalYear": 333.27075439554585,
+    "eclipticTilt": 14,
+    "latitude": -2,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.6129987675120212,
+        "distanceToSun": 0.762645472824639,
+        "initialPhase": 1.2556135023946666
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.416547772434326,
+        "distanceToSun": 0.7612549411574892,
+        "initialPhase": 0.09814590284811908
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.9711866279940002,
+        "distanceToSun": 1.431160853420516,
+        "initialPhase": -2.0363362149825734
+      }
+    ]
+  },
+  {
+    "id": "case-37",
+    "title": "Caso 37",
+    "tropicalYear": 247.466840907181,
+    "eclipticTilt": 24,
+    "latitude": -31,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 0.75,
+        "size": 35,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.3542574670805223,
+        "distanceToSun": 0.6919940753232469,
+        "initialPhase": -2.313745591558417
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.0346607589009853,
+        "distanceToSun": 0.8164401375197057,
+        "initialPhase": -2.3352958521981253
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.1967841552990626,
+        "distanceToSun": 0.6876399928837729,
+        "initialPhase": 1.2920540941611725
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.2230672421438853,
+        "distanceToSun": 1.8735465605509056,
+        "initialPhase": -1.4570451464177956
+      }
+    ]
+  },
+  {
+    "id": "case-38",
+    "title": "Caso 38",
+    "tropicalYear": 165.62027662382815,
+    "eclipticTilt": 11,
+    "latitude": -38,
+    "moons": [
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.25,
+        "size": 56,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.1313698544396793,
+        "distanceToSun": 0.4422251198028596,
+        "initialPhase": -0.8984266267769212
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.4618359212783076,
+        "distanceToSun": 0.42570507618125475,
+        "initialPhase": -2.0372322430358514
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.8510598136729133,
+        "distanceToSun": 1.1177854052904568,
+        "initialPhase": -0.14021526133728335
+      }
+    ]
+  },
+  {
+    "id": "case-39",
+    "title": "Caso 39",
+    "tropicalYear": 104.43349488846827,
+    "eclipticTilt": -24,
+    "latitude": 60,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.15113312893932118,
+        "distanceToSun": 0.8905505770349758,
+        "initialPhase": -2.5738412678122864
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.5410024744016066,
+        "distanceToSun": 0.8775737189522006,
+        "initialPhase": -2.178694890238757
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.8560053106455499,
+        "distanceToSun": 0.7562610224461324,
+        "initialPhase": -0.11044373765756355
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.6333888955332814,
+        "distanceToSun": 1.3273373100755155,
+        "initialPhase": -1.8077711071434115
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.25339742863107295,
+        "distanceToSun": 1.7699666170946962,
+        "initialPhase": -0.0926686190191055
+      }
+    ]
+  },
+  {
+    "id": "case-40",
+    "title": "Caso 40",
+    "tropicalYear": 146.16960586289522,
+    "eclipticTilt": 23,
+    "latitude": 16,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 1,
+        "size": 35,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.34264492241469435,
+        "distanceToSun": 0.6972080044458537,
+        "initialPhase": -0.5430076108506778
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.328044655507787,
+        "distanceToSun": 0.3843331040516492,
+        "initialPhase": 2.908171236821185
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.2913316635902934,
+        "distanceToSun": 1.7948417709018258,
+        "initialPhase": 2.944162165448258
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.871286674780655,
+        "distanceToSun": 1.7975797447141344,
+        "initialPhase": 0.16202374828506105
+      }
+    ]
+  },
+  {
+    "id": "case-41",
+    "title": "Caso 41",
+    "tropicalYear": 247.79847870634026,
+    "eclipticTilt": -30,
+    "latitude": 6,
+    "moons": [
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.75,
+        "size": 40,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.76246078911346,
+        "distanceToSun": 0.6778547776400284,
+        "initialPhase": -1.379018736006775
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.3489127131942746,
+        "distanceToSun": 0.8810788982688207,
+        "initialPhase": 2.5809789280970374
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.6400605567355266,
+        "distanceToSun": 0.6744300017140289,
+        "initialPhase": 1.2174357278746388
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.7212909865445774,
+        "distanceToSun": 1.3427741724249795,
+        "initialPhase": 1.3088524540132642
+      }
+    ]
+  },
+  {
+    "id": "case-42",
+    "title": "Caso 42",
+    "tropicalYear": 334.236250527552,
+    "eclipticTilt": 15,
+    "latitude": -59,
+    "moons": [
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 1,
+        "size": 28,
+        "delta": 6.283185307179586
+      },
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.75,
+        "size": 56,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.9916627650038143,
+        "distanceToSun": 0.2676710190725147,
+        "initialPhase": 1.4299009239066223
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.3689584484368842,
+        "distanceToSun": 0.7842964362618368,
+        "initialPhase": 1.9153752288915626
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.7838857869057145,
+        "distanceToSun": 0.8519928429957946,
+        "initialPhase": -1.7045832940860304
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.926214263461841,
+        "distanceToSun": 1.7331591910482245,
+        "initialPhase": -0.9575964539455484
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.9496082929785516,
+        "distanceToSun": 1.6830132118615797,
+        "initialPhase": 0.06840081864825898
+      }
+    ]
+  },
+  {
+    "id": "case-43",
+    "title": "Caso 43",
+    "tropicalYear": 212.80339862561618,
+    "eclipticTilt": 27,
+    "latitude": 19,
+    "moons": [
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 0.75,
+        "size": 46.66666666666667,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.75,
+        "size": 31.11111111111111,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.1548477344012142,
+        "distanceToSun": 0.34825154945520487,
+        "initialPhase": 0.40046329390702695
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.2670826676401319,
+        "distanceToSun": 0.5504166631946487,
+        "initialPhase": 1.0184624610835051
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.4240824460159995,
+        "distanceToSun": 1.5112226133575748,
+        "initialPhase": -0.25042419451657505
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.422412893236058,
+        "distanceToSun": 1.188597284642205,
+        "initialPhase": 2.9776260071236766
+      }
+    ]
+  },
+  {
+    "id": "case-44",
+    "title": "Caso 44",
+    "tropicalYear": 238.02026029549268,
+    "eclipticTilt": 29,
+    "latitude": 2,
+    "moons": [
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      },
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.75,
+        "size": 40,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.2511865045472481,
+        "distanceToSun": 0.7441902810654033,
+        "initialPhase": 2.927742921254774
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.6040115970432005,
+        "distanceToSun": 0.24155680070180557,
+        "initialPhase": 3.085669227469543
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.9034283232926112,
+        "distanceToSun": 0.23868568053403805,
+        "initialPhase": 2.9288514061712716
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.9171624750293255,
+        "distanceToSun": 1.1559810879036414,
+        "initialPhase": 1.4858579743023297
+      }
+    ]
+  },
+  {
+    "id": "case-45",
+    "title": "Caso 45",
+    "tropicalYear": 152.75688113850146,
+    "eclipticTilt": 4,
+    "latitude": -25,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 1,
+        "size": 70,
+        "delta": 6.283185307179586
+      },
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.25,
+        "size": 31.11111111111111,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.9280724112497021,
+        "distanceToSun": 0.6040934171150902,
+        "initialPhase": -0.32246555792136844
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.2289612828194727,
+        "distanceToSun": 0.7900871030182779,
+        "initialPhase": 1.3015424234323252
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.1477966971085278,
+        "distanceToSun": 1.2068341882829372,
+        "initialPhase": 1.4032189187251234
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.6102794359400714,
+        "distanceToSun": 1.934375667968649,
+        "initialPhase": -2.0881092771904637
+      }
+    ]
+  },
+  {
+    "id": "case-46",
+    "title": "Caso 46",
+    "tropicalYear": 269.48736765583385,
+    "eclipticTilt": -3,
+    "latitude": -50,
+    "moons": [
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 0.75,
+        "size": 35,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 0.75,
+        "size": 28,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 36,
+        "phaseOffset": 0.75,
+        "size": 31.11111111111111,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.365268851929983,
+        "distanceToSun": 0.5203149333103141,
+        "initialPhase": 3.059041576077213
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.2648242124809368,
+        "distanceToSun": 0.5861377426818313,
+        "initialPhase": -1.1232691197670603
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.3823271026724422,
+        "distanceToSun": 0.7571485018186053,
+        "initialPhase": -1.0887782012332288
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.35026914399392517,
+        "distanceToSun": 1.6565876286755519,
+        "initialPhase": 1.999755897733821
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.2619325752984842,
+        "distanceToSun": 1.9738336190203318,
+        "initialPhase": 1.9851588805391192
+      }
+    ]
+  },
+  {
+    "id": "case-47",
+    "title": "Caso 47",
+    "tropicalYear": 368.16516525040765,
+    "eclipticTilt": -1,
+    "latitude": -56,
+    "moons": [
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 1,
+        "size": 28,
+        "delta": 6.283185307179586
+      },
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 1,
+        "size": 56,
+        "delta": 6.283185307179586
+      },
+      {
+        "synodicMonthDays": 24,
+        "phaseOffset": 0.75,
+        "size": 46.66666666666667,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.49451267179603864,
+        "distanceToSun": 0.5670466877122169,
+        "initialPhase": 1.5773573964582281
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.7220807314627407,
+        "distanceToSun": 0.7325453656425553,
+        "initialPhase": -1.0674431416793548
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -2.5117021249281666,
+        "distanceToSun": 0.8784981057538501,
+        "initialPhase": -2.9952979341792143
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.4915123337541605,
+        "distanceToSun": 1.7077028671119179,
+        "initialPhase": -1.8478720679835146
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.9721121913844737,
+        "distanceToSun": 1.4313457244093102,
+        "initialPhase": 0.8943186134118468
+      }
+    ]
+  },
+  {
+    "id": "case-48",
+    "title": "Caso 48",
+    "tropicalYear": 112.12142022501513,
+    "eclipticTilt": -21,
+    "latitude": 55,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 0.75,
+        "size": 70,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.25,
+        "size": 56,
+        "delta": 1.5707963267948966
+      },
+      {
+        "synodicMonthDays": 28,
+        "phaseOffset": 0.25,
+        "size": 40,
+        "delta": 1.5707963267948966
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.07583735356204979,
+        "distanceToSun": 0.8093929572208254,
+        "initialPhase": -2.651081189463168
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.6453104234991294,
+        "distanceToSun": 0.46799812748465425,
+        "initialPhase": 0.8963231960941167
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.2620113349556332,
+        "distanceToSun": 0.2627456647363728,
+        "initialPhase": 2.9527815962974904
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.4813009621813156,
+        "distanceToSun": 1.420668832659099,
+        "initialPhase": -2.181277073855773
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.6674229718326004,
+        "distanceToSun": 1.627768381524011,
+        "initialPhase": 3.0154916656263193
+      }
+    ]
+  },
+  {
+    "id": "case-49",
+    "title": "Caso 49",
+    "tropicalYear": 388.14714509733204,
+    "eclipticTilt": 12,
+    "latitude": 15,
+    "moons": [
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 0.25,
+        "size": 28,
+        "delta": 1.5707963267948966
+      },
+      {
+        "synodicMonthDays": 20,
+        "phaseOffset": 0.25,
+        "size": 56,
+        "delta": 1.5707963267948966
+      },
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 0.75,
+        "size": 35,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 0.2236953092150742,
+        "distanceToSun": 0.4851444913367478,
+        "initialPhase": -1.0795251611412469
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.7404781094801276,
+        "distanceToSun": 0.2628829307887506,
+        "initialPhase": 2.547398657745082
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 2.403561261541048,
+        "distanceToSun": 1.8535191873825325,
+        "initialPhase": -3.030952995335873
+      }
+    ]
+  },
+  {
+    "id": "case-50",
+    "title": "Caso 50",
+    "tropicalYear": 267.9464682855539,
+    "eclipticTilt": -22,
+    "latitude": -49,
+    "moons": [
+      {
+        "synodicMonthDays": 16,
+        "phaseOffset": 0.75,
+        "size": 70,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 40,
+        "phaseOffset": 0.75,
+        "size": 28,
+        "delta": 4.71238898038469
+      },
+      {
+        "synodicMonthDays": 32,
+        "phaseOffset": 0.75,
+        "size": 35,
+        "delta": 4.71238898038469
+      }
+    ],
+    "planets": [
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -0.242028444869673,
+        "distanceToSun": 0.5754784311251164,
+        "initialPhase": -1.3348870671536808
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": -1.4022623751751597,
+        "distanceToSun": 0.8789111300987293,
+        "initialPhase": 0.9547810770129406
+      },
+      {
+        "color": "#FFFFFF",
+        "size": 2,
+        "tiltOffset": 1.1237342397888845,
+        "distanceToSun": 1.9157038324555233,
+        "initialPhase": -2.719578236837849
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Si utilizas este software, por favor cítalo con estos metadatos. / If you use this software, please cite it using these metadata."
+type: software
+title: "Science Simulations: interactive physics, astronomy and cosmology simulations for teaching"
+abstract: >-
+  Collection of self-contained, offline-capable interactive simulations of
+  mathematics, physics, astronomy, astrophysics, cosmology and high-energy
+  physics, built as educational tools. They are didactic resources and have
+  not been scientifically validated.
+authors:
+  - given-names: Saneli Alcides
+    family-names: Carbajal Vigo
+    affiliation: "Universidad del Pacífico, Lima, Perú"
+    orcid: "https://orcid.org/0000-0001-6064-7250"
+repository-code: "https://github.com/sanelicv/ScienceSimulations"
+url: "https://3o4cosas.com"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-11"
+keywords:
+  - physics education
+  - astronomy education
+  - cosmology
+  - interactive simulations
+  - educational software

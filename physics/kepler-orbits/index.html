@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación del Sistema de Tycho Brahe</title>
+  <meta name="description" content="Una simulación profesional del modelo Geo-Heliocéntrico de Tycho Brahe.">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="./fonts/fonts.css">
+
+  <!-- SlimSelect CSS -->
+  <link href="./lib/slim-select/slimselect.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- UI Controls -->
+  <div id="ui" class="professional-panel">
+    <div class="panel-header">
+      <h1>Panel de Control</h1>
+    </div>
+
+    <div class="control-group">
+      <span class="label">Velocidad Orbital</span>
+      <input type="range" id="speedSlider" min="0" max="10" step="0.01" value="1">
+    </div>
+
+    <div class="control-group">
+      <span class="label">Astro Objetivo</span>
+      <select id="planetSelector">
+        <option value="all">Visión Completa</option>
+        <option value="Mercurio">Mercurio</option>
+        <option value="Venus">Venus</option>
+        <option value="Tierra">Tierra</option>
+        <option value="Marte">Marte</option>
+        <option value="Júpiter">Júpiter</option>
+        <option value="Saturno">Saturno</option>
+      </select>
+    </div>
+
+    <!-- Laboratorio Controles -->
+    <div id="labControls" class="control-group" style="display: none;">
+      <div class="label-row">
+        <span class="label">Excentricidad (e)</span>
+        <input type="number" id="eccInput" min="0" max="0.99" step="0.01" value="0.00" class="mini-input">
+      </div>
+      <input type="range" id="eccSlider" min="0" max="0.99" step="0.01" value="0.00">
+    </div>
+
+    <div class="control-group" id="visGroup">
+      <span class="label">Visualización Gráfica</span>
+
+      <div class="toggle-list">
+        <label class="toggle-row-item" id="rowToggleTrails">
+          <span class="toggle-label">Rastros Orbitales</span>
+          <div class="switch">
+            <input type="checkbox" id="toggleTrailsCheckbox">
+            <span class="switch-slider"></span>
+          </div>
+        </label>
+
+        <label class="toggle-row-item" id="rowToggleNames">
+          <span class="toggle-label">Etiquetas</span>
+          <div class="switch">
+            <!-- As ui.js sets showLabels to true defaultly -->
+            <input type="checkbox" id="toggleNamesCheckbox" checked>
+            <span class="switch-slider"></span>
+          </div>
+        </label>
+
+        <label class="toggle-row-item" id="rowToggleOrbits">
+          <span class="toggle-label">Trayectorias Visuales</span>
+          <div class="switch">
+            <input type="checkbox" id="toggleOrbitsCheckbox">
+            <span class="switch-slider"></span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulation Canvas -->
+  <canvas id="simCanvas"></canvas>
+
+  <!-- Scripts -->
+  <script type="module" src="js/modules/Main.js"></script>
+</body>
+
+</html>

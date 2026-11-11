@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Gravity Simulation</title>
+  <meta name="description"
+    content="A simulation demonstrating the difference between Newtonian and Einsteinian gravity propagation.">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="./fonts/fonts.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- UI Controls -->
+  <div id="ui">
+    <h1>System Controls</h1>
+
+    <div class="control-group">
+      <span class="label">Gravity Propagation</span>
+      <div class="segmented-control">
+        <button class="mode-btn active" data-value="newton" aria-label="Newtonian Gravity Mode">Newtonian</button>
+        <button class="mode-btn" data-value="einstein" aria-label="Einsteinian Gravity Mode">Einsteinian</button>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button id="killSun" aria-label="Destabilize the Star">Destabilize Star</button>
+      <button id="restartBtn" class="secondary-btn" aria-label="Restart Simulation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 12" />
+          <path d="M3 3v9h9" />
+        </svg>
+        Reset System
+      </button>
+    </div>
+  </div>
+
+  <!-- Simulation Canvas -->
+  <canvas id="solarCanvas"></canvas>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+/* Floating Bottom Widgets */
+.floating-widget {
+  position: absolute;
+  z-index: 80;
+  background: var(--widget-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--widget-border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 400px;
+}
+
+@keyframes widgetSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes widgetSlideUpCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.floating-widget.bottom-center {
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: widgetSlideUpCenter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-widget.bottom-left {
+  top: 75px;
+  left: 24px;
+  animation: widgetSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.widget-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.15s ease;
+}
+
+.widget-close-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--accent-danger);
+}
+
+.widget-close-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.widget-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent-primary);
+  stroke-width: 2;
+  fill: none;
+}
+
+.widget-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.widget-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.widget-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.widget-row label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.widget-row label.checkbox-label {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.widget-row input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent-primary);
+}
+
+.widget-row input[type="number"] {
+  width: 70px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+/* Star Guide Widget Custom Font Size Overrides via CSS Variables */
+#guideStarWidget .widget-title {
+  font-size: var(--guide-widget-title-font-size);
+}
+
+#guideStarWidget .widget-row label {
+  font-size: var(--guide-widget-label-font-size);
+}
+
+#guideStarWidget .widget-row input[type="number"] {
+  font-size: var(--guide-widget-input-font-size);
+}
+
+#guideStarWidget .btn {
+  font-size: var(--guide-widget-button-font-size);
+}
+
+/* Current City Location Badge in Horizon Widget */
+.current-city-badge {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: var(--accent-primary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+  transition: all 0.2s ease;
+}
+
+.current-city-badge.custom-location {
+  background: rgba(241, 245, 249, 0.06);
+  border-color: rgba(241, 245, 249, 0.15);
+  color: var(--text-muted);
+}

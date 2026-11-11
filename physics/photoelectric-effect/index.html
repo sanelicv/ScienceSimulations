@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador: Efecto Fotoeléctrico</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Area de Simulación (según style_guide) -->
+        <section class="simulation-area">
+            <div class="canvas-wrapper glass">
+                <canvas id="mainCanvas"></canvas>
+                <div class="simulation-overlay">
+                    <div class="badge" id="emision-tag">SISTEMA ACTIVO</div>
+                    <div class="physics-readout">
+                        <div class="readout-item">
+                            <span class="label">Energía Fotón</span>
+                            <span class="value mono" id="photon-energy-display">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar Fija (según style_guide - 320px) -->
+        <aside class="sidebar glass">
+            <header class="sidebar-header">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <h1>Efecto Fotoeléctrico</h1>
+                        <p>Simulación interactiva de luz</p>
+                    </div>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">☀️</button>
+                </div>
+            </header>
+
+            <div class="control-group">
+                <div class="control-header">
+                    <label>Longitud de Onda (λ)</label>
+                    <span class="value mono" id="wavelength-display">500 nm</span>
+                </div>
+                <div class="spectrum-container">
+                    <div class="spectrum-marker-label uv">UV</div>
+                    <div class="spectrum-bar"></div>
+                    <div class="spectrum-marker-label ir">IR</div>
+                </div>
+                <input type="range" id="wavelength-slider" min="150" max="800" step="1" value="500"
+                    style="margin-top: -2px;">
+
+            </div>
+
+            <div class="control-group">
+                <div class="control-header">
+                    <label>Intensidad de Luz</label>
+                    <span class="value mono" id="intensity-display">50%</span>
+                </div>
+                <input type="range" id="intensity-slider" min="0" max="100" step="1" value="50">
+            </div>
+
+            <div class="control-group">
+                <label>Material del Cátodo</label>
+                <div class="material-grid">
+                    <button class="chip active" data-val="1.95">Cesio (1.95 eV)</button>
+                    <button class="chip" data-val="2.36">Sodio (2.36 eV)</button>
+                    <button class="chip" data-val="4.33">Zinc (4.33 eV)</button>
+                    <button class="chip" data-val="4.70">Cobre (4.70 eV)</button>
+                    <button class="chip" data-val="5.64">Platino (5.64 eV)</button>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Monitor de Corriente</h3>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="dot highlight" id="current-pulse"></span>
+                        <span class="label">Intensidad de corriente:</span>
+                        <span id="current-display" class="value mono">0.00 mA</span>
+                    </div>
+                </div>
+                <div class="visual-current-bar">
+                    <div id="current-fill" class="current-fill"></div>
+                </div>
+            </div>
+
+            <footer class="footer-info">
+                <p>E = hf = Φ + Kmax</p>
+                <p>Ajusta el color hacia el ultravioleta para observar la emisión de electrones.</p>
+            </footer>
+        </aside>
+    </div>
+
+    <!-- Three.js (CDN) -->
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/OrbitControls.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

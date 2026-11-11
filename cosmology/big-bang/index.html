@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmological Simulator</title>
+
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="./lib/katex/katex.min.css">
+
+    <!-- Custom CSS (Merged with simple-styles) -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- KaTeX JS (deferred) -->
+    <script defer src="./lib/katex/katex.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="./lib/lucide.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Simulation Canvas -->
+        <canvas id="sim-canvas"></canvas>
+
+        <!-- Premium Top HUD Container (Telemetry & Notifications) -->
+        <div class="top-hud-container">
+            <!-- Premium Overlay Telemetry (Top Center) -->
+            <div class="value-display-card">
+                <div class="g-title">Cosmic Epoch: <span id="hudEpoch" style="text-transform: uppercase;">--</span>
+                </div>
+                <div class="g-value-main" id="hudTime">--</div>
+                <div class="g-value-factor">Temp: <span id="hudTemp">--</span> &nbsp;|&nbsp; a: <span
+                        id="hudScale">--</span></div>
+            </div>
+
+            <!-- Faint Notification Overlay (Dynamic Slide-down) -->
+            <div id="notification" class="hidden"></div>
+        </div>
+
+        <!-- Controls Container (Bottom Center) -->
+        <div class="controls-container">
+            <!-- Parameter Presets -->
+            <div class="preset-group">
+                <button class="preset-btn active" data-rm="-5.987" data-rl="-34.248">Standard Universe</button>
+                <button class="preset-btn" data-rm="1.500" data-rl="-45.000">High Matter</button>
+                <button class="preset-btn" data-rm="-10.000" data-rl="-16.000">High Lambda</button>
+            </div>
+
+            <!-- Simulation Controls Dock -->
+            <div class="simulation-controls">
+                <!-- Matter Density Slider -->
+                <div class="sim-control-group">
+                    <div class="sim-control-label">
+                        <span id="label-rm">Rm</span>
+                    </div>
+                    <input type="range" id="slider-rm" min="-12.0" max="2.0" step="0.01" value="-5.99">
+                </div>
+
+                <!-- Play / Pause / Reset Control -->
+                <button id="btnStart" class="reset-btn" title="Start Simulation">
+                    <i data-lucide="play"></i>
+                </button>
+
+                <!-- Cosmological Constant Slider -->
+                <div class="sim-control-group">
+                    <div class="sim-control-label">
+                        <span id="label-rl">RL</span>
+                    </div>
+                    <input type="range" id="slider-rl" min="-50.0" max="-15.0" step="0.01" value="-34.25">
+                </div>
+            </div>
+        </div>
+
+        <!-- Chemical Abundance Chart (Bottom-Left) -->
+        <div id="abundancePanel" class="charts-panel hidden">
+            <div class="charts-header">
+                <span>BBN Chemical Abundance</span>
+            </div>
+            <canvas id="chart-canvas"></canvas>
+        </div>
+
+
+        <!-- Interactive Timeline Progress Bar (Full screen width, fixed bottom) -->
+        <div id="timelineContainer">
+            <input type="range" id="timelineRange" min="0" max="1000" value="0">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/globals.js"></script>
+    <script src="js/big-bang.js"></script>
+    <script src="js/particle-system.js"></script>
+    <script src="js/epoch-renderers.js"></script>
+    <script src="js/simulator-ui.js"></script>
+    <script src="js/simulator-render.js"></script>
+</body>
+
+</html>

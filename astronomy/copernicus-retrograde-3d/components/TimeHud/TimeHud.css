@@ -1,0 +1,194 @@
+/* ==========================================================================
+   TIME HUD CONTROLLER - Estilos Modulares Reutilizables (Co-located Component)
+   Barra flotante inferior para control de reproducción y simulación temporal 3D
+   ========================================================================== */
+
+:root {
+  --hud-bg: rgba(15, 23, 42, 0.88);
+  --hud-border: rgba(255, 255, 255, 0.12);
+  --hud-text: #f8fafc;
+  --hud-text-muted: #cbd5e1;
+  --hud-accent: #38bdf8;
+  --hud-accent-hover: #0284c7;
+  --hud-divider-bg: rgba(255, 255, 255, 0.12);
+}
+
+/* Contenedor Principal del HUD Flotante */
+.time-hud {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--hud-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--hud-border);
+  padding: 8px 20px;
+  border-radius: 9999px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  user-select: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--hud-text);
+}
+
+/* Botón Play / Pause Circular */
+.hud-play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--hud-accent);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  flex-shrink: 0;
+  outline: none;
+  color: #0f172a;
+}
+
+.hud-play-btn:hover {
+  background: var(--hud-accent-hover);
+  transform: scale(1.08);
+}
+
+.hud-play-btn:active {
+  transform: scale(0.96);
+}
+
+/* Iconos dentro del HUD */
+.hud-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+
+.hud-icon-sm {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--hud-text-muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+/* Separador Vertical */
+.hud-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--hud-divider-bg);
+}
+
+/* Grupos de Control (Sliders con etiqueta y valor) */
+.hud-control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hud-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--hud-text-muted);
+  white-space: nowrap;
+}
+
+.hud-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hud-accent);
+  font-family: monospace;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Estilización de Deslizadores (Range Inputs) */
+.time-hud input[type=range] {
+  width: 120px;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.time-hud input[type=range]:focus {
+  outline: none;
+}
+
+/* WebKit Slider Track */
+.time-hud input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.time-hud input[type=range]:hover::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* WebKit Slider Thumb */
+.time-hud input[type=range]::-webkit-slider-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--hud-accent);
+  margin-top: -4.5px;
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.time-hud input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: #7dd3fc;
+}
+
+/* Firefox Slider Track & Thumb */
+.time-hud input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.time-hud input[type=range]::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--hud-accent);
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  cursor: pointer;
+}
+
+/* Adaptabilidad Móvil */
+@media (max-width: 640px) {
+  .time-hud {
+    width: 90%;
+    padding: 8px 12px;
+    gap: 10px;
+    bottom: 16px;
+  }
+
+  .time-hud input[type=range] {
+    width: 80px;
+  }
+
+  .hud-label {
+    display: none;
+  }
+}

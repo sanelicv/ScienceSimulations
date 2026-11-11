@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tierra y Sol</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/3d-config.js"></script>
+    <script src="./lib/tabMenu.js"></script>
+    <script src="./lib/customShapes.js"></script>
+    <script src="./lib/astronomy.js"></script>
+    <script src="./lib/geometry.js"></script>
+    <script src="mesesNombres.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+  <div id="containerMain">
+    <div id="containerSketch">
+      <spam id="dateText">error</spam>
+    </div>
+
+    <div id="containerMenuPC">
+
+      <div style="display: flex; justify-content: center; text-align: center;">
+        Algunos movimientos han sido exagerados por fines didácticos.
+      </div>
+
+
+      <div id="runContainer" style="margin: 10px; justify-content: center; align-items: center; display: flex">
+        <label>
+          <input type="checkbox" name="checkboxRun" id="checkboxRun" checked> Run
+        </label>
+      </div>
+
+      <div id="tabContent0" class="tab-content" style="margin: 10px;">
+          <div id="buttonResetCamera" class="button-grid-item" style="width: 200px;">
+            <button id="buttonCameraSun">Centrar cámara en el Sol</button>
+          </div>
+          <div id="lookAtEarthButtonContainer" class="button-grid-item" style="width: 250px;">
+            <button id="lookAtEarthButton">Centrar cámara en la Tierra</button>
+          </div>
+          <div class="button-grid-item" style="width: 250px; display: none;">
+            <button id="lookFromEarthButton">Vista desde la Tierra</button>
+          </div>
+        </div>
+
+      <div style="display: flex; justify-content: center;"> <span id="spanSpeed0">Velocidad: x</span><span id="spanSpeed"></span></div>
+      <div style="display: flex; justify-content: center;">
+        <input type="range" style="width: 200px;" name="rangeSpeed" id="rangeSpeed" min="0.0" max="10" step="0.05" value="0.05">
+      </div>
+      <br>
+
+      <label> <input type="checkbox" name="checkboxSun" id="checkboxSun" checked> Sol</label>
+      <label> <input type="checkbox" name="checkboxMoon" id="checkboxMoon" checked> Luna</label>
+      <label> <input type="checkbox" name="checkboxEarthOrbit" id="checkboxEarthOrbit" checked> Órbita terrestre</label>
+      <label> <input type="checkbox" name="checkboxRotationAxis" id="checkboxRotationAxis"> Eje de rotación</label>
+      <label> <input type="checkbox" name="checkboxEarthEquator" id="checkboxEarthEquator"> Ecuador terrestre</label>
+      <label> <input type="checkbox" name="checkboxEclipticPlane" id="checkboxEclipticPlane"> Plano de la Eclíptica</label>
+      <label> <input type="checkbox" name="checkboxEclipticPlaneNormal" id="checkboxEclipticPlaneNormal"> Línea Normal al plano</label>
+      <label> <input type="checkbox" name="checkboxMoonOrbit" id="checkboxMoonOrbit"> Órbita de la Luna</label>
+      <label> <input type="checkbox" name="checkboxSolsEq" id="checkboxSolsEq"> Solsticios y Equinoccios</label>
+      <label> <input type="checkbox" name="checkboxHorizonte" id="checkboxHorizonte"> Horizonte Astronómico</label>
+      <br>
+      <div id="latitude" style="display: flex; justify-content: center;">
+        <span id="spanLatitude">Latitud: 
+          <input type="number" name="inputLatitude" id="inputLatitude" min="-90" max="90" step="1" value="45" style="width: 40px;"></span><span id="spanSpeed">
+        </span>
+      </div>
+      
+
+
+      <br>
+      <label> <input type="checkbox" name="checkboxEsferaEstrellasFijas" id="checkboxEsferaEstrellasFijas"> Esfera de Estrellas Fijas </label>
+      <label> <input type="checkbox" name="checkboxEcuadorCeleste" id="checkboxEcuadorCeleste"> Ecuador Celeste</label>
+      <label> <input type="checkbox" name="checkboxSunLine" id="checkboxSunLine"> Linea Proyección Sol</label>
+      <!-- <label> <input type="checkbox" name="checkboxSunProjection" id="checkboxSunProjection"> Proyección del Sol</label> -->
+      <label> <input type="checkbox" name="checkboxEcliptic" id="checkboxEcliptic"> Eclíptica</label>
+
+      <div id="tabContent3" class="tab-content">
+        <div class="button-grid-container">
+          <div id="buttonEqui1" class="button-grid-item" onclick="setEqui1()"><button>EquiMar</button></div>
+          <div id="buttonSols1" class="button-grid-item" onclick="setSol1()"><button>SolsJun</button></div>
+          <div id="buttonEqui2" class="button-grid-item" onclick="setEqui2()"><button>EquiSet</button></div>
+          <div id="buttonSols2" class="button-grid-item" onclick="setSol2()"><button>SolsDic</button></div>
+        </div>
+      </div>
+      
+      <h4>Parámetros</h4>      
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="display: flex; justify-content: center;">
+          <span id="obliquityInput">Oblicuidad: &nbsp;</span>
+            <input type="number" name="inputAxialTilt" id="inputAxialTilt" min="0" max="180" step="0.1" value="23.4" style="width: 50px;"></span><span id="spanSpeed">
+        </div>        
+      </div>      
+      <div style="display: flex; align-items: center;  justify-content: center; width: 100%;">        
+        <input type="range" id="obliquityRange" style="width: 200px;" min="0" max="180" step="0.1" value="23.4">
+      </div>
+      
+
+      
+
+      
+      <div style="display: none;">
+        <p id="debugText"></p>
+      </div>
+
+
+
+    </div>
+
+    <!-- <div id="containerMenuPhone" style="display: none;">
+
+      <div class="tab-container">
+        <div class="tab-buttons-container">
+          <button class="tablink active" onclick="openTab(event, 'Tab1')">1</button>
+          <button class="tablink" onclick="openTab(event, 'Tab2')">2</button>
+          <button class="tablink" onclick="openTab(event, 'Tab3')">3</button>
+        </div>
+        <div id="Tab1" class="tab-content-container active">
+
+        </div>
+        <div id="Tab2" class="tab-content-container">
+
+        </div>
+        <div id="Tab3" class="tab-content-container">
+
+        </div>
+      </div>
+
+    </div> -->
+
+
+        
+          
+    
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>

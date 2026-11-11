@@ -1,0 +1,13 @@
+a {
+  color: var(--accent); /* color del enlace normal */
+  text-decoration: none; /* elimina el subrayado si no lo quieres */
+}
+
+a:hover {
+  color: var(--accent-2); /* color al pasar el mouse */
+  text-decoration: underline; /* opcional */
+}
+
+a:visited {
+  color: var(--accent); /* mismo color que el enlace normal */
+}

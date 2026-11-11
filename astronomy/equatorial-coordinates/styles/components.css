@@ -1,0 +1,139 @@
+/* File Dropzone */
+.file-dropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 14px;
+  background: var(--input-bg);
+  border: 2px dashed var(--input-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.file-dropzone:hover,
+.file-dropzone.dragover {
+  border-color: var(--accent-primary);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.file-dropzone input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropzone-icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  margin-bottom: 6px;
+}
+
+.dropzone-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.dropzone-subtext {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.dropzone-file-info {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: #0f172a;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-primary-hover);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-danger {
+  background: var(--accent-danger);
+  color: #ffffff;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--accent-danger-hover);
+}
+
+.btn.block {
+  width: 100%;
+}
+
+.btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.mt-4 {
+  margin-top: 4px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .menubar-nav {
+    overflow-x: auto;
+  }
+
+  .app-title {
+    display: none;
+  }
+
+  .floating-widget.bottom-center,
+  .floating-widget.bottom-left {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    transform: none;
+    min-width: unset;
+  }
+}

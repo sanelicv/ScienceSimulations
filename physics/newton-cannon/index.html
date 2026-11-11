@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton's Cannon Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="simulation-container">
+        <canvas id="simCanvas"></canvas>
+        <div id="ui-overlay">
+            <h1>Cañón de Newton</h1>
+            <div class="info-title">
+                <p>Lanzamiento de una bala desde una altura de 500 km.</p>
+            </div>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="velocitySlider">Velocidad Inicial (m/s)</label>
+                    <input type="range" id="velocitySlider" min="10" max="128" step="1" value="10">
+                    <span id="velocityValue">10 m/s</span>
+                </div>
+                <div class="control-group">
+                    <label for="zoomSlider">Zoom</label>
+                    <input type="range" id="zoomSlider" min="0" max="100" step="0.1" value="0">
+                </div>
+                <div class="control-group">
+                    <label for="gravityModel">Fuerza de Gravedad</label>
+                    <select id="gravityModel">
+                        <option value="1" selected>Proporcional a la distancia (F ∝ r)</option>
+                        <option value="-1">Inversamente proporcional (F ∝ 1/r)</option>
+                        <option value="-2">Cuadrado inverso (F ∝ 1/r²)</option>
+                        <option value="-3">Cubo inverso (F ∝ 1/r³)</option>
+
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button id="fireBtn">Disparar</button>
+                    <button id="resetBtn">Reiniciar</button>
+                </div>
+                <div class="info">
+                    <p>Usa la rueda del ratón para hacer zoom y ver la curvatura de la Tierra.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

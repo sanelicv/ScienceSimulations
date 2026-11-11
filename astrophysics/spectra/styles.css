@@ -1,0 +1,29 @@
+:root {
+  --image-height: 150px;
+}
+
+img {
+  height: var(--image-height);
+  width: auto;
+  cursor: zoom-in;
+  transition: height 0.3s ease;
+}
+
+img.zoomed {
+  height: 400px;
+  cursor: zoom-out;
+}
+
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 25px;
+}

@@ -1,0 +1,419 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* background-color: #f0f0f0; */
+    background-color: #f1f1f1;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+  }
+  #latitudeBox {
+    display: none;
+    padding: 10px;
+  }
+
+  #dateText {
+    position: absolute; /* Positions the element relative to the sketch */
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 28px;
+    user-select: none; /* Standard syntax */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer and Edge */
+    /* font-family: 'Source Code Pro', monospace; */
+  }
+
+  .containerMain {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: #fbfbfb; */
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
+  .runContainer {
+    margin: 10px; 
+    justify-content: center; 
+    align-items: center; 
+    display: flex
+  }
+  
+  #containerSketch1 {
+    margin-right: 20px;
+    position: relative;
+    /* border: 2px solid; */
+    align-items: center;
+    justify-content: center;
+    padding: 0px;    
+  }
+  #containerSketch2 {
+    margin-right: 20px;
+    position: relative;
+    /* border: 2px solid; */
+    align-items: center;
+    justify-content: center;
+    padding: 0px;    
+  }
+  #superContainerMenu {
+    width: 300px;
+    height: 675px;
+    display: flex;
+    background-color: #fbfbfb;
+    align-items: center;
+    justify-content: center;
+  }
+  .containerMenuPC {
+    max-width: 250px;
+    min-width: 100px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column; /* To center items vertically */
+    align-items: left; /* To center items horizontally */
+    justify-content: center; /* To center items vertically */
+    margin: 5px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* border: 2px solid rgb(125, 125, 125); */
+    border-radius: 10px;
+    background-color: white;
+  }
+  .containerSubMenu {
+    max-width: 250px;
+    min-width: 100px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column; /* To center items vertically */
+    align-items: center; /* To center items horizontally */
+    justify-content: center; /* To center items vertically */
+    margin: 5px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* border: 2px solid rgb(125, 125, 125); */
+    border-radius: 10px;
+    background-color: white;
+  }
+  button {
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    overflow: hidden;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    min-width: 30px;
+    min-height: 30px;
+    margin: 2px;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  button:active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    padding-top: 100%;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.2s linear;
+  }
+  @keyframes ripple {
+    to {
+      transform: translate(-50%, -50%) scale(4);
+      opacity: 0;
+    }
+  }
+  #sliderValue {
+    margin-top: 0px; /* Adjust the margin as needed */
+    font-size: 15px; /* Match the font size with the rest of your text */
+  }
+  
+/* Style the slider */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* Track */
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #ddd;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #ddd;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Thumb */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    margin-top: -6px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+input[type=range]::-moz-range-thumb {
+    border: 1px solid #ccc;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+input[type=range]::-ms-thumb {
+    border: 1px solid #ccc;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+/* Focus */
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #ccc;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+
+/* General select element styling */
+select {
+  appearance: none; /* Remove default styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 38px 10px 12px; /* Padding to make space for custom arrow */
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  width: 100%; /* Adjusts to the parent container width */
+  transition: border-color 0.3s ease;
+  position: relative;
+}
+/* Style for the parent container */
+.select-container {
+  position: relative;
+  width: 200px; 
+}
+/* Add a custom arrow */
+.select-container::after {
+  content: '\25BC'; /* Downward arrow character */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+  color: #666; /* Subtle arrow color */
+}
+/* Focus and hover effects */
+select:focus,
+select:hover {
+  border-color: #66afe9;
+}
+/* Optional: Disable background color on focus */
+select:focus {
+  background-color: #fff;
+}
+
+
+/* Apply flex to the parent container */
+.button-container {
+  display: flex;
+  gap: 0px;
+  padding: 10px;
+  align-items: center;
+}
+#buttonDayIncrease {
+  margin-left: 10px; /* Adds space between the text and the first button */
+}
+
+.button-grid-container {
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  width: 100px;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr ;
+  gap: 0px;
+}
+
+.button-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:70px;
+}
+
+/************************** TAB MENU *********************/
+.tab-container {
+  width: 300px;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: center;
+  /*border: 10px solid #ccc;*/  
+  /*border-radius: 10px;*/
+  /* font-family: Arial, sans-serif; */
+}
+.tab-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  color: #000;
+  /*background-color: #f1f1f1;*/
+  border-bottom: 1px solid #ccc;
+  /* border-radius: 10px 10px 0 0;  */
+}
+.tab-buttons-container button {
+  flex: 1;
+  color: #000;
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 11px 25px;
+  transition: background-color 0.3s;
+  border-radius: 10px 10px 0 0; /* Match the container's border-radius */
+  margin: none;
+
+}
+.tab-buttons-container button.active {
+  background-color: #ccc;
+  border-radius: 10px 10px 0 0; 
+  margin-bottom: -1px;
+  z-index: 1;
+}
+.tab-buttons-container button:hover {
+  background-color: #ddd;
+}
+
+.tab-content-container {
+  display: none;
+  min-height: 200px;
+}
+.tab-content-container.active {
+  display: block;
+  padding: 15px;
+  border-radius: 0px;
+  background-color: white;
+}
+
+.tab-content {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+  margin-top: 10px;
+}
+
+/********************* MEDIA QUERYS *********************/
+@media screen and (max-width: 900px) {
+  #containerMain {
+    flex-direction: column; /* Stacks items vertically */
+    align-items: left; /* Ensures child elements take full width */
+    justify-content: left;
+    padding: 10px; /* Adjusted padding for smaller screens */
+  }
+
+  #containerSketch, 
+  #containerMenuPC {
+    margin-right: 0; /* Removes right margin in vertical layout */
+    width: 100%; /* Ensures full width of the container */
+    max-width: none; /* Removes max-width restriction */
+    align-items: left;
+    justify-content: left;
+  }
+
+  #containerMenuPC {
+    margin-top: 20px; /* Adds space between simulation and menu */
+    width: 100%; /* Full width for smaller screens, stacking vertically */
+    max-width: 200px; /* Remove max-width restriction */
+    align-items: left;
+    justify-content: left;
+  }
+}
+

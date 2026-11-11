@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expansión del Universo</title>
+  <script src="./lib/p5.min.js"></script>
+  <script src="functions.js"></script>
+  <script src="script.js"></script>
+  <script src="./lib/instanceMode/myLookControl.js"></script>
+  <link rel="stylesheet" href="./css/main-styles.css">
+  
+</head>
+<body>
+  <div id="app">
+
+    <aside>      
+      
+      <div class="title">
+        Expansión del universo
+      </div>
+      <div class="hint">
+        Asigna un valor al factor de escala y observa cómo cambian las distancias del Cosmos.
+      </div>
+
+      <div class="card margin-top">
+        <div class="row">
+          <div class="hint">
+            Ajusta la cámara para observar el espacio desde dos perspectivas: <br>
+            <b>Vista Global:</b> Explora cómo varían las distancias entre distintos puntos del espacio. <br>
+            <b>Vista Local:</b> Observa el entorno tal como lo percibiría un observador situado en uno de esos puntos.
+          </div>          
+        </div>
+        <div class="row margin-top" style="justify-content: center;">
+          <select name="cameraSelect" id="cameraSelect" style="width: 150px;">
+            <option value="Global" selected>Vista Global</option>
+            <option value="Local">Vista Local</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="card margin-top">
+        <div class="row" id="expansionFactorText">
+          Factor de escala: a = 1
+        </div>
+        <div class="row margin-top">
+         <input type="range" id="scaleFactorRange" min="0" max="5" step="0.01" value="1">
+        </div>
+      </div>
+
+      
+
+    </aside>
+
+    
+
+    <div id="canvas-host" class="canvas-host"></div>
+
+  </div>
+  
+
+  <script src="sketch.js" defer></script>
+</body>
+</html>

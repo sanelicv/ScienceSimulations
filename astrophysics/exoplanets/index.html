@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados Cósmicos - Parallel Earth</title>
+  <link rel="stylesheet" href="./fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Buscador de Exoplanetas</h1>
+      <p class="subtitle">Viaja a mundos desconocidos y calcula su porcentaje de similitud con la Tierra.</p>
+    </header>
+
+    <section class="controls">
+      <button id="toggle-all-btn" class="btn secondary">Seleccionar Todos</button>
+      <button id="roll-btn" class="btn primary" disabled>Iniciar Viaje Cósmico</button>
+      <div class="auto-search-wrapper">
+        <button id="auto-search-btn" class="btn auto" disabled>Búsqueda Automática</button>
+        <button id="auto-settings-btn" class="btn icon-btn" title="Configuración Avanzada" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Advanced Search Panel -->
+    <section id="advanced-search-panel" class="advanced-search-panel hidden">
+      <div class="panel-content">
+        <div class="setting-group">
+          <div class="setting-header">
+            <span class="setting-title">Similitud Mínima Tolerada</span>
+            <span id="threshold-display" class="setting-value">95%</span>
+          </div>
+          <input type="range" id="threshold-slider" min="50" max="100" step="5" value="95">
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-header">
+            <span class="setting-title">Potencia / Sistemas por Segundo</span>
+            <span id="speed-display" class="setting-value">Estándar (~300k/s)</span>
+          </div>
+          <input type="range" id="speed-slider" min="1" max="4" step="1" value="2">
+        </div>
+      </div>
+    </section>
+
+    <section class="results-summary" id="results-summary">
+      <!-- Left Side: Visual Animation -->
+      <div class="animation-container">
+        <div class="travel-animation" id="travel-animation">
+          <!-- Warp lines will be inserted here by JS -->
+
+          <div class="rocket" id="rocket-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="rocket-icon"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+              </path>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+              </path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+            <div class="flame"></div>
+          </div>
+
+          <div class="planet-target" id="planet-svg">
+            <svg id="exoplanet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+              <!-- Atmosphere/Glow -->
+              <circle cx="50" cy="50" r="48" fill="rgba(255,255,255,0.1)" class="planet-atmosphere" />
+              <!-- Base Planet -->
+              <circle class="planet-base" cx="50" cy="50" r="45" fill="#335577" />
+              <!-- Terrain Features -->
+              <path class="planet-feature" d="M 15 50 Q 30 20 60 30 T 90 60 Q 70 80 40 70 T 15 50" fill="#224466"
+                opacity="0.6" />
+              <path class="planet-feature-2" d="M 10 30 Q 40 10 70 15 T 95 35" fill="#446688" opacity="0.4" />
+              <!-- Craters / details -->
+              <circle cx="30" cy="65" r="5" fill="rgba(0,0,0,0.15)" />
+              <circle cx="75" cy="40" r="8" fill="rgba(0,0,0,0.15)" />
+              <circle cx="60" cy="75" r="4" fill="rgba(0,0,0,0.15)" />
+
+              <!-- Shading to make it look 3D -->
+              <circle cx="50" cy="50" r="45" fill="url(#planet-shadow)" />
+
+              <defs>
+                <radialGradient id="planet-shadow" cx="30%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="white" stop-opacity="0.2" />
+                  <stop offset="70%" stop-color="black" stop-opacity="0" />
+                  <stop offset="100%" stop-color="black" stop-opacity="0.8" />
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Interaction / Results -->
+      <div class="result-container">
+
+        <!-- Traveling Message (Hidden by default) -->
+        <div class="traveling-message" id="traveling-message">
+          <h3 id="traveling-title">Viajando a través del cosmos...</h3>
+          <p id="traveling-subtitle">Buscando mundos habitables</p>
+          <p id="scanned-counter"
+            style="display: none; font-family: 'Inter', monospace; color: var(--accent-blue); margin-top: 10px; font-weight: 500;">
+            Comprobando: 0 sistemas</p>
+          <div class="loading-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <!-- Final Results -->
+        <div class="result-content" id="result-content">
+          <div class="similarity-circle">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle" id="similarity-circle-path" stroke-dasharray="0, 100" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="percentage" id="overall-similarity">--%</text>
+            </svg>
+          </div>
+          <div class="result-text">
+            <h2 id="result-title">Esperando coordenadas...</h2>
+            <p id="result-description">Selecciona parámetros y presiona iniciar para viajar.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="parameters-grid" id="parameters-grid">
+      <!-- Parameter cards will be generated here by JS -->
+    </section>
+  </div>
+
+  <!-- Template for a parameter card -->
+  <template id="parameter-card-template">
+    <div class="parameter-card">
+      <div class="card-header">
+        <div class="param-info">
+          <h3 class="param-name"></h3>
+          <span class="param-symbol"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="values-row">
+          <div class="value-block">
+            <span class="label">Tierra</span>
+            <span class="value earth-value"></span>
+          </div>
+          <div class="value-block result-block">
+            <span class="label">Obtenido</span>
+            <span class="value rolled-value">--</span>
+          </div>
+        </div>
+        <div class="similarity-bar-container">
+          <div class="similarity-bar" style="width: 0%;"></div>
+        </div>
+        <div class="param-similarity-text">--% similar</div>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

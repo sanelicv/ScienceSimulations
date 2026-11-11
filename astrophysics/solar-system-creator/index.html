@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Construye tu Sistema Planetario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- p5.js -->
+  <script src="./lib/p5.min.js"></script>
+  <script src="./lib/jspdf.umd.min.js"></script>
+  <script src="./lib/instanceMode/customShapes.js"></script>
+
+  <!-- Font Awesome for delete icon -->
+  <link rel="stylesheet" href="./lib/fontawesome/css/all.min.css"/>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Modal CSS -->
+  <link rel="stylesheet" href="./modal.css" />
+</head>
+<body>
+  <div id="app">
+    <aside>
+      <div class="header">
+        <div>
+          <div class="title">Creador de Sistema Solar</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <div class="row">
+          <label for="speedFactor" id="speedFactorLabel">Velocidad: x1</label>
+          <input type="range" name="speedFactor" id="speedFactor" value="1" min="0" max="5" step="1" style="width: 150px;">
+        </div>
+        <div class="row">
+          <label for="traslationToggle">Traslación:</label>
+          <input type="checkbox" id="traslationToggle" checked>
+        </div>
+        <div class="row">
+          <label for="orbitToggle">Órbitas:</label>
+          <input type="checkbox" id="orbitToggle" checked>
+        </div>
+        <div class="row">
+          <label for="ringToggle">Anillos:</label>
+          <input type="checkbox" id="ringToggle" checked>
+        </div>
+        <div class="row">
+          <label for="nameToggle">Mostrar Nombres:</label>
+          <input type="checkbox" id="nameToggle" checked>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px; display: none;">
+        <div class="row">
+          <label for="groupSelect" id="groupSelectLabel">Grupo: </label>
+          <select name="groupSelect" id="groupSelect" style="width: 80px; font-size: 12px;">
+            <option value="1">Grupo 1</option>
+            <option value="2">Grupo 2</option>
+            <option value="3">Grupo 3</option>
+            <option value="4">Grupo 4</option>
+            <option value="5">Grupo 5</option>
+            <option value="6">Grupo 6</option>
+            <option value="7">Grupo 7</option>
+            <option value="8">Grupo 8</option>
+            <option value="9">Grupo 9</option>
+            <option value="10">Grupo 10</option>
+            <option value="11">Grupo 11</option>
+            <option value="12">Grupo 12</option>
+            <option value="13">Grupo 13</option>
+            <option value="14">Grupo 14</option>
+            <option value="15">Grupo 15</option>
+            <option value="16">Grupo 16</option>
+            <option value="17">Grupo 17</option>
+            <option value="18">Grupo 18</option>
+            <option value="19">Grupo 19</option>
+            <option value="20">Grupo 20</option>
+          </select>
+               <button class="btn block" style="width: 130px; padding: 5px;" onclick="generarPDF()">Descargar PDF</button>
+        </div>
+      </div>
+
+      <!-- Grade card (NEW) -->
+      <div class="card" style="margin-top:12px; display: none;">
+        <div class="row" style="justify-content:space-between;">
+          <label>Nota actual</label>
+          <span id="gradeSpan" style="font-weight:700;">0 / 8</span>
+        </div>
+        <div class="hint">La app recalcula la nota automáticamente cuando cambias los objetos.</div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+              <button id="btnAdd" class="btn block">Agregar Objeto</button>
+      </div>
+
+
+
+
+
+      <!-- <div class="card" style="margin-top:12px;">
+        <div class="hint">
+          Usa el botón para añadir <em>cuerpo rocoso</em>, <em>cuerpo gigante</em> o <em>cinturón</em>.
+        </div>
+      </div> -->
+
+      <!-- Quick Filter Bar -->
+      <div id="filterBar" class="filter-bar">
+        <button class="filter-chip active" data-filter="all">Todos</button>
+        <button class="filter-chip" data-filter="rocky">🪨 Rocosos</button>
+        <button class="filter-chip" data-filter="giant">🪐 Gigantes</button>
+        <button class="filter-chip" data-filter="belt">💫 Cinturones</button>
+      </div>
+
+      <div id="astroList" class="stack" style="margin-top:4px;"></div>
+    </aside>
+
+    <main id="canvas-host"></main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalOverlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Agregar astro</h3>
+        <button id="modalClose" class="icon-btn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <label for="bodyName" class="modal-label">Nombre del astro (opcional)</label>
+        <input type="text" id="bodyName" class="modal-input" placeholder="Ej. Marte, Cinturón Principal..." />
+
+        <label for="bodyType" class="modal-label">Tipo de astro</label>
+        <select id="bodyType" class="modal-select">
+          <option value="rocky">Cuerpo rocoso</option>
+          <option value="giant">Cuerpo gigante</option>
+          <option value="belt">Cinturón</option>
+        </select>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnCancel" class="btn secondary">Cancelar</button>
+        <button id="btnConfirmAdd" class="btn success">Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModalOverlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Eliminar astro</h3>
+        <button id="deleteModalClose" class="icon-btn" aria-label="Cerrar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p id="deleteModalMessage" class="hint" style="margin:0">
+          ¿Estás seguro de eliminar este astro?
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnCancelDelete" class="btn secondary">Cancelar</button>
+        <button id="btnConfirmDelete" class="btn danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- App scripts -->
+  <script src="./config.js"></script>
+  <script src="./functions.js"></script>
+  <script src="./script.js"></script>
+  <script src="./sketch.js"></script>
+  <script src="jsPDF.js"></script>
+</body>
+</html>

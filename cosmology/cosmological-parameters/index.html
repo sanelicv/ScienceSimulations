@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parámetros cosmológicos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/xlsx.full.min.js" defer></script>
+    <script src="import_CSV_XLSX.js" defer></script>
+    <script src="functions.js"></script>
+    <script src="script.js" defer></script>
+    <script src="sketch-dLvsZ.js"></script>
+    <script src="sketch-chi2.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Ajuste de parámetros cosmológicos</h2>
+            <p>Determina los parámetros cosmológicos que se ajustan mejor a tus datos</p>
+        </header>
+        
+        <div class="input-section">
+            <div class="data-input">
+                <div>
+                    Esta aplicación permite realizar el ajuste de datos observacionales de distancia de luminosidad (<i>d</i><sub>L</sub>) y corrimiento al rojo (<i>z</i>) a un modelo cosmológico de tipo &Lambda;CDM mediante un análisis estadístico de &chi;<sup>2</sup>.<br>
+                    Para ello, deberás proporcionar un archivo XLSX con los valores experimentales de (<i>z</i>, <i>d</i><sub>L</sub>) y la constante de Hubble <i>H</i><sub>0</sub>.<br>
+                    Puedes descargar una plantilla de ejemplo <a href="dL_vs_z.xlsx">aquí</a>.
+                </div>
+                <br>
+                <input type="file" id="csvInput" accept=".csv,.xls,.xlsx">
+            </div>
+            
+            <div class="parameters-input" style="display: none;">
+                <h3>Constantes</h3>
+                
+                <label for="omegaMMin" style="display: none;">OmegaM Min:</label>
+                <input type="number"  style="display: none;" step="any" id="omegaMMin" value="0.0">
+                
+                <label for="omegaMMax" style="display: none;">OmegaM Max:</label>
+                <input type="number"  style="display: none;" step="any" id="omegaMMax" value="5.0">
+                
+                <label for="omegaLambdaMin" style="display: none;">OmegaLambda Min:</label>
+                <input type="number"  style="display: none;" step="any" id="omegaLambdaMin" value="0.0">
+                
+                <label for="omegaLambdaMax" style="display: none;">OmegaLambda Max:</label>
+                <input type="number"  style="display: none;" step="any" id="omegaLambdaMax" value="5.0">
+                
+                <label for="numDivisions" style="display: none;">Number of Divisions:</label>
+                <input type="number"  style="display: none;" id="numDivisions" value="100" min="1">
+            </div>
+        </div>
+        
+        <button id="calculateButton">Calcular Parámetros de densidad</button>
+        <div id="calculatingSpan" style="margin-bottom: 10px;"></div>
+
+        
+        <div id="results" class="results" style="display: none;" >
+            <h3>Parámetros definidos por el usuario:</h3>
+            <p>H<sub>0</sub> =  <span id="hubbleConstantValue" style="font-weight: normal; color: black;">-</span></p>
+            <h3>Parámetros Cosmológicos de mejor ajuste:</h3>
+            <p>&Omega;<sub>m</sub> =  <span id="bestOmegaM">-</span></p>
+            <p>&Omega;<sub>&Lambda;</sub> = <span id="bestOmegaLambda">-</span></p>
+            <p style="display: none">&Chi;<sup>2</sup> = <span id="minChi2">-</span></p>
+        </div>
+        
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <div id="chi2plotVisualization"></div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+            <div id="plotVisualization"></div>
+        </div>
+        
+        
+        
+    </div>
+</body>
+</html>

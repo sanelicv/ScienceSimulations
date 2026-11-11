@@ -1,0 +1,21 @@
+﻿#,Factor,Parámetro (Símbolo / Unidad),Tipo,Rango de Simulación,Valor Tierra
+1,Posición Galáctica,Rgal​ (kpc),Continuo,0−50,8
+2,Estabilidad del Eje,Variación Δϵ (grados),Continuo,0∘−90∘,<2∘
+3,Densidad de Asteroides,ρast​ (Flujo relativo),Continuo,0−1000,1
+4,Estabilidad Estelar,Variabilidad ΔL⋆​ (%),Continuo,0%−50%,0.001
+5,Periodo de Rotación,Prot​ (horas),Continuo,4−5000,24
+6,Oblicuidad,ϵ (grados),Continuo,0∘−180∘,23.5°
+7,Albedo Planetario,α (adimensional),Continuo,0.0−1.0,0.3
+8,Espesor de Corteza,zc​ (km),Continuo,5−100,35
+9,Calor Radiogénico,Qrad​ (TW),Continuo,0−500,20
+10,Capa de Ozono,CO3​ (Dobson Units),Continuo,0−600,300
+11,Ciclo del Nitrógeno,Eficiencia EN​ (0 a 1),Continuo,0.0−1.0,1
+12,Relación Tierra-Agua,Fracción emergida fL​,Continuo,0.0−1.0,0.29
+13,Fósforo Disponible,[P] (Abundancia relativa),Continuo,0.0−5.0,1
+14,Simbiogénesis,Eventos S,Discreto,"{0,1}",1
+15,Fotosíntesis Oxigénica,Producción ΦO2​,Discreto,"{0,1}",1
+16,Frecuencia Extinciones,fext​ (Eventos/Giga-año),Continuo,0−20,5
+17,Metales Superficiales,Accesibilidad Macc​ (0 a 1),Continuo,0.0−1.0,0.9
+18,Gravedad Superficial,g (m/s2),Continuo,1.0−30.0,9.8
+19,Relación Satélite,Masa μ=Mm​/Mp​,Continuo,0.0−0.1,0.012
+20,Ciclos Milankovitch,Forzamiento AM​ (0 a 1),Continuo,0.0−1.0,0.5

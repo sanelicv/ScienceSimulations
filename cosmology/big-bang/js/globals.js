@@ -1,0 +1,13 @@
+const electronSpeed = 6;
+const totalNucleons = 120;
+const GALAXY_TRANSITION_DURATION = 0.3; // Fraction of the firstEarthlyPlanets epoch (0.0 to 1.0) spent transitioning
+const GALAXY_TRANSITION_MAX_SCALE = 10.0; // Maximum final scale of the galaxy zoom during transition
+const GALAXY_COLLAPSE_DURATION = 0.2; // Fraction of the firstGalaxies epoch (0.0 to 1.0) spent collapsing systems
+const GALAXY_FADE_IN_DURATION = 0.9; // Fraction of the firstGalaxies epoch (0.0 to 1.0) spent fading in the galaxy spiral
+const GALAXY_FINAL_RENDER_SCALE = 3.0; // Scaling factor for the final size/scale of the galaxy spiral
+const GALAXY_TRANSITION_TRANSLATION = [-400, 400]; // [X_px (right), Y_px (upwards)] during transition
+const PLANET_ORBIT_SPEED_MULTIPLIER = 0.1; // Multiplier for planetary orbit angular speed (e.g. 2.0 to double speed)
+const simDuration = 120000; // Total simulation duration in milliseconds
+const HUD_TIME_TOOLTIP_FONT_SIZE = '2.5rem'; // Font size of the cosmic time tooltip (e.g. '0.75rem', '12px')
+const MILESTONE_NOTIFICATION_TITLE_FONT_SIZE = '1.0rem'; // Font size of the milestone notification title
+const MILESTONE_NOTIFICATION_DETAILS_FONT_SIZE = '1.0rem'; // Font size of the milestone notification details text

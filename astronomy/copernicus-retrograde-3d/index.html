@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo Copernicano 3D - Movimiento Retrogrado</title>
+
+  <!-- Estilos de Componentes y Aplicación -->
+  <link rel="stylesheet" href="components/ThreeScene/ThreeScene.css">
+  <link rel="stylesheet" href="components/MenuBar/MenuBar.css">
+  <link rel="stylesheet" href="components/TimeHud/TimeHud.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Three.js Importmap -->
+  <script type="importmap">
+        {
+            "imports": {
+                "three": "./assets/js/three.module.js",
+                "OrbitControls": "./assets/js/OrbitControls.js"
+            }
+        }
+    </script>
+  <!-- SheetJS para lectura de xlsx -->
+  <script src="./assets/js/xlsx.full.min.js"></script>
+  <!-- Configuración Global -->
+  <script src="js/config.js"></script>
+</head>
+
+<body>
+
+  <!-- Componente Menú Superior (MenuBar) -->
+  <header class="top-menubar">
+    <!-- Branding / Logo -->
+    <div class="menubar-branding">
+      <svg class="app-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <ellipse cx="12" cy="12" rx="9" ry="3.5" />
+        <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+      </svg>
+      <span class="app-title">Modelo Copernicano 3D</span>
+    </div>
+
+    <!-- Navegación y Desplegables -->
+    <nav class="menubar-nav">
+      <!-- 1. Menú Ver -->
+      <div class="menu-item">
+        <button class="menu-btn">
+          <span>Ver</span>
+          <svg class="chevron" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">Elementos de la Escena</div>
+          <label class="dropdown-checkbox">
+            <input type="checkbox" id="toggle-stars" checked>
+            <span>Estrellas de Fondo</span>
+          </label>
+          <label class="dropdown-checkbox">
+            <input type="checkbox" id="toggle-zodiac" checked>
+            <span>Constelaciones Zodiaco</span>
+          </label>
+          <label class="dropdown-checkbox">
+            <input type="checkbox" id="toggle-orbits" checked>
+            <span>Órbitas Planetarias</span>
+          </label>
+          <label class="dropdown-checkbox">
+            <input type="checkbox" id="toggle-grid">
+            <span>Cuadrícula Ecuatorial</span>
+          </label>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-header">Escala Astronómica</div>
+          <label class="dropdown-radio">
+            <input type="radio" name="scale-mode" id="scale-schematic" value="schematic" checked>
+            <span>Escala aumentada</span>
+          </label>
+          <label class="dropdown-radio">
+            <input type="radio" name="scale-mode" id="scale-realistic" value="realistic">
+            <span>Escala realista</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2. Menú Astro -->
+      <div class="menu-item">
+        <button class="menu-btn">
+          <span>Astro</span>
+          <svg class="chevron" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">Seleccionar Astro</div>
+          <label class="dropdown-radio">
+            <input type="radio" name="selected-astro" id="astro-moon" value="moon">
+            <span>Luna</span>
+          </label>
+          <label class="dropdown-radio">
+            <input type="radio" name="selected-astro" id="astro-venus" value="venus" checked>
+            <span>Venus</span>
+          </label>
+          <label class="dropdown-radio">
+            <input type="radio" name="selected-astro" id="astro-mars" value="mars">
+            <span>Marte</span>
+          </label>
+          <div class="dropdown-divider"></div>
+          <label class="dropdown-checkbox">
+            <input type="checkbox" id="toggle-apparent-pos">
+            <span>Posición Aparente</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. Menú Cámara -->
+      <div class="menu-item">
+        <button class="menu-btn">
+          <span>Cámara</span>
+          <svg class="chevron" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">Modos de Cámara</div>
+          <label class="dropdown-radio">
+            <input type="radio" name="camera-mode" id="cam-sun" value="SUN" checked>
+            <span>Centrar en el Sol</span>
+          </label>
+          <label class="dropdown-radio">
+            <input type="radio" name="camera-mode" id="cam-earth" value="EARTH">
+            <span>Centrar en la Tierra</span>
+          </label>
+          <label class="dropdown-radio">
+            <input type="radio" name="camera-mode" id="cam-astro" value="ASTRO">
+            <span>Seguir al Astro</span>
+          </label>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Insignia Derecha (Badge) -->
+    <div class="menubar-badge">
+      <div class="badge-item">
+        <span id="menubar-scale-val">Escala aumentada</span>
+      </div>
+      <div class="badge-divider"></div>
+      <div class="badge-item">
+        <label>Día Simulación:</label>
+        <span id="menubar-day-val">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal Three.js -->
+  <div id="canvas-container"></div>
+
+  <!-- Indicador de Carga -->
+  <div id="loading-indicator">Cargando estrellas...</div>
+
+  <!-- Script Principal -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>

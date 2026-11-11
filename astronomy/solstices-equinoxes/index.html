@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solsticios y Equinoccios</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/customMethods.js"></script>
+    <script src="./lib/3d-config.js"></script>
+    <script src="./lib/customShapes.js"></script>
+    <script src="./lib/geometry.js"></script>
+    <script src="./lib/astronomy.js"></script>
+    <script src="./functions.js"></script>
+</head>
+<body>
+  <div id="containerMain">
+    
+    <div id="containerSketch">
+    </div>
+
+    <div id="containerMenuPC" style="display: none;">
+
+      <div id="tabContent1" class="tab-content">
+        <div class="select-container" style="justify-content: center; align-items: center;">
+          <select name="selectMode" id="selectMode">
+            <option value="movReal"> Movimiento del Sol </option>
+            <option value="arcoDiurno"> Solo arco diurno </option>
+          </select>
+        </div><br>
+        <div id="runContainer" style="margin: 10px;">
+          <label>
+            <input type="checkbox" name="checkboxRun" id="checkboxRun" checked> Run
+          </label>
+        </div>
+        <br>
+        <div> <span id="spanSpeed0">Velocidad: </span><span id="spanSpeed"></span></div>
+        <div>
+          <input type="range" name="rangeSpeed" id="rangeSpeed" min="0.25" max="6" step="0.25" value="1">
+        </div>
+      </div>
+
+      <div id="tabContent2" class="tab-content">
+        <div>
+          Latitud: <input type="number" name="numberLat" id="numberLat" min="-90" max="90" value="45" step="0.1" style="width: 45px;">
+        </div>      
+        <input type="range" name="rangeLat" id="rangeLat" min="-90" max="90" value="45" step="1", style="width: 200px;">
+  
+        <div class="button-container" style="display: none;">
+          Día:
+          <span>asd</span>
+          <button id="buttonDayIncrease">+</button><button id="buttonDayDecrease">-</button>
+        </div>
+  
+        <div style="margin-top: 20px;">
+          <!-- <label>
+            <input type="checkbox" name="checkboxSun" id="checkboxSun" checked> Sol
+          </label><br> -->
+          <label>
+            <input type="checkbox" name="checkboxSunPath" id="checkboxSunPath" checked> Arco Diurno
+          </label><br>
+          <label>
+            <input type="checkbox" name="checkboxEqsol" id="checkboxEqsol"> Solsticios y Equinoccios
+          </label><br>
+          <label>
+            <input type="checkbox" name="checkboxGrid" id="checkboxGrid"> Grid
+          </label>
+          <label><br>
+            <input type="checkbox" name="checkboxBox" id="checkboxBox" checked> Caja
+          </label>
+        </div>
+
+      </div>
+      <br><br>
+      
+      <div id="tabContent3" class="tab-content">
+        <div class="button-grid-container">
+          <div id="buttonEqui1" class="button-grid-item" onclick="setEqui1()"><button>EquiMar</button></div>
+          <div id="buttonSols1" class="button-grid-item" onclick="setSol1()"><button>SolsJun</button></div>
+          <div id="buttonEqui2" class="button-grid-item" onclick="setEqui2()"><button>EquiSet</button></div>
+          <div id="buttonSols2" class="button-grid-item" onclick="setSol2()"><button>SolsDic</button></div>
+        </div>
+
+      </div>
+      <br>
+      
+      <br>
+
+    </div>
+
+    <div id="containerMenuPhone" style="display: none;">
+
+      <div class="tab-container">
+        <div class="tab-buttons-container">
+          <button class="tablink active" onclick="openTab(event, 'Tab1')">1</button>
+          <button class="tablink" onclick="openTab(event, 'Tab2')">2</button>
+          <button class="tablink" onclick="openTab(event, 'Tab3')">3</button>
+        </div>
+        <div id="Tab1" class="tab-content-container active">
+         <!-- Empty  -->
+        </div>
+        <div id="Tab2" class="tab-content-container">
+          <!-- Empty -->
+        </div>
+        <div id="Tab3" class="tab-content-container">
+          <!-- Empty -->
+        </div>
+      </div>
+
+    </div>
+
+    
+
+  </div>
+  <span id="debugText" style="position: absolute; top:10px; left:10px"></span>
+  
+  <script src="sketch.js"></script>
+</body>
+</html>

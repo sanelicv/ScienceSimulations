@@ -1,0 +1,94 @@
+/* ==========================================================================
+   TIME HUD CONTROLLER - Botón flotante de pausa y continuar
+   ========================================================================== */
+
+:root {
+  --hud-bg: rgba(13, 18, 32, 0.78);
+  --hud-border: rgba(255, 255, 255, 0.12);
+  --hud-accent: #6fd0ff;
+  --hud-accent-hover: #a3e2ff;
+  --hud-paused: #ffc23d;
+  --hud-paused-hover: #ffd675;
+  --hud-icon-color: #0d1220;
+}
+
+/* Contenedor flotante: fijo a la ventana, centrado abajo */
+.time-hud {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  padding: 6px;
+  background: var(--hud-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--hud-border);
+  border-radius: 50%;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.time-hud .hud-play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--hud-accent);
+  color: var(--hud-icon-color);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.time-hud .hud-play-btn:hover {
+  background: var(--hud-accent-hover);
+  transform: scale(1.08);
+}
+
+.time-hud .hud-play-btn:active {
+  transform: scale(0.96);
+}
+
+.time-hud .hud-play-btn:focus-visible {
+  outline: 2px solid var(--hud-accent-hover);
+  outline-offset: 3px;
+}
+
+/* En pausa cambia de color, para notarlo de lejos además del icono */
+.time-hud.is-paused .hud-play-btn {
+  background: var(--hud-paused);
+}
+
+.time-hud.is-paused .hud-play-btn:hover {
+  background: var(--hud-paused-hover);
+}
+
+.time-hud .hud-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Sin espacio al centro: va a la esquina opuesta a la leyenda */
+@media (max-width: 800px) {
+  .time-hud {
+    left: 8px;
+    bottom: 8px;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .time-hud .hud-play-btn {
+    transition: none;
+  }
+
+  .time-hud .hud-play-btn:hover,
+  .time-hud .hud-play-btn:active {
+    transform: none;
+  }
+}

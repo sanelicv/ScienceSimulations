@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Generador Eléctrico 3D</title>
+  <link rel="stylesheet" href="./fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="./lib/three.min.js"></script>
+  <script src="./lib/OrbitControls.js"></script>
+  <script src="./lib/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <div id="app-container">
+    <div id="control-panel">
+      <h2>Parámetros del Generador</h2>
+
+      <div class="control-group">
+        <label for="mode-select">Tipo de Generador:</label>
+        <select id="mode-select">
+          <option value="AC">Alternador (Anillos Colectores)</option>
+          <option value="DC">Dinamo (Conmutador)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="velocity-slider">Velocidad Angular (&omega;): <span id="velocity-val">1</span> rad/s</label>
+        <input type="range" id="velocity-slider" min="0" max="5" step="0.1" value="1">
+      </div>
+
+      <div class="control-group toggle-group">
+        <label for="autoplay-toggle" style="margin: 0; cursor: pointer;">Rotación Automática (Autoplay)</label>
+        <label class="switch">
+          <input type="checkbox" id="autoplay-toggle" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="control-group">
+        <label for="field-slider">Campo Magnético (B): <span id="field-val">1.0</span> T</label>
+        <input type="range" id="field-slider" min="0.1" max="3.0" step="0.1" value="1.0">
+      </div>
+
+      <div class="control-group toggle-group">
+        <label for="field-lines-toggle" style="margin: 0; cursor: pointer;">Mostrar Líneas de Campo</label>
+        <label class="switch">
+          <input type="checkbox" id="field-lines-toggle" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="control-group">
+        <label for="area-slider">Área de la Bobina (A): <span id="area-val">35.0</span> m²</label>
+        <input type="range" id="area-slider" min="5" max="50" step="0.2" value="35">
+      </div>
+
+      <div class="control-group">
+        <label for="turns-slider">Número de Vueltas (N): <span id="turns-val">1</span></label>
+        <input type="range" id="turns-slider" min="1" max="10" step="1" value="1">
+      </div>
+
+    </div>
+
+    <!-- Panel de Gráfica Flotante: Voltaje -->
+    <div id="plot-panel" class="floating-panel">
+      <div class="panel-header">
+        <span class="panel-title">Monitoreo de Voltaje vs Tiempo</span>
+        <div class="panel-controls">
+          <button class="btn-minimize" title="Minimizar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+          <button class="btn-maximize" title="Maximizar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="graph-container">
+          <canvas id="graph-canvas"></canvas>
+        </div>
+      </div>
+      <!-- Tiradores de redimensión en los bordes y esquinas -->
+      <div class="resizer resizer-t"></div>
+      <div class="resizer resizer-b"></div>
+      <div class="resizer resizer-l"></div>
+      <div class="resizer resizer-r"></div>
+      <div class="resizer resizer-tl"></div>
+      <div class="resizer resizer-tr"></div>
+      <div class="resizer resizer-bl"></div>
+      <div class="resizer resizer-br"></div>
+    </div>
+
+    <!-- Panel de Gráfica Flotante: Flujo Magnético -->
+    <div id="flux-panel" class="floating-panel">
+      <div class="panel-header">
+        <span class="panel-title">Monitoreo de Flujo Magnético vs Tiempo</span>
+        <div class="panel-controls">
+          <button class="btn-minimize" title="Minimizar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+          <button class="btn-maximize" title="Maximizar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="graph-container">
+          <canvas id="flux-canvas"></canvas>
+        </div>
+      </div>
+      <!-- Tiradores de redimensión en los bordes y esquinas -->
+      <div class="resizer resizer-t"></div>
+      <div class="resizer resizer-b"></div>
+      <div class="resizer resizer-l"></div>
+      <div class="resizer resizer-r"></div>
+      <div class="resizer resizer-tl"></div>
+      <div class="resizer resizer-tr"></div>
+      <div class="resizer resizer-bl"></div>
+      <div class="resizer resizer-br"></div>
+    </div>
+
+    <div id="canvas-container"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

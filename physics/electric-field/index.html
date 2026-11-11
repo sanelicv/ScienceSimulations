@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Make sure to add this line: -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrostatic Field Visualization</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  
+<body>
+  <div class="container">
+    <h1>Electrostatic Field Visualization</h1>
+    
+    <div class="controls">
+
+      <!-- Draw Electric Field Vectors -->
+      <div class="control-group">
+        <label for="drawVectors">Draw Field Vectors:</label>
+        <select id="drawVectors">
+          <option value="1" selected>On</option>
+          <option value="0">Off</option>
+        </select>
+      </div>
+
+      <!-- GRID RESOLUTION -->
+      <div class="control-group">
+        <label for="gridResolution">Grid Resolution:</label>
+        <select id="gridResolution">
+          <option value="10">10 x 10</option>
+          <option value="15">15 x 15</option>
+          <option value="20" selected>20 x 20</option>
+          <option value="30">30 x 30</option>
+          <option value="40">40 x 40</option>
+        </select>
+      </div>
+
+      <!-- CHARGE 1 SIGN (Drop-down) -->
+      <div class="control-group">
+        <label for="charge1Sign">Charge 1 Sign:</label>
+        <select id="charge1Sign">
+          <option value="1" selected>+1</option>
+          <option value="-1">-1</option>
+        </select>
+      </div>
+
+      <!-- CHARGE 1 MAGNITUDE (Drop-down, up to 8) -->
+      <div class="control-group">
+        <label for="charge1Mag">Charge 1 Magnitude:</label>
+        <select id="charge1Mag">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="32">32</option>
+            <option value="64">64</option>
+            <option value="128">128</option>
+            <option value="256">256</option>
+        </select>
+      </div>
+      
+      <!-- CHARGE 2 SIGN (Drop-down) -->
+      <div class="control-group">
+        <label for="charge2Sign">Charge 2 Sign:</label>
+        <select id="charge2Sign">
+          <option value="1" selected>+1</option>
+          <option value="-1">-1</option>
+        </select>
+      </div>
+
+      <!-- CHARGE 2 MAGNITUDE (Drop-down, up to 8) -->
+      <div class="control-group">
+        <label for="charge2Mag">Charge 2 Magnitude:</label>
+        <select id="charge2Mag">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+          <option value="32">32</option>
+          <option value="64">64</option>
+          <option value="128">128</option>
+          <option value="256">256</option>
+        </select>
+      </div>
+      
+      
+
+      <!-- Field Lines COUNT -->
+      <div class="control-group">
+        <label for="numFieldLines">Field Lines from Charge 1:</label>
+        <select id="numFieldLines">
+          <option value="0" selected>0</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+
+      <!-- Number of Equipotentials -->
+      <div class="control-group">
+        <label for="numEquipotentials">Number of Equipotentials:</label>
+        <select id="numEquipotentials">
+          <option value="0" selected>0</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- script.js before p5 libraries -->
+  <script src="script.js"></script>
+
+  <!-- p5.js library (CDN or local) -->
+  <script src="./lib/p5.min.js"></script>
+
+  <!-- p5.js sketch -->
+  <script src="sketch.js"></script>
+</body>
+</html>

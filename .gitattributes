@@ -1,0 +1,5 @@
+# Saltos de línea de los lanzadores
+*.bat     text eol=crlf
+*.command text eol=lf
+*.sh      text eol=lf
+*.py      text eol=lf
