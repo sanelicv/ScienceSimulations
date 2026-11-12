@@ -98,15 +98,19 @@
         <h2 id="h-featured" data-i18n="featured.title">Destacadas</h2>
         <p data-i18n="featured.subtitle">Una selección de simulaciones para empezar a explorar.</p>
       </header>
-      <div class="featured-grid"></div>
+      <div class="featured-carousel scroller">
+        <button type="button" class="scroll-arrow prev" aria-label="Destacada anterior" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="featured-grid scroll-row"></div>
+        <button type="button" class="scroll-arrow next" aria-label="Siguiente destacada" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
     </div>
   </section>
 
   <div class="toolbar">
     <div class="container toolbar-inner">
-      <div class="filters-wrap">
-        <button type="button" class="filters-arrow prev" aria-label="Ver categorías anteriores" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="filters" role="group" aria-label="Categorías">
+      <div class="filters-wrap scroller">
+        <button type="button" class="scroll-arrow prev" aria-label="Ver categorías anteriores" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="filters scroll-row" role="group" aria-label="Categorías">
             <button type="button" class="chip is-active" data-filter="all" aria-pressed="true"><span data-i18n="filters.all">Todas</span><span class="chip-count">45</span></button>
             <button type="button" class="chip" data-filter="hep" aria-pressed="false"><span data-i18n="filters.cat_hep">Altas Energías</span><span class="chip-count">2</span></button>
             <button type="button" class="chip" data-filter="math" aria-pressed="false"><span data-i18n="filters.cat_math">Matemáticas</span><span class="chip-count">3</span></button>
@@ -115,7 +119,7 @@
             <button type="button" class="chip" data-filter="astrophysics" aria-pressed="false"><span data-i18n="filters.cat_astrophysics">Astrofísica</span><span class="chip-count">6</span></button>
             <button type="button" class="chip" data-filter="cosmology" aria-pressed="false"><span data-i18n="filters.cat_cosmology">Cosmología</span><span class="chip-count">5</span></button>
         </div>
-        <button type="button" class="filters-arrow next" aria-label="Ver más categorías" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" class="scroll-arrow next" aria-label="Ver más categorías" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <label class="search">
         <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m11 11 3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -712,7 +716,7 @@
               <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
-          <a href="./astrophysics/black-hole/index.html" class="card" data-category="astrophysics">
+          <a href="./astrophysics/black-hole/index.html" class="card" data-category="astrophysics" data-featured="3">
             <div class="card-media">
               <img src="assets/homepage/thumbnails/astrophysics/black-hole.png" alt="" loading="lazy" width="202" height="140">
             </div>

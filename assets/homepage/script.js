@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try { localStorage.setItem('site_lang', lang); } catch (e) { /* storage blocked */ }
       applyFilters();
       updateChipArrows();
+      updateFeaturedArrows();
     } catch (error) {
       console.error('Error loading translations:', error);
     }
@@ -143,24 +144,34 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hashchange', () => setFilter(window.location.hash.slice(1), { updateHash: false }));
 
   // =========================================================
-  // Scrollable chips: arrows + edge fade when they overflow
+  // Horizontal scrollers (category chips, featured carousel):
+  // arrows + edge fade, shown only when the row overflows
   // =========================================================
-  const filtersWrap = document.querySelector('.filters-wrap');
-  const filtersRow = filtersWrap && filtersWrap.querySelector('.filters');
-  const arrowPrev = filtersWrap && filtersWrap.querySelector('.filters-arrow.prev');
-  const arrowNext = filtersWrap && filtersWrap.querySelector('.filters-arrow.next');
-
-  function updateChipArrows() {
-    if (!filtersRow) return;
-    const max = filtersRow.scrollWidth - filtersRow.clientWidth;
-    const x = filtersRow.scrollLeft;
-    const canPrev = max > 4 && x > 4;
-    const canNext = max > 4 && x < max - 4;
-    filtersWrap.classList.toggle('can-prev', canPrev);
-    filtersWrap.classList.toggle('can-next', canNext);
-    arrowPrev.hidden = !canPrev;
-    arrowNext.hidden = !canNext;
+  function setupScroller(wrap, step) {
+    const row = wrap && wrap.querySelector('.scroll-row');
+    if (!row) return () => {};
+    const prev = wrap.querySelector('.scroll-arrow.prev');
+    const next = wrap.querySelector('.scroll-arrow.next');
+    const update = () => {
+      const max = row.scrollWidth - row.clientWidth;
+      const x = row.scrollLeft;
+      const canPrev = max > 4 && x > 4;
+      const canNext = max > 4 && x < max - 4;
+      wrap.classList.toggle('can-prev', canPrev);
+      wrap.classList.toggle('can-next', canNext);
+      prev.hidden = !canPrev;
+      next.hidden = !canNext;
+    };
+    row.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    prev.addEventListener('click', () => row.scrollBy({ left: -step(row), behavior: 'smooth' }));
+    next.addEventListener('click', () => row.scrollBy({ left: step(row), behavior: 'smooth' }));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);
+    return update;
   }
+
+  const filtersRow = document.querySelector('.filters');
+  const updateChipArrows = setupScroller(document.querySelector('.filters-wrap'), (row) => row.clientWidth * 0.7);
 
   function revealActiveChip() {
     if (!filtersRow) return;
@@ -172,14 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (c.left < row.left + margin || c.right > row.right - margin) {
       filtersRow.scrollBy({ left: c.left - row.left - (row.width - c.width) / 2, behavior: 'smooth' });
     }
-  }
-
-  if (filtersRow) {
-    filtersRow.addEventListener('scroll', updateChipArrows, { passive: true });
-    window.addEventListener('resize', updateChipArrows);
-    arrowPrev.addEventListener('click', () => filtersRow.scrollBy({ left: -filtersRow.clientWidth * 0.7, behavior: 'smooth' }));
-    arrowNext.addEventListener('click', () => filtersRow.scrollBy({ left: filtersRow.clientWidth * 0.7, behavior: 'smooth' }));
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateChipArrows);
   }
 
   // =========================================================
@@ -207,11 +210,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     featured.hidden = picks.length === 0;
   }
+  // One card (plus gap) per arrow click
+  const updateFeaturedArrows = setupScroller(document.querySelector('.featured-carousel'), (row) => {
+    const card = row.querySelector('.card');
+    return card ? card.getBoundingClientRect().width + 20 : row.clientWidth;
+  });
 
   // =========================================================
   // Init
   // =========================================================
   if (chips.length) setFilter(window.location.hash.slice(1), { updateHash: false });
   updateChipArrows();
+  updateFeaturedArrows();
   loadTranslations(currentLang);
 });
