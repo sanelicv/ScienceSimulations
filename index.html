@@ -104,14 +104,18 @@
 
   <div class="toolbar">
     <div class="container toolbar-inner">
-      <div class="filters" role="group" aria-label="Categorías">
-          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true"><span data-i18n="filters.all">Todas</span><span class="chip-count">45</span></button>
-          <button type="button" class="chip" data-filter="hep" aria-pressed="false"><span data-i18n="filters.cat_hep">Altas Energías</span><span class="chip-count">2</span></button>
-          <button type="button" class="chip" data-filter="math" aria-pressed="false"><span data-i18n="filters.cat_math">Matemáticas</span><span class="chip-count">3</span></button>
-          <button type="button" class="chip" data-filter="physics" aria-pressed="false"><span data-i18n="filters.cat_physics">Física</span><span class="chip-count">9</span></button>
-          <button type="button" class="chip" data-filter="astronomy" aria-pressed="false"><span data-i18n="filters.cat_astronomy">Astronomía</span><span class="chip-count">20</span></button>
-          <button type="button" class="chip" data-filter="astrophysics" aria-pressed="false"><span data-i18n="filters.cat_astrophysics">Astrofísica</span><span class="chip-count">6</span></button>
-          <button type="button" class="chip" data-filter="cosmology" aria-pressed="false"><span data-i18n="filters.cat_cosmology">Cosmología</span><span class="chip-count">5</span></button>
+      <div class="filters-wrap">
+        <button type="button" class="filters-arrow prev" aria-label="Ver categorías anteriores" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="filters" role="group" aria-label="Categorías">
+            <button type="button" class="chip is-active" data-filter="all" aria-pressed="true"><span data-i18n="filters.all">Todas</span><span class="chip-count">45</span></button>
+            <button type="button" class="chip" data-filter="hep" aria-pressed="false"><span data-i18n="filters.cat_hep">Altas Energías</span><span class="chip-count">2</span></button>
+            <button type="button" class="chip" data-filter="math" aria-pressed="false"><span data-i18n="filters.cat_math">Matemáticas</span><span class="chip-count">3</span></button>
+            <button type="button" class="chip" data-filter="physics" aria-pressed="false"><span data-i18n="filters.cat_physics">Física</span><span class="chip-count">9</span></button>
+            <button type="button" class="chip" data-filter="astronomy" aria-pressed="false"><span data-i18n="filters.cat_astronomy">Astronomía</span><span class="chip-count">20</span></button>
+            <button type="button" class="chip" data-filter="astrophysics" aria-pressed="false"><span data-i18n="filters.cat_astrophysics">Astrofísica</span><span class="chip-count">6</span></button>
+            <button type="button" class="chip" data-filter="cosmology" aria-pressed="false"><span data-i18n="filters.cat_cosmology">Cosmología</span><span class="chip-count">5</span></button>
+        </div>
+        <button type="button" class="filters-arrow next" aria-label="Ver más categorías" tabindex="-1" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <label class="search">
         <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m11 11 3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>

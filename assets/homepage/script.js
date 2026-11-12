@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentLang = lang;
       try { localStorage.setItem('site_lang', lang); } catch (e) { /* storage blocked */ }
       applyFilters();
+      updateChipArrows();
     } catch (error) {
       console.error('Error loading translations:', error);
     }
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       chip.setAttribute('aria-pressed', String(active));
     });
     applyFilters();
+    revealActiveChip();
 
     if (updateHash) {
       const url = activeFilter === 'all' ? window.location.pathname : `#${activeFilter}`;
@@ -112,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       setFilter(chip.dataset.filter);
-      chip.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       const catalog = document.getElementById('catalog');
       if (catalog && catalog.getBoundingClientRect().top < 0) {
         catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -140,6 +141,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('hashchange', () => setFilter(window.location.hash.slice(1), { updateHash: false }));
+
+  // =========================================================
+  // Scrollable chips: arrows + edge fade when they overflow
+  // =========================================================
+  const filtersWrap = document.querySelector('.filters-wrap');
+  const filtersRow = filtersWrap && filtersWrap.querySelector('.filters');
+  const arrowPrev = filtersWrap && filtersWrap.querySelector('.filters-arrow.prev');
+  const arrowNext = filtersWrap && filtersWrap.querySelector('.filters-arrow.next');
+
+  function updateChipArrows() {
+    if (!filtersRow) return;
+    const max = filtersRow.scrollWidth - filtersRow.clientWidth;
+    const x = filtersRow.scrollLeft;
+    const canPrev = max > 4 && x > 4;
+    const canNext = max > 4 && x < max - 4;
+    filtersWrap.classList.toggle('can-prev', canPrev);
+    filtersWrap.classList.toggle('can-next', canNext);
+    arrowPrev.hidden = !canPrev;
+    arrowNext.hidden = !canNext;
+  }
+
+  function revealActiveChip() {
+    if (!filtersRow) return;
+    const chip = filtersRow.querySelector('.chip.is-active');
+    if (!chip || filtersRow.scrollWidth <= filtersRow.clientWidth) return;
+    const row = filtersRow.getBoundingClientRect();
+    const c = chip.getBoundingClientRect();
+    const margin = 48;
+    if (c.left < row.left + margin || c.right > row.right - margin) {
+      filtersRow.scrollBy({ left: c.left - row.left - (row.width - c.width) / 2, behavior: 'smooth' });
+    }
+  }
+
+  if (filtersRow) {
+    filtersRow.addEventListener('scroll', updateChipArrows, { passive: true });
+    window.addEventListener('resize', updateChipArrows);
+    arrowPrev.addEventListener('click', () => filtersRow.scrollBy({ left: -filtersRow.clientWidth * 0.7, behavior: 'smooth' }));
+    arrowNext.addEventListener('click', () => filtersRow.scrollBy({ left: filtersRow.clientWidth * 0.7, behavior: 'smooth' }));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateChipArrows);
+  }
 
   // =========================================================
   // Featured strip: copies every catalog card marked with data-featured
@@ -171,5 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init
   // =========================================================
   if (chips.length) setFilter(window.location.hash.slice(1), { updateHash: false });
+  updateChipArrows();
   loadTranslations(currentLang);
 });

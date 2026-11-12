@@ -1221,3 +1221,74 @@ html.is-file .file-notice {
     min-height: 40px;
   }
 }
+
+/* =========================================================
+   Scrollable category chips: edge fade + arrow buttons
+   (only visible when chips overflow, i.e. tablets and phones)
+   ========================================================= */
+.filters-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.filters-wrap.can-next .filters {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 72px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 72px), transparent);
+}
+
+.filters-wrap.can-prev .filters {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 72px);
+  mask-image: linear-gradient(to right, transparent, #000 72px);
+}
+
+.filters-wrap.can-prev.can-next .filters {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 72px, #000 calc(100% - 72px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 72px, #000 calc(100% - 72px), transparent);
+}
+
+.filters-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.filters-arrow:hover {
+  background: var(--surface-2);
+}
+
+.filters-arrow:active {
+  transform: scale(0.94);
+}
+
+.filters-arrow[hidden] {
+  display: none;
+}
+
+.filters-arrow.prev {
+  left: -6px;
+}
+
+.filters-arrow.next {
+  right: -6px;
+}
+
+@media (pointer: coarse) {
+  .filters-arrow {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+  }
+}
