@@ -142,6 +142,24 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hashchange', () => setFilter(window.location.hash.slice(1), { updateHash: false }));
 
   // =========================================================
+  // Featured strip: copies every catalog card marked with data-featured
+  // =========================================================
+  const featured = document.querySelector('.featured');
+  const featuredGrid = featured && featured.querySelector('.featured-grid');
+  if (featuredGrid) {
+    const picks = document.querySelectorAll('.catalog .card[data-featured]');
+    picks.forEach((card) => {
+      const copy = card.cloneNode(true);
+      copy.classList.add('is-featured');
+      copy.removeAttribute('data-featured');
+      copy.removeAttribute('data-category');
+      copy.hidden = false;
+      featuredGrid.appendChild(copy);
+    });
+    featured.hidden = picks.length === 0;
+  }
+
+  // =========================================================
   // Init
   // =========================================================
   if (chips.length) setFilter(window.location.hash.slice(1), { updateHash: false });

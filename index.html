@@ -86,16 +86,31 @@
     </div>
   </section>
 
+  <!--
+    Destacados: se rellenan automáticamente con las tarjetas del catálogo que
+    tienen el atributo data-featured (en el orden en que aparecen en esta página).
+    Para destacar otra simulación, añade data-featured a su <a class="card">.
+  -->
+  <section class="featured" aria-labelledby="h-featured" hidden>
+    <div class="container">
+      <header class="featured-header">
+        <h2 id="h-featured" data-i18n="featured.title">Destacadas</h2>
+        <p data-i18n="featured.subtitle">Una selección de simulaciones para empezar a explorar.</p>
+      </header>
+      <div class="featured-grid"></div>
+    </div>
+  </section>
+
   <div class="toolbar">
     <div class="container toolbar-inner">
       <div class="filters" role="group" aria-label="Categorías">
           <button type="button" class="chip is-active" data-filter="all" aria-pressed="true"><span data-i18n="filters.all">Todas</span><span class="chip-count">45</span></button>
+          <button type="button" class="chip" data-filter="hep" aria-pressed="false"><span data-i18n="filters.cat_hep">Altas Energías</span><span class="chip-count">2</span></button>
           <button type="button" class="chip" data-filter="math" aria-pressed="false"><span data-i18n="filters.cat_math">Matemáticas</span><span class="chip-count">3</span></button>
           <button type="button" class="chip" data-filter="physics" aria-pressed="false"><span data-i18n="filters.cat_physics">Física</span><span class="chip-count">9</span></button>
           <button type="button" class="chip" data-filter="astronomy" aria-pressed="false"><span data-i18n="filters.cat_astronomy">Astronomía</span><span class="chip-count">20</span></button>
           <button type="button" class="chip" data-filter="astrophysics" aria-pressed="false"><span data-i18n="filters.cat_astrophysics">Astrofísica</span><span class="chip-count">6</span></button>
           <button type="button" class="chip" data-filter="cosmology" aria-pressed="false"><span data-i18n="filters.cat_cosmology">Cosmología</span><span class="chip-count">5</span></button>
-          <button type="button" class="chip" data-filter="hep" aria-pressed="false"><span data-i18n="filters.cat_hep">Altas Energías</span><span class="chip-count">2</span></button>
       </div>
       <label class="search">
         <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m11 11 3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -110,6 +125,44 @@
         <span data-i18n="ui.legend">Si descargas las simulaciones, las marcadas con este icono necesitan un servidor local.</span>
         <a href="./assets/homepage/pages/about.html#offline" data-i18n="ui.legend_link">Cómo usarlas sin conexión</a>
       </p>
+
+      <section class="category" id="hep" data-category="hep" aria-labelledby="h-hep">
+        <header class="category-header">
+          <div>
+            <h2 id="h-hep" data-i18n="sections.hep.title">Física de Altas Energías</h2>
+            <p data-i18n="sections.hep.subtitle">Detectores de partículas y neutrinos.</p>
+          </div>
+          <span class="category-count"><span class="n">2</span> <span data-i18n="ui.simulations">simulaciones</span></span>
+        </header>
+        <div class="cards-grid">
+          <a href="./hep/super-kamiokande/index.html" class="card" data-category="hep" data-featured>
+            <div class="card-media is-logo">
+              <img src="assets/homepage/thumbnails/hep/super-kamiokande.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_hep">Altas Energías</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.super-kamiokande.title">Super-Kamiokande</h3>
+              <p class="card-desc" data-i18n="cards.super-kamiokande.desc">Explora el detector de neutrinos Super-Kamiokande y cómo la luz Cherenkov revela el paso de partículas.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+          <a href="./hep/tambo/index.html" class="card" data-category="hep" data-featured>
+            <div class="card-media is-logo">
+              <img src="assets/homepage/thumbnails/hep/tambo.png" alt="" loading="lazy" width="202" height="140">
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag" data-i18n="filters.cat_hep">Altas Energías</span>
+              </div>
+              <h3 class="card-title" data-i18n="cards.tambo.title">TAMBO</h3>
+              <p class="card-desc" data-i18n="cards.tambo.desc">Explora TAMBO, el observatorio de neutrinos tau propuesto en un valle de los Andes peruanos.</p>
+              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
 
       <section class="category" id="math" data-category="math" aria-labelledby="h-math">
         <header class="category-header">
@@ -743,44 +796,6 @@
               </div>
               <h3 class="card-title" data-i18n="cards.big-bang.title">Big Bang</h3>
               <p class="card-desc" data-i18n="cards.big-bang.desc">Simulador interactivo del Big Bang.</p>
-              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <section class="category" id="hep" data-category="hep" aria-labelledby="h-hep">
-        <header class="category-header">
-          <div>
-            <h2 id="h-hep" data-i18n="sections.hep.title">Física de Altas Energías</h2>
-            <p data-i18n="sections.hep.subtitle">Detectores de partículas y neutrinos.</p>
-          </div>
-          <span class="category-count"><span class="n">2</span> <span data-i18n="ui.simulations">simulaciones</span></span>
-        </header>
-        <div class="cards-grid">
-          <a href="./hep/super-kamiokande/index.html" class="card" data-category="hep">
-            <div class="card-media is-logo">
-              <img src="assets/homepage/thumbnails/hep/super-kamiokande.png" alt="" loading="lazy" width="202" height="140">
-            </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-tag" data-i18n="filters.cat_hep">Altas Energías</span>
-              </div>
-              <h3 class="card-title" data-i18n="cards.super-kamiokande.title">Super-Kamiokande</h3>
-              <p class="card-desc" data-i18n="cards.super-kamiokande.desc">Explora el detector de neutrinos Super-Kamiokande y cómo la luz Cherenkov revela el paso de partículas.</p>
-              <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
-          </a>
-          <a href="./hep/tambo/index.html" class="card" data-category="hep">
-            <div class="card-media is-logo">
-              <img src="assets/homepage/thumbnails/hep/tambo.png" alt="" loading="lazy" width="202" height="140">
-            </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-tag" data-i18n="filters.cat_hep">Altas Energías</span>
-              </div>
-              <h3 class="card-title" data-i18n="cards.tambo.title">TAMBO</h3>
-              <p class="card-desc" data-i18n="cards.tambo.desc">Explora TAMBO, el observatorio de neutrinos tau propuesto en un valle de los Andes peruanos.</p>
               <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>

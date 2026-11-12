@@ -16,6 +16,10 @@
     "disclaimer": "Educational tool, not scientifically validated.",
     "more": "Learn more"
   },
+  "featured": {
+    "title": "Featured",
+    "subtitle": "A selection of simulations to start exploring."
+  },
   "filters": {
     "all": "All",
     "search_placeholder": "Search simulations…",

@@ -982,3 +982,112 @@ html.is-file .file-notice {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.85em;
 }
+
+/* =========================================================
+   Featured strip (cards marked with data-featured)
+   ========================================================= */
+.featured {
+  padding: 40px 0 44px;
+  background:
+    radial-gradient(900px 300px at 90% 0%, rgba(94, 163, 255, 0.14), transparent 60%),
+    linear-gradient(180deg, #0b1220, #101a2e);
+  color: #e6edf7;
+}
+
+.featured[hidden] {
+  display: none;
+}
+
+.featured-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 650;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.featured-header p {
+  color: #9fb0c8;
+  font-size: 0.95rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.card.is-featured {
+  flex-direction: row;
+  background: #16213a;
+  border-color: #24324f;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card.is-featured:hover {
+  border-color: #3a5487;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+
+.card.is-featured .card-media {
+  flex: 0 0 44%;
+  aspect-ratio: auto;
+  min-height: 210px;
+  border-bottom: 0;
+  border-right: 1px solid #24324f;
+}
+
+.card.is-featured .card-body {
+  padding: 22px 24px;
+}
+
+.card.is-featured .card-tag {
+  background: rgba(94, 163, 255, 0.16);
+  color: #8cc0ff;
+}
+
+.card.is-featured .card-server {
+  color: #9fb0c8;
+}
+
+.card.is-featured .card-title {
+  color: #ffffff;
+  font-size: 1.35rem;
+}
+
+.card.is-featured .card-desc {
+  color: #b4c0d3;
+  font-size: 0.95rem;
+  -webkit-line-clamp: 4;
+}
+
+.card.is-featured .card-cta {
+  color: #8cc0ff;
+}
+
+@media (max-width: 600px) {
+  .featured {
+    padding: 28px 0 32px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card.is-featured {
+    flex-direction: column;
+  }
+
+  .card.is-featured .card-media {
+    flex: none;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid #24324f;
+  }
+}
+
+.card.is-featured .card-media.is-logo {
+  padding: 36px 44px;
+}

@@ -16,6 +16,10 @@
     "disclaimer": "Herramienta didáctica, no validada científicamente.",
     "more": "Más información"
   },
+  "featured": {
+    "title": "Destacadas",
+    "subtitle": "Una selección de simulaciones para empezar a explorar."
+  },
   "filters": {
     "all": "Todas",
     "search_placeholder": "Buscar simulación…",
