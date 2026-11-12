@@ -1091,3 +1091,133 @@ html.is-file .file-notice {
 .card.is-featured .card-media.is-logo {
   padding: 36px 44px;
 }
+
+/* =========================================================
+   Phones: compact single-line header
+   ========================================================= */
+.brand-name,
+.header-nav > a {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .brand {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .header-nav {
+    gap: 10px;
+  }
+
+  .header-nav > a {
+    font-size: 0.88rem;
+  }
+
+  /* GitHub is also linked in the footer */
+  .header-nav .icon-link {
+    display: none;
+  }
+
+  .lang-option {
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 359px) {
+  .brand-name {
+    font-size: 0.86rem;
+  }
+}
+
+/* =========================================================
+   Touch screens: comfortable tap targets (≥ 40–44 px)
+   ========================================================= */
+@media (pointer: coarse) {
+  .header-nav > a,
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .lang-switch {
+    padding: 2px;
+  }
+
+  .lang-option {
+    min-width: 40px;
+    min-height: 36px;
+  }
+
+  .chip {
+    height: 42px;
+  }
+
+  .search input {
+    height: 44px;
+    font-size: 16px; /* evita el zoom automático de iOS al enfocar */
+  }
+
+  .footer-links {
+    gap: 0 8px;
+  }
+
+  .footer-links a,
+  .footer-author a,
+  .legend a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .footer-links a {
+    padding: 0 6px;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 600px) {
+  .header-nav .icon-link {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .brand {
+    min-height: 44px;
+  }
+}
+
+/* The nav never shrinks; the brand gives way first */
+.header-nav {
+  flex-shrink: 0;
+}
+
+.brand {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Narrow phones: logo only (the page title is right below) */
+@media (max-width: 420px) {
+  .brand-name {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .page-content ul a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+}
