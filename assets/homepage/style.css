@@ -1355,8 +1355,117 @@ html.is-file .file-notice {
   }
 }
 
-/* The carousel does not need the edge fade: the next card peeks in */
-.featured-carousel > .scroll-row {
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+/* =========================================================
+   Featured carousel: drag, soft edge fade, peek, dots
+   ========================================================= */
+/* Desktop with 3+ cards: the third one peeks in and fades out */
+.featured-grid:has(> .card:nth-child(3)) {
+  grid-auto-columns: calc((100% - 40px) / 2.25);
+}
+
+.featured-carousel.can-prev > .scroll-row,
+.featured-carousel.can-next > .scroll-row {
+  cursor: grab;
+}
+
+.featured-grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.featured-grid.is-dragging .card {
+  pointer-events: none;
+}
+
+.featured-grid img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Wider, softer fade than the chips */
+.featured-carousel.can-next > .scroll-row {
+  -webkit-mask-image: linear-gradient(to right, #000 82%, transparent);
+  mask-image: linear-gradient(to right, #000 82%, transparent);
+}
+
+.featured-carousel.can-prev > .scroll-row {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%);
+  mask-image: linear-gradient(to right, transparent, #000 10%);
+}
+
+.featured-carousel.can-prev.can-next > .scroll-row {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 82%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 82%, transparent);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.carousel-dots[hidden] {
+  display: none;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-dot.is-active {
+  width: 24px;
+  background: #8cc0ff;
+}
+
+@media (max-width: 960px) {
+  .featured-grid,
+  .featured-grid:has(> .card:nth-child(3)) {
+    grid-auto-columns: 84%;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-grid,
+  .featured-grid:has(> .card:nth-child(3)) {
+    grid-auto-columns: 86%;
+  }
+
+  .featured-carousel.can-next > .scroll-row {
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+    mask-image: linear-gradient(to right, #000 88%, transparent);
+  }
+
+  .featured-carousel.can-prev.can-next > .scroll-row {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 88%, transparent);
+  }
+
+  .featured-carousel.can-prev > .scroll-row {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%);
+    mask-image: linear-gradient(to right, transparent, #000 6%);
+  }
+}
+
+/* Dots: comfortable tap area without changing their look */
+@media (pointer: coarse) {
+  .carousel-dot {
+    position: relative;
+  }
+
+  .carousel-dot::after {
+    content: "";
+    position: absolute;
+    inset: -14px -6px;
+  }
 }

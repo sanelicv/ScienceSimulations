@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       applyFilters();
       updateChipArrows();
       updateFeaturedArrows();
+      updateDots();
     } catch (error) {
       console.error('Error loading translations:', error);
     }
@@ -159,13 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const canNext = max > 4 && x < max - 4;
       wrap.classList.toggle('can-prev', canPrev);
       wrap.classList.toggle('can-next', canNext);
-      prev.hidden = !canPrev;
-      next.hidden = !canNext;
+      if (prev) prev.hidden = !canPrev;
+      if (next) next.hidden = !canNext;
     };
     row.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
-    prev.addEventListener('click', () => row.scrollBy({ left: -step(row), behavior: 'smooth' }));
-    next.addEventListener('click', () => row.scrollBy({ left: step(row), behavior: 'smooth' }));
+    if (prev) prev.addEventListener('click', () => row.scrollBy({ left: -step(row), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => row.scrollBy({ left: step(row), behavior: 'smooth' }));
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);
     return update;
   }
@@ -210,11 +211,124 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     featured.hidden = picks.length === 0;
   }
-  // One card (plus gap) per arrow click
-  const updateFeaturedArrows = setupScroller(document.querySelector('.featured-carousel'), (row) => {
-    const card = row.querySelector('.card');
-    return card ? card.getBoundingClientRect().width + 20 : row.clientWidth;
-  });
+  // =========================================================
+  // Featured carousel: drag with the mouse, edge fade, dots
+  // =========================================================
+  const updateFeaturedArrows = setupScroller(document.querySelector('.featured-carousel'), () => 0);
+  const dots = featured && featured.querySelector('.carousel-dots');
+
+  const cardsOf = (row) => Array.from(row.querySelectorAll('.card'));
+  // Reachable stop positions: each card start, clamped to the end of the row (duplicates removed)
+  const stops = (row) => {
+    const max = Math.max(0, row.scrollWidth - row.clientWidth);
+    const first = row.firstElementChild ? row.firstElementChild.offsetLeft : 0;
+    const out = [];
+    cardsOf(row).forEach((c) => {
+      const x = Math.min(max, Math.max(0, c.offsetLeft - first));
+      if (!out.length || x - out[out.length - 1] > 4) out.push(x);
+    });
+    return out.length ? out : [0];
+  };
+  const nearestIndex = (row, x = row.scrollLeft) => {
+    const st = stops(row);
+    let best = 0;
+    st.forEach((p, i) => { if (Math.abs(p - x) < Math.abs(st[best] - x)) best = i; });
+    return best;
+  };
+  const goTo = (row, i) => {
+    const st = stops(row);
+    row.scrollTo({ left: st[Math.max(0, Math.min(st.length - 1, i))], behavior: 'smooth' });
+  };
+
+  function updateDots() {
+    if (!dots || !featuredGrid) return;
+    const overflow = featuredGrid.scrollWidth - featuredGrid.clientWidth > 4;
+    dots.hidden = !overflow;
+    if (!overflow) return;
+    const n = stops(featuredGrid).length;
+    if (dots.children.length !== n) {
+      dots.innerHTML = '';
+      for (let i = 0; i < n; i++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'carousel-dot';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', String(i + 1));
+        b.addEventListener('click', () => goTo(featuredGrid, i));
+        dots.appendChild(b);
+      }
+    }
+    const active = nearestIndex(featuredGrid);
+    Array.from(dots.children).forEach((b, i) => {
+      b.classList.toggle('is-active', i === active);
+      b.setAttribute('aria-selected', String(i === active));
+    });
+  }
+
+  // Mouse drag (touch and trackpads already scroll natively)
+  function enableDrag(row) {
+    if (!row) return;
+    let startX = 0, startScroll = 0, lastX = 0, lastT = 0, velocity = 0, dragging = false, moved = false;
+
+    row.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      if (row.scrollWidth - row.clientWidth <= 4) return;
+      dragging = true;
+      moved = false;
+      startX = lastX = e.clientX;
+      startScroll = row.scrollLeft;
+      lastT = performance.now();
+      velocity = 0;
+    });
+
+    row.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) > 5) {
+        moved = true;
+        row.classList.add('is-dragging');
+        row.setPointerCapture(e.pointerId);
+      }
+      if (!moved) return;
+      const now = performance.now();
+      velocity = (e.clientX - lastX) / Math.max(1, now - lastT);
+      lastX = e.clientX;
+      lastT = now;
+      row.scrollLeft = startScroll - dx;
+    });
+
+    const end = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      if (!moved) return;
+      row.classList.remove('is-dragging');
+      if (row.hasPointerCapture && row.hasPointerCapture(e.pointerId)) row.releasePointerCapture(e.pointerId);
+      if (performance.now() - lastT > 120) velocity = 0; // held still before releasing
+      // A quick flick moves one card in that direction; a slow drag snaps to the nearest card
+      const i = Math.abs(velocity) > 0.35
+        ? nearestIndex(row, startScroll) + (velocity < 0 ? 1 : -1)
+        : nearestIndex(row);
+      goTo(row, i);
+    };
+    row.addEventListener('pointerup', end);
+    row.addEventListener('pointercancel', end);
+
+    // A drag must not open the simulation
+    row.addEventListener('click', (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+        moved = false;
+      }
+    }, true);
+    row.addEventListener('dragstart', (e) => e.preventDefault());
+  }
+
+  if (featuredGrid) {
+    enableDrag(featuredGrid);
+    featuredGrid.addEventListener('scroll', updateDots, { passive: true });
+    window.addEventListener('resize', updateDots);
+  }
 
   // =========================================================
   // Init
@@ -222,5 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (chips.length) setFilter(window.location.hash.slice(1), { updateHash: false });
   updateChipArrows();
   updateFeaturedArrows();
+  updateDots();
   loadTranslations(currentLang);
 });
