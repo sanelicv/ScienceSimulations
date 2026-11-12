@@ -152,7 +152,7 @@ Este es un proyecto personal e independiente. Las simulaciones que representan e
 
 Si utilizas estas simulaciones en un trabajo académico, cítalas usando los metadatos de [`CITATION.cff`](CITATION.cff) (GitHub muestra un botón *"Cite this repository"* en la página del repositorio). Por ejemplo, en formato APA:
 
-> Carbajal Vigo, S. A. (2026). *Science Simulations: interactive physics, astronomy and cosmology simulations for teaching* (Versión 1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.24148468
+> Carbajal Vigo, S. A. (2026). *Science Simulations: interactive physics, astronomy and cosmology simulations for teaching* [Software]. Zenodo. https://doi.org/10.5281/zenodo.24148468
 
 ## Licencia
 
