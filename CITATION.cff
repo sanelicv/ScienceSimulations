@@ -15,6 +15,7 @@ authors:
 repository-code: "https://github.com/sanelicv/ScienceSimulations"
 url: "https://3o4cosas.com"
 license: MIT
+doi: "10.5281/zenodo.24148468"
 version: "1.0.0"
 date-released: "2026-11-11"
 keywords:

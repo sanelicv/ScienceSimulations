@@ -9,6 +9,8 @@ Colección de **45 simulaciones interactivas** de matemáticas, física, astrono
 
 **Autor:** Saneli Alcides Carbajal Vigo · Universidad del Pacífico, Lima, Perú · ORCID [0000-0001-6064-7250](https://orcid.org/0000-0001-6064-7250)
 
+**DOI:** [10.5281/zenodo.24148468](https://doi.org/10.5281/zenodo.24148468)
+
 Las simulaciones también se pueden encontrar en [3o4cosas.com](https://3o4cosas.com).
 
 ---
@@ -148,7 +150,9 @@ Este es un proyecto personal e independiente. Las simulaciones que representan e
 
 ## Cómo citar
 
-Si utilizas estas simulaciones en un trabajo académico, cítalas usando los metadatos de [`CITATION.cff`](CITATION.cff) (GitHub muestra un botón *"Cite this repository"* en la página del repositorio).
+Si utilizas estas simulaciones en un trabajo académico, cítalas usando los metadatos de [`CITATION.cff`](CITATION.cff) (GitHub muestra un botón *"Cite this repository"* en la página del repositorio). Por ejemplo, en formato APA:
+
+> Carbajal Vigo, S. A. (2026). *Science Simulations: interactive physics, astronomy and cosmology simulations for teaching* (Versión 1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.24148468
 
 ## Licencia
 
@@ -184,4 +188,4 @@ Las librerías y fuentes incluidas dentro de las carpetas de las simulaciones **
 - **Unofficial.** Simulations depicting experiments or collaborations (e.g. Super-Kamiokande, TAMBO) are independent outreach recreations, not official products of, nor endorsed by, those collaborations.
 - **Offline and self-contained.** Every simulation folder bundles its own libraries and assets. Double-click `start-server.bat` (Windows) or `start-server.command` (macOS/Linux), or run `python start-server.py`, to open the menu on a local server. 19 simulations require it because browsers block JavaScript modules and file loading on `file://`; the rest also work by double-clicking their `index.html`.
 - **Author:** Saneli Alcides Carbajal Vigo, Universidad del Pacífico (Lima, Peru), ORCID [0000-0001-6064-7250](https://orcid.org/0000-0001-6064-7250).
-- **License:** MIT for the original code; bundled third-party components keep their own licenses (see table above). Please cite using [`CITATION.cff`](CITATION.cff).
+- **License:** MIT for the original code; bundled third-party components keep their own licenses (see table above). Please cite using [`CITATION.cff`](CITATION.cff) or the DOI [10.5281/zenodo.24148468](https://doi.org/10.5281/zenodo.24148468).
