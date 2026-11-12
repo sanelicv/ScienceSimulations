@@ -88,8 +88,9 @@
 
   <!--
     Destacados: se rellenan automáticamente con las tarjetas del catálogo que
-    tienen el atributo data-featured (en el orden en que aparecen en esta página).
-    Para destacar otra simulación, añade data-featured a su <a class="card">.
+    tienen el atributo data-featured. Para destacar otra simulación, añade
+    data-featured a su <a class="card">. El número fija el orden: data-featured="1"
+    va primero; las que no llevan número van al final, en el orden del catálogo.
   -->
   <section class="featured" aria-labelledby="h-featured" hidden>
     <div class="container">
@@ -135,7 +136,7 @@
           <span class="category-count"><span class="n">2</span> <span data-i18n="ui.simulations">simulaciones</span></span>
         </header>
         <div class="cards-grid">
-          <a href="./hep/super-kamiokande/index.html" class="card" data-category="hep" data-featured>
+          <a href="./hep/super-kamiokande/index.html" class="card" data-category="hep" data-featured="2">
             <div class="card-media is-logo">
               <img src="assets/homepage/thumbnails/hep/super-kamiokande.png" alt="" loading="lazy" width="202" height="140">
             </div>
@@ -148,7 +149,7 @@
               <span class="card-cta"><span data-i18n="ui.open">Abrir simulación</span><svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
-          <a href="./hep/tambo/index.html" class="card" data-category="hep" data-featured>
+          <a href="./hep/tambo/index.html" class="card" data-category="hep" data-featured="1">
             <div class="card-media is-logo">
               <img src="assets/homepage/thumbnails/hep/tambo.png" alt="" loading="lazy" width="202" height="140">
             </div>

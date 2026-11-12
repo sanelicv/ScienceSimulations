@@ -147,7 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const featured = document.querySelector('.featured');
   const featuredGrid = featured && featured.querySelector('.featured-grid');
   if (featuredGrid) {
-    const picks = document.querySelectorAll('.catalog .card[data-featured]');
+    // Order: data-featured="1", "2"… first; cards without a number keep catalog order, at the end.
+    const rank = (card) => {
+      const n = parseInt(card.dataset.featured, 10);
+      return Number.isFinite(n) ? n : Infinity;
+    };
+    const picks = Array.from(document.querySelectorAll('.catalog .card[data-featured]'))
+      .map((card, i) => ({ card, i }))
+      .sort((x, y) => rank(x.card) - rank(y.card) || x.i - y.i)
+      .map((x) => x.card);
     picks.forEach((card) => {
       const copy = card.cloneNode(true);
       copy.classList.add('is-featured');
